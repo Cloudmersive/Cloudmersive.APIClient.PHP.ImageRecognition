@@ -82,6 +82,16 @@ class RecognizeApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for recognizeDetectAndUnskewDocument
+     *
+     * Detect and unskew a photo of a document.
+     *
+     */
+    public function testRecognizeDetectAndUnskewDocument()
+    {
+    }
+
+    /**
      * Test case for recognizeDetectObjects
      *
      * Detect objects, including types and locations, in an image.
@@ -98,6 +108,16 @@ class RecognizeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testRecognizeDetectPeople()
+    {
+    }
+
+    /**
+     * Test case for recognizeDetectVehicleLicensePlates
+     *
+     * Detect vehicle license plates in an image.
+     *
+     */
+    public function testRecognizeDetectVehicleLicensePlates()
     {
     }
 }
