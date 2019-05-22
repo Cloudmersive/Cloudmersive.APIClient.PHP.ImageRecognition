@@ -1,6 +1,6 @@
 <?php
 /**
- * DrawTextRequestTest
+ * FaceLocateWithLandmarksResponseTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * DrawTextRequestTest Class Doc Comment
+ * FaceLocateWithLandmarksResponseTest Class Doc Comment
  *
  * @category    Class */
-// * @description Request to draw one or more pieces of text onto an image
+// * @description Results of locating faces in an image
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class DrawTextRequestTest extends \PHPUnit_Framework_TestCase
+class FaceLocateWithLandmarksResponseTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,30 +71,37 @@ class DrawTextRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "DrawTextRequest"
+     * Test "FaceLocateWithLandmarksResponse"
      */
-    public function testDrawTextRequest()
+    public function testFaceLocateWithLandmarksResponse()
     {
     }
 
     /**
-     * Test attribute "base_image_bytes"
+     * Test attribute "error_details"
      */
-    public function testPropertyBaseImageBytes()
+    public function testPropertyErrorDetails()
     {
     }
 
     /**
-     * Test attribute "base_image_url"
+     * Test attribute "successful"
      */
-    public function testPropertyBaseImageUrl()
+    public function testPropertySuccessful()
     {
     }
 
     /**
-     * Test attribute "text_to_draw"
+     * Test attribute "faces"
      */
-    public function testPropertyTextToDraw()
+    public function testPropertyFaces()
+    {
+    }
+
+    /**
+     * Test attribute "face_count"
+     */
+    public function testPropertyFaceCount()
     {
     }
 }

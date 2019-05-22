@@ -1,6 +1,6 @@
 <?php
 /**
- * Face
+ * FaceWithLandmarks
  *
  * PHP version 5
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * Face Class Doc Comment
+ * FaceWithLandmarks Class Doc Comment
  *
  * @category Class
  * @description Location of one face in an image
@@ -41,7 +41,7 @@ use \Swagger\Client\ObjectSerializer;
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class Face implements ModelInterface, ArrayAccess
+class FaceWithLandmarks implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Face implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'Face';
+    protected static $swaggerModelName = 'FaceWithLandmarks';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,6 +58,15 @@ class Face implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'left_eyebrow' => '\Swagger\Client\Model\FacePoint[]',
+        'right_eyebrow' => '\Swagger\Client\Model\FacePoint[]',
+        'left_eye' => '\Swagger\Client\Model\FacePoint[]',
+        'right_eye' => '\Swagger\Client\Model\FacePoint[]',
+        'bottom_and_sides_of_face' => '\Swagger\Client\Model\FacePoint[]',
+        'nose_bridge' => '\Swagger\Client\Model\FacePoint[]',
+        'nose_bottom' => '\Swagger\Client\Model\FacePoint[]',
+        'lips_inner_outline' => '\Swagger\Client\Model\FacePoint[]',
+        'lips_outer_outline' => '\Swagger\Client\Model\FacePoint[]',
         'left_x' => 'int',
         'top_y' => 'int',
         'right_x' => 'int',
@@ -70,6 +79,15 @@ class Face implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'left_eyebrow' => null,
+        'right_eyebrow' => null,
+        'left_eye' => null,
+        'right_eye' => null,
+        'bottom_and_sides_of_face' => null,
+        'nose_bridge' => null,
+        'nose_bottom' => null,
+        'lips_inner_outline' => null,
+        'lips_outer_outline' => null,
         'left_x' => 'int32',
         'top_y' => 'int32',
         'right_x' => 'int32',
@@ -103,6 +121,15 @@ class Face implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'left_eyebrow' => 'LeftEyebrow',
+        'right_eyebrow' => 'RightEyebrow',
+        'left_eye' => 'LeftEye',
+        'right_eye' => 'RightEye',
+        'bottom_and_sides_of_face' => 'BottomAndSidesOfFace',
+        'nose_bridge' => 'NoseBridge',
+        'nose_bottom' => 'NoseBottom',
+        'lips_inner_outline' => 'LipsInnerOutline',
+        'lips_outer_outline' => 'LipsOuterOutline',
         'left_x' => 'LeftX',
         'top_y' => 'TopY',
         'right_x' => 'RightX',
@@ -115,6 +142,15 @@ class Face implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'left_eyebrow' => 'setLeftEyebrow',
+        'right_eyebrow' => 'setRightEyebrow',
+        'left_eye' => 'setLeftEye',
+        'right_eye' => 'setRightEye',
+        'bottom_and_sides_of_face' => 'setBottomAndSidesOfFace',
+        'nose_bridge' => 'setNoseBridge',
+        'nose_bottom' => 'setNoseBottom',
+        'lips_inner_outline' => 'setLipsInnerOutline',
+        'lips_outer_outline' => 'setLipsOuterOutline',
         'left_x' => 'setLeftX',
         'top_y' => 'setTopY',
         'right_x' => 'setRightX',
@@ -127,6 +163,15 @@ class Face implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'left_eyebrow' => 'getLeftEyebrow',
+        'right_eyebrow' => 'getRightEyebrow',
+        'left_eye' => 'getLeftEye',
+        'right_eye' => 'getRightEye',
+        'bottom_and_sides_of_face' => 'getBottomAndSidesOfFace',
+        'nose_bridge' => 'getNoseBridge',
+        'nose_bottom' => 'getNoseBottom',
+        'lips_inner_outline' => 'getLipsInnerOutline',
+        'lips_outer_outline' => 'getLipsOuterOutline',
         'left_x' => 'getLeftX',
         'top_y' => 'getTopY',
         'right_x' => 'getRightX',
@@ -193,6 +238,15 @@ class Face implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['left_eyebrow'] = isset($data['left_eyebrow']) ? $data['left_eyebrow'] : null;
+        $this->container['right_eyebrow'] = isset($data['right_eyebrow']) ? $data['right_eyebrow'] : null;
+        $this->container['left_eye'] = isset($data['left_eye']) ? $data['left_eye'] : null;
+        $this->container['right_eye'] = isset($data['right_eye']) ? $data['right_eye'] : null;
+        $this->container['bottom_and_sides_of_face'] = isset($data['bottom_and_sides_of_face']) ? $data['bottom_and_sides_of_face'] : null;
+        $this->container['nose_bridge'] = isset($data['nose_bridge']) ? $data['nose_bridge'] : null;
+        $this->container['nose_bottom'] = isset($data['nose_bottom']) ? $data['nose_bottom'] : null;
+        $this->container['lips_inner_outline'] = isset($data['lips_inner_outline']) ? $data['lips_inner_outline'] : null;
+        $this->container['lips_outer_outline'] = isset($data['lips_outer_outline']) ? $data['lips_outer_outline'] : null;
         $this->container['left_x'] = isset($data['left_x']) ? $data['left_x'] : null;
         $this->container['top_y'] = isset($data['top_y']) ? $data['top_y'] : null;
         $this->container['right_x'] = isset($data['right_x']) ? $data['right_x'] : null;
@@ -223,6 +277,222 @@ class Face implements ModelInterface, ArrayAccess
         return true;
     }
 
+
+    /**
+     * Gets left_eyebrow
+     *
+     * @return \Swagger\Client\Model\FacePoint[]
+     */
+    public function getLeftEyebrow()
+    {
+        return $this->container['left_eyebrow'];
+    }
+
+    /**
+     * Sets left_eyebrow
+     *
+     * @param \Swagger\Client\Model\FacePoint[] $left_eyebrow left_eyebrow
+     *
+     * @return $this
+     */
+    public function setLeftEyebrow($left_eyebrow)
+    {
+        $this->container['left_eyebrow'] = $left_eyebrow;
+
+        return $this;
+    }
+
+    /**
+     * Gets right_eyebrow
+     *
+     * @return \Swagger\Client\Model\FacePoint[]
+     */
+    public function getRightEyebrow()
+    {
+        return $this->container['right_eyebrow'];
+    }
+
+    /**
+     * Sets right_eyebrow
+     *
+     * @param \Swagger\Client\Model\FacePoint[] $right_eyebrow right_eyebrow
+     *
+     * @return $this
+     */
+    public function setRightEyebrow($right_eyebrow)
+    {
+        $this->container['right_eyebrow'] = $right_eyebrow;
+
+        return $this;
+    }
+
+    /**
+     * Gets left_eye
+     *
+     * @return \Swagger\Client\Model\FacePoint[]
+     */
+    public function getLeftEye()
+    {
+        return $this->container['left_eye'];
+    }
+
+    /**
+     * Sets left_eye
+     *
+     * @param \Swagger\Client\Model\FacePoint[] $left_eye left_eye
+     *
+     * @return $this
+     */
+    public function setLeftEye($left_eye)
+    {
+        $this->container['left_eye'] = $left_eye;
+
+        return $this;
+    }
+
+    /**
+     * Gets right_eye
+     *
+     * @return \Swagger\Client\Model\FacePoint[]
+     */
+    public function getRightEye()
+    {
+        return $this->container['right_eye'];
+    }
+
+    /**
+     * Sets right_eye
+     *
+     * @param \Swagger\Client\Model\FacePoint[] $right_eye right_eye
+     *
+     * @return $this
+     */
+    public function setRightEye($right_eye)
+    {
+        $this->container['right_eye'] = $right_eye;
+
+        return $this;
+    }
+
+    /**
+     * Gets bottom_and_sides_of_face
+     *
+     * @return \Swagger\Client\Model\FacePoint[]
+     */
+    public function getBottomAndSidesOfFace()
+    {
+        return $this->container['bottom_and_sides_of_face'];
+    }
+
+    /**
+     * Sets bottom_and_sides_of_face
+     *
+     * @param \Swagger\Client\Model\FacePoint[] $bottom_and_sides_of_face bottom_and_sides_of_face
+     *
+     * @return $this
+     */
+    public function setBottomAndSidesOfFace($bottom_and_sides_of_face)
+    {
+        $this->container['bottom_and_sides_of_face'] = $bottom_and_sides_of_face;
+
+        return $this;
+    }
+
+    /**
+     * Gets nose_bridge
+     *
+     * @return \Swagger\Client\Model\FacePoint[]
+     */
+    public function getNoseBridge()
+    {
+        return $this->container['nose_bridge'];
+    }
+
+    /**
+     * Sets nose_bridge
+     *
+     * @param \Swagger\Client\Model\FacePoint[] $nose_bridge nose_bridge
+     *
+     * @return $this
+     */
+    public function setNoseBridge($nose_bridge)
+    {
+        $this->container['nose_bridge'] = $nose_bridge;
+
+        return $this;
+    }
+
+    /**
+     * Gets nose_bottom
+     *
+     * @return \Swagger\Client\Model\FacePoint[]
+     */
+    public function getNoseBottom()
+    {
+        return $this->container['nose_bottom'];
+    }
+
+    /**
+     * Sets nose_bottom
+     *
+     * @param \Swagger\Client\Model\FacePoint[] $nose_bottom nose_bottom
+     *
+     * @return $this
+     */
+    public function setNoseBottom($nose_bottom)
+    {
+        $this->container['nose_bottom'] = $nose_bottom;
+
+        return $this;
+    }
+
+    /**
+     * Gets lips_inner_outline
+     *
+     * @return \Swagger\Client\Model\FacePoint[]
+     */
+    public function getLipsInnerOutline()
+    {
+        return $this->container['lips_inner_outline'];
+    }
+
+    /**
+     * Sets lips_inner_outline
+     *
+     * @param \Swagger\Client\Model\FacePoint[] $lips_inner_outline lips_inner_outline
+     *
+     * @return $this
+     */
+    public function setLipsInnerOutline($lips_inner_outline)
+    {
+        $this->container['lips_inner_outline'] = $lips_inner_outline;
+
+        return $this;
+    }
+
+    /**
+     * Gets lips_outer_outline
+     *
+     * @return \Swagger\Client\Model\FacePoint[]
+     */
+    public function getLipsOuterOutline()
+    {
+        return $this->container['lips_outer_outline'];
+    }
+
+    /**
+     * Sets lips_outer_outline
+     *
+     * @param \Swagger\Client\Model\FacePoint[] $lips_outer_outline lips_outer_outline
+     *
+     * @return $this
+     */
+    public function setLipsOuterOutline($lips_outer_outline)
+    {
+        $this->container['lips_outer_outline'] = $lips_outer_outline;
+
+        return $this;
+    }
 
     /**
      * Gets left_x

@@ -1,6 +1,6 @@
 <?php
 /**
- * DrawTextRequestTest
+ * FaceMatchTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * DrawTextRequestTest Class Doc Comment
+ * FaceMatchTest Class Doc Comment
  *
  * @category    Class */
-// * @description Request to draw one or more pieces of text onto an image
+// * @description Location of one face in an image, along with match results
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class DrawTextRequestTest extends \PHPUnit_Framework_TestCase
+class FaceMatchTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,30 +71,51 @@ class DrawTextRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "DrawTextRequest"
+     * Test "FaceMatch"
      */
-    public function testDrawTextRequest()
+    public function testFaceMatch()
     {
     }
 
     /**
-     * Test attribute "base_image_bytes"
+     * Test attribute "left_x"
      */
-    public function testPropertyBaseImageBytes()
+    public function testPropertyLeftX()
     {
     }
 
     /**
-     * Test attribute "base_image_url"
+     * Test attribute "top_y"
      */
-    public function testPropertyBaseImageUrl()
+    public function testPropertyTopY()
     {
     }
 
     /**
-     * Test attribute "text_to_draw"
+     * Test attribute "right_x"
      */
-    public function testPropertyTextToDraw()
+    public function testPropertyRightX()
+    {
+    }
+
+    /**
+     * Test attribute "bottom_y"
+     */
+    public function testPropertyBottomY()
+    {
+    }
+
+    /**
+     * Test attribute "high_confidence_match"
+     */
+    public function testPropertyHighConfidenceMatch()
+    {
+    }
+
+    /**
+     * Test attribute "match_score"
+     */
+    public function testPropertyMatchScore()
     {
     }
 }

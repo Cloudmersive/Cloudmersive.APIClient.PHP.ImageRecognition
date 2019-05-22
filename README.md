@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.4.2
+- Package version: 1.4.3
 
 
 ## Requirements
@@ -91,10 +91,12 @@ Class | Method | HTTP request | Description
 *EditApi* | [**editCompositeBasic**](docs/Api/EditApi.md#editcompositebasic) | **POST** /image/edit/composite/{location} | Composite two images together
 *EditApi* | [**editDrawRectangle**](docs/Api/EditApi.md#editdrawrectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
 *EditApi* | [**editDrawText**](docs/Api/EditApi.md#editdrawtext) | **POST** /image/edit/draw/text | Draw text onto an image
+*FaceApi* | [**faceCompare**](docs/Api/FaceApi.md#facecompare) | **POST** /image/face/compare-and-match | Compare and match faces
 *FaceApi* | [**faceCropFirst**](docs/Api/FaceApi.md#facecropfirst) | **POST** /image/face/crop/first | Crop image to face (square)
 *FaceApi* | [**faceCropFirstRound**](docs/Api/FaceApi.md#facecropfirstround) | **POST** /image/face/crop/first/round | Crop image to face (round)
 *FaceApi* | [**faceDetectAge**](docs/Api/FaceApi.md#facedetectage) | **POST** /image/face/detect-age | Detect the age of people in an image
 *FaceApi* | [**faceLocate**](docs/Api/FaceApi.md#facelocate) | **POST** /image/face/locate | Find faces in an image
+*FaceApi* | [**faceLocateWithLandmarks**](docs/Api/FaceApi.md#facelocatewithlandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
 *NsfwApi* | [**nsfwClassify**](docs/Api/NsfwApi.md#nsfwclassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
 *RecognizeApi* | [**recognizeDescribe**](docs/Api/RecognizeApi.md#recognizedescribe) | **POST** /image/recognize/describe | Describe an image in natural language
 *RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/Api/RecognizeApi.md#recognizedetectandunskewdocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
@@ -114,7 +116,12 @@ Class | Method | HTTP request | Description
  - [DrawTextInstance](docs/Model/DrawTextInstance.md)
  - [DrawTextRequest](docs/Model/DrawTextRequest.md)
  - [Face](docs/Model/Face.md)
+ - [FaceCompareResponse](docs/Model/FaceCompareResponse.md)
  - [FaceLocateResponse](docs/Model/FaceLocateResponse.md)
+ - [FaceLocateWithLandmarksResponse](docs/Model/FaceLocateWithLandmarksResponse.md)
+ - [FaceMatch](docs/Model/FaceMatch.md)
+ - [FacePoint](docs/Model/FacePoint.md)
+ - [FaceWithLandmarks](docs/Model/FaceWithLandmarks.md)
  - [ImageDescriptionResponse](docs/Model/ImageDescriptionResponse.md)
  - [NsfwResult](docs/Model/NsfwResult.md)
  - [ObjectDetectionResult](docs/Model/ObjectDetectionResult.md)

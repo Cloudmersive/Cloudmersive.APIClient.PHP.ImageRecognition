@@ -1,6 +1,6 @@
 <?php
 /**
- * FaceTest
+ * FaceWithLandmarksTest
  *
  * PHP version 5
  *
@@ -30,7 +30,7 @@
 namespace Swagger\Client;
 
 /**
- * FaceTest Class Doc Comment
+ * FaceWithLandmarksTest Class Doc Comment
  *
  * @category    Class */
 // * @description Location of one face in an image
@@ -39,7 +39,7 @@ namespace Swagger\Client;
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class FaceTest extends \PHPUnit_Framework_TestCase
+class FaceWithLandmarksTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,9 +71,72 @@ class FaceTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "Face"
+     * Test "FaceWithLandmarks"
      */
-    public function testFace()
+    public function testFaceWithLandmarks()
+    {
+    }
+
+    /**
+     * Test attribute "left_eyebrow"
+     */
+    public function testPropertyLeftEyebrow()
+    {
+    }
+
+    /**
+     * Test attribute "right_eyebrow"
+     */
+    public function testPropertyRightEyebrow()
+    {
+    }
+
+    /**
+     * Test attribute "left_eye"
+     */
+    public function testPropertyLeftEye()
+    {
+    }
+
+    /**
+     * Test attribute "right_eye"
+     */
+    public function testPropertyRightEye()
+    {
+    }
+
+    /**
+     * Test attribute "bottom_and_sides_of_face"
+     */
+    public function testPropertyBottomAndSidesOfFace()
+    {
+    }
+
+    /**
+     * Test attribute "nose_bridge"
+     */
+    public function testPropertyNoseBridge()
+    {
+    }
+
+    /**
+     * Test attribute "nose_bottom"
+     */
+    public function testPropertyNoseBottom()
+    {
+    }
+
+    /**
+     * Test attribute "lips_inner_outline"
+     */
+    public function testPropertyLipsInnerOutline()
+    {
+    }
+
+    /**
+     * Test attribute "lips_outer_outline"
+     */
+    public function testPropertyLipsOuterOutline()
     {
     }
 

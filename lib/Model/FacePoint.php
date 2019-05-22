@@ -1,6 +1,6 @@
 <?php
 /**
- * VehicleLicensePlateDetectionResult
+ * FacePoint
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * VehicleLicensePlateDetectionResult Class Doc Comment
+ * FacePoint Class Doc Comment
  *
  * @category Class
- * @description Result of detecting vehicle license plates in an image
+ * @description Point location within a face
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
+class FacePoint implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VehicleLicensePlateDetectionResult';
+    protected static $swaggerModelName = 'FacePoint';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'successful' => 'bool',
-        'detected_license_plates' => '\Swagger\Client\Model\DetectedLicensePlate[]',
-        'detected_license_plate_count' => 'int'
+        'x' => 'int',
+        'y' => 'int'
     ];
 
     /**
@@ -69,9 +68,8 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'successful' => null,
-        'detected_license_plates' => null,
-        'detected_license_plate_count' => 'int32'
+        'x' => 'int32',
+        'y' => 'int32'
     ];
 
     /**
@@ -101,9 +99,8 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'successful' => 'Successful',
-        'detected_license_plates' => 'DetectedLicensePlates',
-        'detected_license_plate_count' => 'DetectedLicensePlateCount'
+        'x' => 'X',
+        'y' => 'Y'
     ];
 
     /**
@@ -112,9 +109,8 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'successful' => 'setSuccessful',
-        'detected_license_plates' => 'setDetectedLicensePlates',
-        'detected_license_plate_count' => 'setDetectedLicensePlateCount'
+        'x' => 'setX',
+        'y' => 'setY'
     ];
 
     /**
@@ -123,9 +119,8 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'successful' => 'getSuccessful',
-        'detected_license_plates' => 'getDetectedLicensePlates',
-        'detected_license_plate_count' => 'getDetectedLicensePlateCount'
+        'x' => 'getX',
+        'y' => 'getY'
     ];
 
     /**
@@ -188,9 +183,8 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['successful'] = isset($data['successful']) ? $data['successful'] : null;
-        $this->container['detected_license_plates'] = isset($data['detected_license_plates']) ? $data['detected_license_plates'] : null;
-        $this->container['detected_license_plate_count'] = isset($data['detected_license_plate_count']) ? $data['detected_license_plate_count'] : null;
+        $this->container['x'] = isset($data['x']) ? $data['x'] : null;
+        $this->container['y'] = isset($data['y']) ? $data['y'] : null;
     }
 
     /**
@@ -219,73 +213,49 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets successful
-     *
-     * @return bool
-     */
-    public function getSuccessful()
-    {
-        return $this->container['successful'];
-    }
-
-    /**
-     * Sets successful
-     *
-     * @param bool $successful Was the image processed successfully?
-     *
-     * @return $this
-     */
-    public function setSuccessful($successful)
-    {
-        $this->container['successful'] = $successful;
-
-        return $this;
-    }
-
-    /**
-     * Gets detected_license_plates
-     *
-     * @return \Swagger\Client\Model\DetectedLicensePlate[]
-     */
-    public function getDetectedLicensePlates()
-    {
-        return $this->container['detected_license_plates'];
-    }
-
-    /**
-     * Sets detected_license_plates
-     *
-     * @param \Swagger\Client\Model\DetectedLicensePlate[] $detected_license_plates License plates found in the image
-     *
-     * @return $this
-     */
-    public function setDetectedLicensePlates($detected_license_plates)
-    {
-        $this->container['detected_license_plates'] = $detected_license_plates;
-
-        return $this;
-    }
-
-    /**
-     * Gets detected_license_plate_count
+     * Gets x
      *
      * @return int
      */
-    public function getDetectedLicensePlateCount()
+    public function getX()
     {
-        return $this->container['detected_license_plate_count'];
+        return $this->container['x'];
     }
 
     /**
-     * Sets detected_license_plate_count
+     * Sets x
      *
-     * @param int $detected_license_plate_count The number of license plates detected in the image
+     * @param int $x X location, where 0 is the left-most pixel
      *
      * @return $this
      */
-    public function setDetectedLicensePlateCount($detected_license_plate_count)
+    public function setX($x)
     {
-        $this->container['detected_license_plate_count'] = $detected_license_plate_count;
+        $this->container['x'] = $x;
+
+        return $this;
+    }
+
+    /**
+     * Gets y
+     *
+     * @return int
+     */
+    public function getY()
+    {
+        return $this->container['y'];
+    }
+
+    /**
+     * Sets y
+     *
+     * @param int $y Y location, where 0 is the top-most pixel
+     *
+     * @return $this
+     */
+    public function setY($y)
+    {
+        $this->container['y'] = $y;
 
         return $this;
     }

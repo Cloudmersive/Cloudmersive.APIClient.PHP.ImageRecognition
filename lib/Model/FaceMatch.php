@@ -1,6 +1,6 @@
 <?php
 /**
- * VehicleLicensePlateDetectionResult
+ * FaceMatch
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * VehicleLicensePlateDetectionResult Class Doc Comment
+ * FaceMatch Class Doc Comment
  *
  * @category Class
- * @description Result of detecting vehicle license plates in an image
+ * @description Location of one face in an image, along with match results
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
+class FaceMatch implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'VehicleLicensePlateDetectionResult';
+    protected static $swaggerModelName = 'FaceMatch';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,12 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'successful' => 'bool',
-        'detected_license_plates' => '\Swagger\Client\Model\DetectedLicensePlate[]',
-        'detected_license_plate_count' => 'int'
+        'left_x' => 'int',
+        'top_y' => 'int',
+        'right_x' => 'int',
+        'bottom_y' => 'int',
+        'high_confidence_match' => 'bool',
+        'match_score' => 'double'
     ];
 
     /**
@@ -69,9 +72,12 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'successful' => null,
-        'detected_license_plates' => null,
-        'detected_license_plate_count' => 'int32'
+        'left_x' => 'int32',
+        'top_y' => 'int32',
+        'right_x' => 'int32',
+        'bottom_y' => 'int32',
+        'high_confidence_match' => null,
+        'match_score' => 'double'
     ];
 
     /**
@@ -101,9 +107,12 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'successful' => 'Successful',
-        'detected_license_plates' => 'DetectedLicensePlates',
-        'detected_license_plate_count' => 'DetectedLicensePlateCount'
+        'left_x' => 'LeftX',
+        'top_y' => 'TopY',
+        'right_x' => 'RightX',
+        'bottom_y' => 'BottomY',
+        'high_confidence_match' => 'HighConfidenceMatch',
+        'match_score' => 'MatchScore'
     ];
 
     /**
@@ -112,9 +121,12 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'successful' => 'setSuccessful',
-        'detected_license_plates' => 'setDetectedLicensePlates',
-        'detected_license_plate_count' => 'setDetectedLicensePlateCount'
+        'left_x' => 'setLeftX',
+        'top_y' => 'setTopY',
+        'right_x' => 'setRightX',
+        'bottom_y' => 'setBottomY',
+        'high_confidence_match' => 'setHighConfidenceMatch',
+        'match_score' => 'setMatchScore'
     ];
 
     /**
@@ -123,9 +135,12 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'successful' => 'getSuccessful',
-        'detected_license_plates' => 'getDetectedLicensePlates',
-        'detected_license_plate_count' => 'getDetectedLicensePlateCount'
+        'left_x' => 'getLeftX',
+        'top_y' => 'getTopY',
+        'right_x' => 'getRightX',
+        'bottom_y' => 'getBottomY',
+        'high_confidence_match' => 'getHighConfidenceMatch',
+        'match_score' => 'getMatchScore'
     ];
 
     /**
@@ -188,9 +203,12 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['successful'] = isset($data['successful']) ? $data['successful'] : null;
-        $this->container['detected_license_plates'] = isset($data['detected_license_plates']) ? $data['detected_license_plates'] : null;
-        $this->container['detected_license_plate_count'] = isset($data['detected_license_plate_count']) ? $data['detected_license_plate_count'] : null;
+        $this->container['left_x'] = isset($data['left_x']) ? $data['left_x'] : null;
+        $this->container['top_y'] = isset($data['top_y']) ? $data['top_y'] : null;
+        $this->container['right_x'] = isset($data['right_x']) ? $data['right_x'] : null;
+        $this->container['bottom_y'] = isset($data['bottom_y']) ? $data['bottom_y'] : null;
+        $this->container['high_confidence_match'] = isset($data['high_confidence_match']) ? $data['high_confidence_match'] : null;
+        $this->container['match_score'] = isset($data['match_score']) ? $data['match_score'] : null;
     }
 
     /**
@@ -219,73 +237,145 @@ class VehicleLicensePlateDetectionResult implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets successful
-     *
-     * @return bool
-     */
-    public function getSuccessful()
-    {
-        return $this->container['successful'];
-    }
-
-    /**
-     * Sets successful
-     *
-     * @param bool $successful Was the image processed successfully?
-     *
-     * @return $this
-     */
-    public function setSuccessful($successful)
-    {
-        $this->container['successful'] = $successful;
-
-        return $this;
-    }
-
-    /**
-     * Gets detected_license_plates
-     *
-     * @return \Swagger\Client\Model\DetectedLicensePlate[]
-     */
-    public function getDetectedLicensePlates()
-    {
-        return $this->container['detected_license_plates'];
-    }
-
-    /**
-     * Sets detected_license_plates
-     *
-     * @param \Swagger\Client\Model\DetectedLicensePlate[] $detected_license_plates License plates found in the image
-     *
-     * @return $this
-     */
-    public function setDetectedLicensePlates($detected_license_plates)
-    {
-        $this->container['detected_license_plates'] = $detected_license_plates;
-
-        return $this;
-    }
-
-    /**
-     * Gets detected_license_plate_count
+     * Gets left_x
      *
      * @return int
      */
-    public function getDetectedLicensePlateCount()
+    public function getLeftX()
     {
-        return $this->container['detected_license_plate_count'];
+        return $this->container['left_x'];
     }
 
     /**
-     * Sets detected_license_plate_count
+     * Sets left_x
      *
-     * @param int $detected_license_plate_count The number of license plates detected in the image
+     * @param int $left_x X coordinate of the left side of the face
      *
      * @return $this
      */
-    public function setDetectedLicensePlateCount($detected_license_plate_count)
+    public function setLeftX($left_x)
     {
-        $this->container['detected_license_plate_count'] = $detected_license_plate_count;
+        $this->container['left_x'] = $left_x;
+
+        return $this;
+    }
+
+    /**
+     * Gets top_y
+     *
+     * @return int
+     */
+    public function getTopY()
+    {
+        return $this->container['top_y'];
+    }
+
+    /**
+     * Sets top_y
+     *
+     * @param int $top_y Y coordinate of the top side of the face
+     *
+     * @return $this
+     */
+    public function setTopY($top_y)
+    {
+        $this->container['top_y'] = $top_y;
+
+        return $this;
+    }
+
+    /**
+     * Gets right_x
+     *
+     * @return int
+     */
+    public function getRightX()
+    {
+        return $this->container['right_x'];
+    }
+
+    /**
+     * Sets right_x
+     *
+     * @param int $right_x X coordinate of the right side of the face
+     *
+     * @return $this
+     */
+    public function setRightX($right_x)
+    {
+        $this->container['right_x'] = $right_x;
+
+        return $this;
+    }
+
+    /**
+     * Gets bottom_y
+     *
+     * @return int
+     */
+    public function getBottomY()
+    {
+        return $this->container['bottom_y'];
+    }
+
+    /**
+     * Sets bottom_y
+     *
+     * @param int $bottom_y Y coordinate of the bottom side of the face
+     *
+     * @return $this
+     */
+    public function setBottomY($bottom_y)
+    {
+        $this->container['bottom_y'] = $bottom_y;
+
+        return $this;
+    }
+
+    /**
+     * Gets high_confidence_match
+     *
+     * @return bool
+     */
+    public function getHighConfidenceMatch()
+    {
+        return $this->container['high_confidence_match'];
+    }
+
+    /**
+     * Sets high_confidence_match
+     *
+     * @param bool $high_confidence_match True if there is a high confidence match, false otherwise
+     *
+     * @return $this
+     */
+    public function setHighConfidenceMatch($high_confidence_match)
+    {
+        $this->container['high_confidence_match'] = $high_confidence_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets match_score
+     *
+     * @return double
+     */
+    public function getMatchScore()
+    {
+        return $this->container['match_score'];
+    }
+
+    /**
+     * Sets match_score
+     *
+     * @param double $match_score Match score from 0.0 to 1.0 with higher scores indicating a greater match; scores above 0.7 indicate a match
+     *
+     * @return $this
+     */
+    public function setMatchScore($match_score)
+    {
+        $this->container['match_score'] = $match_score;
 
         return $this;
     }

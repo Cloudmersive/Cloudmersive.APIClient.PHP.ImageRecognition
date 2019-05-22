@@ -1,6 +1,6 @@
 <?php
 /**
- * DrawTextRequestTest
+ * FacePointTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * DrawTextRequestTest Class Doc Comment
+ * FacePointTest Class Doc Comment
  *
  * @category    Class */
-// * @description Request to draw one or more pieces of text onto an image
+// * @description Point location within a face
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class DrawTextRequestTest extends \PHPUnit_Framework_TestCase
+class FacePointTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,30 +71,23 @@ class DrawTextRequestTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "DrawTextRequest"
+     * Test "FacePoint"
      */
-    public function testDrawTextRequest()
+    public function testFacePoint()
     {
     }
 
     /**
-     * Test attribute "base_image_bytes"
+     * Test attribute "x"
      */
-    public function testPropertyBaseImageBytes()
+    public function testPropertyX()
     {
     }
 
     /**
-     * Test attribute "base_image_url"
+     * Test attribute "y"
      */
-    public function testPropertyBaseImageUrl()
-    {
-    }
-
-    /**
-     * Test attribute "text_to_draw"
-     */
-    public function testPropertyTextToDraw()
+    public function testPropertyY()
     {
     }
 }
