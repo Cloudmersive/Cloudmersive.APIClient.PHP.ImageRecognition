@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.4.3
+- Package version: 1.4.4
 
 
 ## Requirements
@@ -102,6 +102,8 @@ Class | Method | HTTP request | Description
 *RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/Api/RecognizeApi.md#recognizedetectandunskewdocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
 *RecognizeApi* | [**recognizeDetectObjects**](docs/Api/RecognizeApi.md#recognizedetectobjects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
 *RecognizeApi* | [**recognizeDetectPeople**](docs/Api/RecognizeApi.md#recognizedetectpeople) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
+*RecognizeApi* | [**recognizeDetectTextFine**](docs/Api/RecognizeApi.md#recognizedetecttextfine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
+*RecognizeApi* | [**recognizeDetectTextLarge**](docs/Api/RecognizeApi.md#recognizedetecttextlarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 *RecognizeApi* | [**recognizeDetectVehicleLicensePlates**](docs/Api/RecognizeApi.md#recognizedetectvehiclelicenseplates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
 *ResizeApi* | [**resizePost**](docs/Api/ResizeApi.md#resizepost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image with parameters
 
@@ -122,11 +124,15 @@ Class | Method | HTTP request | Description
  - [FaceMatch](docs/Model/FaceMatch.md)
  - [FacePoint](docs/Model/FacePoint.md)
  - [FaceWithLandmarks](docs/Model/FaceWithLandmarks.md)
+ - [FineTextDetectionResult](docs/Model/FineTextDetectionResult.md)
+ - [FineTextItem](docs/Model/FineTextItem.md)
  - [ImageDescriptionResponse](docs/Model/ImageDescriptionResponse.md)
  - [NsfwResult](docs/Model/NsfwResult.md)
  - [ObjectDetectionResult](docs/Model/ObjectDetectionResult.md)
  - [PersonWithAge](docs/Model/PersonWithAge.md)
  - [RecognitionOutcome](docs/Model/RecognitionOutcome.md)
+ - [TextDetectionResult](docs/Model/TextDetectionResult.md)
+ - [TextItem](docs/Model/TextItem.md)
  - [VehicleLicensePlateDetectionResult](docs/Model/VehicleLicensePlateDetectionResult.md)
 
 

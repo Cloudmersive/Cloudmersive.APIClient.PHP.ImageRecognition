@@ -112,6 +112,26 @@ class RecognizeApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for recognizeDetectTextFine
+     *
+     * Detect fine text in a photo of a document.
+     *
+     */
+    public function testRecognizeDetectTextFine()
+    {
+    }
+
+    /**
+     * Test case for recognizeDetectTextLarge
+     *
+     * Detect large text in a photo.
+     *
+     */
+    public function testRecognizeDetectTextLarge()
+    {
+    }
+
+    /**
      * Test case for recognizeDetectVehicleLicensePlates
      *
      * Detect vehicle license plates in an image.
