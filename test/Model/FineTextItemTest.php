@@ -132,4 +132,25 @@ class FineTextItemTest extends \PHPUnit_Framework_TestCase
     public function testPropertyBottomRightY()
     {
     }
+
+    /**
+     * Test attribute "width"
+     */
+    public function testPropertyWidth()
+    {
+    }
+
+    /**
+     * Test attribute "height"
+     */
+    public function testPropertyHeight()
+    {
+    }
+
+    /**
+     * Test attribute "angle"
+     */
+    public function testPropertyAngle()
+    {
+    }
 }

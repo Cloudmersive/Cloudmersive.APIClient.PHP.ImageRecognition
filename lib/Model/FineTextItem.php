@@ -65,7 +65,10 @@ class FineTextItem implements ModelInterface, ArrayAccess
         'bottom_left_x' => 'int',
         'bottom_left_y' => 'int',
         'bottom_right_x' => 'int',
-        'bottom_right_y' => 'int'
+        'bottom_right_y' => 'int',
+        'width' => 'int',
+        'height' => 'int',
+        'angle' => 'double'
     ];
 
     /**
@@ -81,7 +84,10 @@ class FineTextItem implements ModelInterface, ArrayAccess
         'bottom_left_x' => 'int32',
         'bottom_left_y' => 'int32',
         'bottom_right_x' => 'int32',
-        'bottom_right_y' => 'int32'
+        'bottom_right_y' => 'int32',
+        'width' => 'int32',
+        'height' => 'int32',
+        'angle' => 'double'
     ];
 
     /**
@@ -118,7 +124,10 @@ class FineTextItem implements ModelInterface, ArrayAccess
         'bottom_left_x' => 'BottomLeftX',
         'bottom_left_y' => 'BottomLeftY',
         'bottom_right_x' => 'BottomRightX',
-        'bottom_right_y' => 'BottomRightY'
+        'bottom_right_y' => 'BottomRightY',
+        'width' => 'Width',
+        'height' => 'Height',
+        'angle' => 'Angle'
     ];
 
     /**
@@ -134,7 +143,10 @@ class FineTextItem implements ModelInterface, ArrayAccess
         'bottom_left_x' => 'setBottomLeftX',
         'bottom_left_y' => 'setBottomLeftY',
         'bottom_right_x' => 'setBottomRightX',
-        'bottom_right_y' => 'setBottomRightY'
+        'bottom_right_y' => 'setBottomRightY',
+        'width' => 'setWidth',
+        'height' => 'setHeight',
+        'angle' => 'setAngle'
     ];
 
     /**
@@ -150,7 +162,10 @@ class FineTextItem implements ModelInterface, ArrayAccess
         'bottom_left_x' => 'getBottomLeftX',
         'bottom_left_y' => 'getBottomLeftY',
         'bottom_right_x' => 'getBottomRightX',
-        'bottom_right_y' => 'getBottomRightY'
+        'bottom_right_y' => 'getBottomRightY',
+        'width' => 'getWidth',
+        'height' => 'getHeight',
+        'angle' => 'getAngle'
     ];
 
     /**
@@ -221,6 +236,9 @@ class FineTextItem implements ModelInterface, ArrayAccess
         $this->container['bottom_left_y'] = isset($data['bottom_left_y']) ? $data['bottom_left_y'] : null;
         $this->container['bottom_right_x'] = isset($data['bottom_right_x']) ? $data['bottom_right_x'] : null;
         $this->container['bottom_right_y'] = isset($data['bottom_right_y']) ? $data['bottom_right_y'] : null;
+        $this->container['width'] = isset($data['width']) ? $data['width'] : null;
+        $this->container['height'] = isset($data['height']) ? $data['height'] : null;
+        $this->container['angle'] = isset($data['angle']) ? $data['angle'] : null;
     }
 
     /**
@@ -436,6 +454,78 @@ class FineTextItem implements ModelInterface, ArrayAccess
     public function setBottomRightY($bottom_right_y)
     {
         $this->container['bottom_right_y'] = $bottom_right_y;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param int $width Width in pixels of the text
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Gets height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /**
+     * Sets height
+     *
+     * @param int $height Height in pixels of the text
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
+
+        return $this;
+    }
+
+    /**
+     * Gets angle
+     *
+     * @return double
+     */
+    public function getAngle()
+    {
+        return $this->container['angle'];
+    }
+
+    /**
+     * Sets angle
+     *
+     * @param double $angle Rotation Angle in radians of the text
+     *
+     * @return $this
+     */
+    public function setAngle($angle)
+    {
+        $this->container['angle'] = $angle;
 
         return $this;
     }
