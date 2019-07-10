@@ -82,6 +82,16 @@ class EditApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for editContrastAdaptive
+     *
+     * Adaptively adjust the contrast of the image to be more appealing and easy to see.
+     *
+     */
+    public function testEditContrastAdaptive()
+    {
+    }
+
+    /**
      * Test case for editDrawRectangle
      *
      * Draw rectangle onto an image.

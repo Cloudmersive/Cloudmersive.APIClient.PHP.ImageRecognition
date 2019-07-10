@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.4.5
+- Package version: 1.4.6
 
 
 ## Requirements
@@ -89,6 +89,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *ArtisticApi* | [**artisticPainting**](docs/Api/ArtisticApi.md#artisticpainting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
 *EditApi* | [**editCompositeBasic**](docs/Api/EditApi.md#editcompositebasic) | **POST** /image/edit/composite/{location} | Composite two images together
+*EditApi* | [**editContrastAdaptive**](docs/Api/EditApi.md#editcontrastadaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
 *EditApi* | [**editDrawRectangle**](docs/Api/EditApi.md#editdrawrectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
 *EditApi* | [**editDrawText**](docs/Api/EditApi.md#editdrawtext) | **POST** /image/edit/draw/text | Draw text onto an image
 *FaceApi* | [**faceCompare**](docs/Api/FaceApi.md#facecompare) | **POST** /image/face/compare-and-match | Compare and match faces
