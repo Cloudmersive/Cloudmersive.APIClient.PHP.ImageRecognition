@@ -72,6 +72,16 @@ class EditApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for editAutoOrient
+     *
+     * Normalizes image rotation and removes EXIF rotation data.
+     *
+     */
+    public function testEditAutoOrient()
+    {
+    }
+
+    /**
      * Test case for editCompositeBasic
      *
      * Composite two images together.
