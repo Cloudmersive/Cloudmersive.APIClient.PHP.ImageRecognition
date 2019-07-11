@@ -102,6 +102,16 @@ class EditApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for editDrawPolygon
+     *
+     * Draw polygon onto an image.
+     *
+     */
+    public function testEditDrawPolygon()
+    {
+    }
+
+    /**
      * Test case for editDrawRectangle
      *
      * Draw rectangle onto an image.
@@ -118,6 +128,16 @@ class EditApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testEditDrawText()
+    {
+    }
+
+    /**
+     * Test case for editRotate
+     *
+     * Rotate an image any number of degrees.
+     *
+     */
+    public function testEditRotate()
     {
     }
 }
