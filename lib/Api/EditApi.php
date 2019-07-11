@@ -931,13 +931,13 @@ class EditApi
     /**
      * Operation editDrawPolygon
      *
-     * Draw polygon onto an image
+     * Draw a polygon onto an image
      *
      * @param  \Swagger\Client\Model\DrawPolygonRequest $request request (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return string
      */
     public function editDrawPolygon($request)
     {
@@ -948,17 +948,17 @@ class EditApi
     /**
      * Operation editDrawPolygonWithHttpInfo
      *
-     * Draw polygon onto an image
+     * Draw a polygon onto an image
      *
      * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
     public function editDrawPolygonWithHttpInfo($request)
     {
-        $returnType = 'object';
+        $returnType = 'string';
         $request = $this->editDrawPolygonRequest($request);
 
         try {
@@ -1010,7 +1010,7 @@ class EditApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1023,7 +1023,7 @@ class EditApi
     /**
      * Operation editDrawPolygonAsync
      *
-     * Draw polygon onto an image
+     * Draw a polygon onto an image
      *
      * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
      *
@@ -1043,7 +1043,7 @@ class EditApi
     /**
      * Operation editDrawPolygonAsyncWithHttpInfo
      *
-     * Draw polygon onto an image
+     * Draw a polygon onto an image
      *
      * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
      *
@@ -1052,7 +1052,7 @@ class EditApi
      */
     public function editDrawPolygonAsyncWithHttpInfo($request)
     {
-        $returnType = 'object';
+        $returnType = 'string';
         $request = $this->editDrawPolygonRequest($request);
 
         return $this->client
@@ -1193,7 +1193,7 @@ class EditApi
     /**
      * Operation editDrawRectangle
      *
-     * Draw rectangle onto an image
+     * Draw a rectangle onto an image
      *
      * @param  \Swagger\Client\Model\DrawRectangleRequest $request request (required)
      *
@@ -1210,7 +1210,7 @@ class EditApi
     /**
      * Operation editDrawRectangleWithHttpInfo
      *
-     * Draw rectangle onto an image
+     * Draw a rectangle onto an image
      *
      * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
      *
@@ -1285,7 +1285,7 @@ class EditApi
     /**
      * Operation editDrawRectangleAsync
      *
-     * Draw rectangle onto an image
+     * Draw a rectangle onto an image
      *
      * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
      *
@@ -1305,7 +1305,7 @@ class EditApi
     /**
      * Operation editDrawRectangleAsyncWithHttpInfo
      *
-     * Draw rectangle onto an image
+     * Draw a rectangle onto an image
      *
      * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
      *
@@ -1720,14 +1720,15 @@ class EditApi
      * Rotate an image any number of degrees
      *
      * @param  double $degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return string
      */
-    public function editRotate($degrees)
+    public function editRotate($degrees, $image_file)
     {
-        list($response) = $this->editRotateWithHttpInfo($degrees);
+        list($response) = $this->editRotateWithHttpInfo($degrees, $image_file);
         return $response;
     }
 
@@ -1737,15 +1738,16 @@ class EditApi
      * Rotate an image any number of degrees
      *
      * @param  double $degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function editRotateWithHttpInfo($degrees)
+    public function editRotateWithHttpInfo($degrees, $image_file)
     {
-        $returnType = 'object';
-        $request = $this->editRotateRequest($degrees);
+        $returnType = 'string';
+        $request = $this->editRotateRequest($degrees, $image_file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1796,7 +1798,7 @@ class EditApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1812,13 +1814,14 @@ class EditApi
      * Rotate an image any number of degrees
      *
      * @param  double $degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editRotateAsync($degrees)
+    public function editRotateAsync($degrees, $image_file)
     {
-        return $this->editRotateAsyncWithHttpInfo($degrees)
+        return $this->editRotateAsyncWithHttpInfo($degrees, $image_file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1832,14 +1835,15 @@ class EditApi
      * Rotate an image any number of degrees
      *
      * @param  double $degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editRotateAsyncWithHttpInfo($degrees)
+    public function editRotateAsyncWithHttpInfo($degrees, $image_file)
     {
-        $returnType = 'object';
-        $request = $this->editRotateRequest($degrees);
+        $returnType = 'string';
+        $request = $this->editRotateRequest($degrees, $image_file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1882,16 +1886,23 @@ class EditApi
      * Create request for operation 'editRotate'
      *
      * @param  double $degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function editRotateRequest($degrees)
+    protected function editRotateRequest($degrees, $image_file)
     {
         // verify the required parameter 'degrees' is set
         if ($degrees === null) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $degrees when calling editRotate'
+            );
+        }
+        // verify the required parameter 'image_file' is set
+        if ($image_file === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $image_file when calling editRotate'
             );
         }
 
@@ -1912,6 +1923,11 @@ class EditApi
             );
         }
 
+        // form params
+        if ($image_file !== null) {
+            $multipart = true;
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+        }
         // body params
         $_tempBody = null;
 
@@ -1922,7 +1938,7 @@ class EditApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/octet-stream'],
-                []
+                ['multipart/form-data']
             );
         }
 

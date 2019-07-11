@@ -104,7 +104,7 @@ class EditApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for editDrawPolygon
      *
-     * Draw polygon onto an image.
+     * Draw a polygon onto an image.
      *
      */
     public function testEditDrawPolygon()
@@ -114,7 +114,7 @@ class EditApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for editDrawRectangle
      *
-     * Draw rectangle onto an image.
+     * Draw a rectangle onto an image.
      *
      */
     public function testEditDrawRectangle()

@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**editAutoOrient**](EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**editContrastAdaptive**](EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
-[**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw polygon onto an image
-[**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw rectangle onto an image
+[**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
+[**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**editDrawText**](EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
 [**editRotate**](EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
@@ -185,9 +185,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editDrawPolygon**
-> object editDrawPolygon($request)
+> string editDrawPolygon($request)
 
-Draw polygon onto an image
+Draw a polygon onto an image
 
 Draw one or more polygons, with customized visuals, onto an image
 
@@ -226,7 +226,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 # **editDrawRectangle**
 > string editDrawRectangle($request)
 
-Draw rectangle onto an image
+Draw a rectangle onto an image
 
 Draw one or more rectangles, with customized visuals, onto an image
 
@@ -350,7 +350,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **editRotate**
-> object editRotate($degrees)
+> string editRotate($degrees, $image_file)
 
 Rotate an image any number of degrees
 
@@ -373,9 +373,10 @@ $apiInstance = new Swagger\Client\Api\EditApi(
     $config
 );
 $degrees = 1.2; // double | Degrees to rotate the image; values range from 0.0 to 360.0.
+$image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try {
-    $result = $apiInstance->editRotate($degrees);
+    $result = $apiInstance->editRotate($degrees, $image_file);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling EditApi->editRotate: ', $e->getMessage(), PHP_EOL;
@@ -388,10 +389,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **degrees** | **double**| Degrees to rotate the image; values range from 0.0 to 360.0. |
+ **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -399,7 +401,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
