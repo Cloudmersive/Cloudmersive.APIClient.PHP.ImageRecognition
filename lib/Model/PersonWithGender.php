@@ -1,6 +1,6 @@
 <?php
 /**
- * PersonWithAge
+ * PersonWithGender
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * PersonWithAge Class Doc Comment
+ * PersonWithGender Class Doc Comment
  *
  * @category Class
- * @description A person identified in an image age classification operation
+ * @description A person identified in an image gender classification operation
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PersonWithAge implements ModelInterface, ArrayAccess
+class PersonWithGender implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PersonWithAge implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PersonWithAge';
+    protected static $swaggerModelName = 'PersonWithGender';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,8 @@ class PersonWithAge implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'face_location' => '\Swagger\Client\Model\Face',
-        'age_classification_confidence' => 'double',
-        'age_class' => 'string',
-        'age' => 'double'
+        'gender_classification_confidence' => 'double',
+        'gender_class' => 'string'
     ];
 
     /**
@@ -71,9 +70,8 @@ class PersonWithAge implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'face_location' => null,
-        'age_classification_confidence' => 'double',
-        'age_class' => null,
-        'age' => 'double'
+        'gender_classification_confidence' => 'double',
+        'gender_class' => null
     ];
 
     /**
@@ -104,9 +102,8 @@ class PersonWithAge implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'face_location' => 'FaceLocation',
-        'age_classification_confidence' => 'AgeClassificationConfidence',
-        'age_class' => 'AgeClass',
-        'age' => 'Age'
+        'gender_classification_confidence' => 'GenderClassificationConfidence',
+        'gender_class' => 'GenderClass'
     ];
 
     /**
@@ -116,9 +113,8 @@ class PersonWithAge implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'face_location' => 'setFaceLocation',
-        'age_classification_confidence' => 'setAgeClassificationConfidence',
-        'age_class' => 'setAgeClass',
-        'age' => 'setAge'
+        'gender_classification_confidence' => 'setGenderClassificationConfidence',
+        'gender_class' => 'setGenderClass'
     ];
 
     /**
@@ -128,9 +124,8 @@ class PersonWithAge implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'face_location' => 'getFaceLocation',
-        'age_classification_confidence' => 'getAgeClassificationConfidence',
-        'age_class' => 'getAgeClass',
-        'age' => 'getAge'
+        'gender_classification_confidence' => 'getGenderClassificationConfidence',
+        'gender_class' => 'getGenderClass'
     ];
 
     /**
@@ -194,9 +189,8 @@ class PersonWithAge implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['face_location'] = isset($data['face_location']) ? $data['face_location'] : null;
-        $this->container['age_classification_confidence'] = isset($data['age_classification_confidence']) ? $data['age_classification_confidence'] : null;
-        $this->container['age_class'] = isset($data['age_class']) ? $data['age_class'] : null;
-        $this->container['age'] = isset($data['age']) ? $data['age'] : null;
+        $this->container['gender_classification_confidence'] = isset($data['gender_classification_confidence']) ? $data['gender_classification_confidence'] : null;
+        $this->container['gender_class'] = isset($data['gender_class']) ? $data['gender_class'] : null;
     }
 
     /**
@@ -249,73 +243,49 @@ class PersonWithAge implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets age_classification_confidence
+     * Gets gender_classification_confidence
      *
      * @return double
      */
-    public function getAgeClassificationConfidence()
+    public function getGenderClassificationConfidence()
     {
-        return $this->container['age_classification_confidence'];
+        return $this->container['gender_classification_confidence'];
     }
 
     /**
-     * Sets age_classification_confidence
+     * Sets gender_classification_confidence
      *
-     * @param double $age_classification_confidence Confidence level of age classification; possible values are between 0.0 and 1.0; higher is better, with values &gt; 0.50 being high confidence results
+     * @param double $gender_classification_confidence Confidence level of gender classification; possible values are between 0.0 and 1.0; higher is better, with values &gt; 0.50 being high confidence results
      *
      * @return $this
      */
-    public function setAgeClassificationConfidence($age_classification_confidence)
+    public function setGenderClassificationConfidence($gender_classification_confidence)
     {
-        $this->container['age_classification_confidence'] = $age_classification_confidence;
+        $this->container['gender_classification_confidence'] = $gender_classification_confidence;
 
         return $this;
     }
 
     /**
-     * Gets age_class
+     * Gets gender_class
      *
      * @return string
      */
-    public function getAgeClass()
+    public function getGenderClass()
     {
-        return $this->container['age_class'];
+        return $this->container['gender_class'];
     }
 
     /**
-     * Sets age_class
+     * Sets gender_class
      *
-     * @param string $age_class The person's age range classification result in years; possible values are \"0-2\", \"4-6\", \"8-13\", \"15-20\", \"25-32\", \"38-43\", \"48-53\", \"60+\"
+     * @param string $gender_class The person's identified gender; possible values are \"Male\", \"Female\" and \"Unknown\"
      *
      * @return $this
      */
-    public function setAgeClass($age_class)
+    public function setGenderClass($gender_class)
     {
-        $this->container['age_class'] = $age_class;
-
-        return $this;
-    }
-
-    /**
-     * Gets age
-     *
-     * @return double
-     */
-    public function getAge()
-    {
-        return $this->container['age'];
-    }
-
-    /**
-     * Sets age
-     *
-     * @param double $age age
-     *
-     * @return $this
-     */
-    public function setAge($age)
-    {
-        $this->container['age'] = $age;
+        $this->container['gender_class'] = $gender_class;
 
         return $this;
     }

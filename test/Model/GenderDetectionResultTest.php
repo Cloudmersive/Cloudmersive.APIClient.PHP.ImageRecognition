@@ -1,6 +1,6 @@
 <?php
 /**
- * PersonWithAgeTest
+ * GenderDetectionResultTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * PersonWithAgeTest Class Doc Comment
+ * GenderDetectionResultTest Class Doc Comment
  *
  * @category    Class */
-// * @description A person identified in an image age classification operation
+// * @description Result from classifying the Gender of people in an image
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class PersonWithAgeTest extends \PHPUnit_Framework_TestCase
+class GenderDetectionResultTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,37 +71,30 @@ class PersonWithAgeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "PersonWithAge"
+     * Test "GenderDetectionResult"
      */
-    public function testPersonWithAge()
+    public function testGenderDetectionResult()
     {
     }
 
     /**
-     * Test attribute "face_location"
+     * Test attribute "successful"
      */
-    public function testPropertyFaceLocation()
+    public function testPropertySuccessful()
     {
     }
 
     /**
-     * Test attribute "age_classification_confidence"
+     * Test attribute "person_with_gender"
      */
-    public function testPropertyAgeClassificationConfidence()
+    public function testPropertyPersonWithGender()
     {
     }
 
     /**
-     * Test attribute "age_class"
+     * Test attribute "people_identified"
      */
-    public function testPropertyAgeClass()
-    {
-    }
-
-    /**
-     * Test attribute "age"
-     */
-    public function testPropertyAge()
+    public function testPropertyPeopleIdentified()
     {
     }
 }

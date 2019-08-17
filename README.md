@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.4.9
+- Package version: 1.5.0
 
 
 ## Requirements
@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
 *FaceApi* | [**faceCropFirst**](docs/Api/FaceApi.md#facecropfirst) | **POST** /image/face/crop/first | Crop image to face (square)
 *FaceApi* | [**faceCropFirstRound**](docs/Api/FaceApi.md#facecropfirstround) | **POST** /image/face/crop/first/round | Crop image to face (round)
 *FaceApi* | [**faceDetectAge**](docs/Api/FaceApi.md#facedetectage) | **POST** /image/face/detect-age | Detect the age of people in an image
+*FaceApi* | [**faceDetectGender**](docs/Api/FaceApi.md#facedetectgender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
 *FaceApi* | [**faceLocate**](docs/Api/FaceApi.md#facelocate) | **POST** /image/face/locate | Find faces in an image
 *FaceApi* | [**faceLocateWithLandmarks**](docs/Api/FaceApi.md#facelocatewithlandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
 *NsfwApi* | [**nsfwClassify**](docs/Api/NsfwApi.md#nsfwclassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
@@ -132,10 +133,12 @@ Class | Method | HTTP request | Description
  - [FaceWithLandmarks](docs/Model/FaceWithLandmarks.md)
  - [FineTextDetectionResult](docs/Model/FineTextDetectionResult.md)
  - [FineTextItem](docs/Model/FineTextItem.md)
+ - [GenderDetectionResult](docs/Model/GenderDetectionResult.md)
  - [ImageDescriptionResponse](docs/Model/ImageDescriptionResponse.md)
  - [NsfwResult](docs/Model/NsfwResult.md)
  - [ObjectDetectionResult](docs/Model/ObjectDetectionResult.md)
  - [PersonWithAge](docs/Model/PersonWithAge.md)
+ - [PersonWithGender](docs/Model/PersonWithGender.md)
  - [PolygonPoint](docs/Model/PolygonPoint.md)
  - [RecognitionOutcome](docs/Model/RecognitionOutcome.md)
  - [TextDetectionResult](docs/Model/TextDetectionResult.md)

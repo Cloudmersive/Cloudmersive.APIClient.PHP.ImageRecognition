@@ -1,6 +1,6 @@
 <?php
 /**
- * PersonWithAgeTest
+ * PersonWithGenderTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * PersonWithAgeTest Class Doc Comment
+ * PersonWithGenderTest Class Doc Comment
  *
  * @category    Class */
-// * @description A person identified in an image age classification operation
+// * @description A person identified in an image gender classification operation
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class PersonWithAgeTest extends \PHPUnit_Framework_TestCase
+class PersonWithGenderTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,9 +71,9 @@ class PersonWithAgeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "PersonWithAge"
+     * Test "PersonWithGender"
      */
-    public function testPersonWithAge()
+    public function testPersonWithGender()
     {
     }
 
@@ -85,23 +85,16 @@ class PersonWithAgeTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "age_classification_confidence"
+     * Test attribute "gender_classification_confidence"
      */
-    public function testPropertyAgeClassificationConfidence()
+    public function testPropertyGenderClassificationConfidence()
     {
     }
 
     /**
-     * Test attribute "age_class"
+     * Test attribute "gender_class"
      */
-    public function testPropertyAgeClass()
-    {
-    }
-
-    /**
-     * Test attribute "age"
-     */
-    public function testPropertyAge()
+    public function testPropertyGenderClass()
     {
     }
 }

@@ -112,6 +112,16 @@ class FaceApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for faceDetectGender
+     *
+     * Detect the gender of people in an image.
+     *
+     */
+    public function testFaceDetectGender()
+    {
+    }
+
+    /**
      * Test case for faceLocate
      *
      * Find faces in an image.

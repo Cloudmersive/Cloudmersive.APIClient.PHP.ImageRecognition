@@ -1,6 +1,6 @@
 <?php
 /**
- * PersonWithAge
+ * GenderDetectionResult
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * PersonWithAge Class Doc Comment
+ * GenderDetectionResult Class Doc Comment
  *
  * @category Class
- * @description A person identified in an image age classification operation
+ * @description Result from classifying the Gender of people in an image
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class PersonWithAge implements ModelInterface, ArrayAccess
+class GenderDetectionResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PersonWithAge implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'PersonWithAge';
+    protected static $swaggerModelName = 'GenderDetectionResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,9 @@ class PersonWithAge implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'face_location' => '\Swagger\Client\Model\Face',
-        'age_classification_confidence' => 'double',
-        'age_class' => 'string',
-        'age' => 'double'
+        'successful' => 'bool',
+        'person_with_gender' => '\Swagger\Client\Model\PersonWithGender[]',
+        'people_identified' => 'int'
     ];
 
     /**
@@ -70,10 +69,9 @@ class PersonWithAge implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'face_location' => null,
-        'age_classification_confidence' => 'double',
-        'age_class' => null,
-        'age' => 'double'
+        'successful' => null,
+        'person_with_gender' => null,
+        'people_identified' => 'int32'
     ];
 
     /**
@@ -103,10 +101,9 @@ class PersonWithAge implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'face_location' => 'FaceLocation',
-        'age_classification_confidence' => 'AgeClassificationConfidence',
-        'age_class' => 'AgeClass',
-        'age' => 'Age'
+        'successful' => 'Successful',
+        'person_with_gender' => 'PersonWithGender',
+        'people_identified' => 'PeopleIdentified'
     ];
 
     /**
@@ -115,10 +112,9 @@ class PersonWithAge implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'face_location' => 'setFaceLocation',
-        'age_classification_confidence' => 'setAgeClassificationConfidence',
-        'age_class' => 'setAgeClass',
-        'age' => 'setAge'
+        'successful' => 'setSuccessful',
+        'person_with_gender' => 'setPersonWithGender',
+        'people_identified' => 'setPeopleIdentified'
     ];
 
     /**
@@ -127,10 +123,9 @@ class PersonWithAge implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'face_location' => 'getFaceLocation',
-        'age_classification_confidence' => 'getAgeClassificationConfidence',
-        'age_class' => 'getAgeClass',
-        'age' => 'getAge'
+        'successful' => 'getSuccessful',
+        'person_with_gender' => 'getPersonWithGender',
+        'people_identified' => 'getPeopleIdentified'
     ];
 
     /**
@@ -193,10 +188,9 @@ class PersonWithAge implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['face_location'] = isset($data['face_location']) ? $data['face_location'] : null;
-        $this->container['age_classification_confidence'] = isset($data['age_classification_confidence']) ? $data['age_classification_confidence'] : null;
-        $this->container['age_class'] = isset($data['age_class']) ? $data['age_class'] : null;
-        $this->container['age'] = isset($data['age']) ? $data['age'] : null;
+        $this->container['successful'] = isset($data['successful']) ? $data['successful'] : null;
+        $this->container['person_with_gender'] = isset($data['person_with_gender']) ? $data['person_with_gender'] : null;
+        $this->container['people_identified'] = isset($data['people_identified']) ? $data['people_identified'] : null;
     }
 
     /**
@@ -225,97 +219,73 @@ class PersonWithAge implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets face_location
+     * Gets successful
      *
-     * @return \Swagger\Client\Model\Face
+     * @return bool
      */
-    public function getFaceLocation()
+    public function getSuccessful()
     {
-        return $this->container['face_location'];
+        return $this->container['successful'];
     }
 
     /**
-     * Sets face_location
+     * Sets successful
      *
-     * @param \Swagger\Client\Model\Face $face_location Location and other information about the person's face corresponding to this age classification
+     * @param bool $successful True if the operation was successful, false otherwise
      *
      * @return $this
      */
-    public function setFaceLocation($face_location)
+    public function setSuccessful($successful)
     {
-        $this->container['face_location'] = $face_location;
+        $this->container['successful'] = $successful;
 
         return $this;
     }
 
     /**
-     * Gets age_classification_confidence
+     * Gets person_with_gender
      *
-     * @return double
+     * @return \Swagger\Client\Model\PersonWithGender[]
      */
-    public function getAgeClassificationConfidence()
+    public function getPersonWithGender()
     {
-        return $this->container['age_classification_confidence'];
+        return $this->container['person_with_gender'];
     }
 
     /**
-     * Sets age_classification_confidence
+     * Sets person_with_gender
      *
-     * @param double $age_classification_confidence Confidence level of age classification; possible values are between 0.0 and 1.0; higher is better, with values &gt; 0.50 being high confidence results
+     * @param \Swagger\Client\Model\PersonWithGender[] $person_with_gender People in the image annotated with gender information
      *
      * @return $this
      */
-    public function setAgeClassificationConfidence($age_classification_confidence)
+    public function setPersonWithGender($person_with_gender)
     {
-        $this->container['age_classification_confidence'] = $age_classification_confidence;
+        $this->container['person_with_gender'] = $person_with_gender;
 
         return $this;
     }
 
     /**
-     * Gets age_class
+     * Gets people_identified
      *
-     * @return string
+     * @return int
      */
-    public function getAgeClass()
+    public function getPeopleIdentified()
     {
-        return $this->container['age_class'];
+        return $this->container['people_identified'];
     }
 
     /**
-     * Sets age_class
+     * Sets people_identified
      *
-     * @param string $age_class The person's age range classification result in years; possible values are \"0-2\", \"4-6\", \"8-13\", \"15-20\", \"25-32\", \"38-43\", \"48-53\", \"60+\"
+     * @param int $people_identified Number of people identified in the image with a gender
      *
      * @return $this
      */
-    public function setAgeClass($age_class)
+    public function setPeopleIdentified($people_identified)
     {
-        $this->container['age_class'] = $age_class;
-
-        return $this;
-    }
-
-    /**
-     * Gets age
-     *
-     * @return double
-     */
-    public function getAge()
-    {
-        return $this->container['age'];
-    }
-
-    /**
-     * Sets age
-     *
-     * @param double $age age
-     *
-     * @return $this
-     */
-    public function setAge($age)
-    {
-        $this->container['age'] = $age;
+        $this->container['people_identified'] = $people_identified;
 
         return $this;
     }
