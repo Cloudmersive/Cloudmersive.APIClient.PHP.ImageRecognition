@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.5.1
+- Package version: 1.5.2
 
 
 ## Requirements
@@ -102,6 +102,7 @@ Class | Method | HTTP request | Description
 *FaceApi* | [**faceDetectGender**](docs/Api/FaceApi.md#facedetectgender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
 *FaceApi* | [**faceLocate**](docs/Api/FaceApi.md#facelocate) | **POST** /image/face/locate | Find faces in an image
 *FaceApi* | [**faceLocateWithLandmarks**](docs/Api/FaceApi.md#facelocatewithlandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+*InfoApi* | [**infoGetDominantColor**](docs/Api/InfoApi.md#infogetdominantcolor) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
 *NsfwApi* | [**nsfwClassify**](docs/Api/NsfwApi.md#nsfwclassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
 *RecognizeApi* | [**recognizeDescribe**](docs/Api/RecognizeApi.md#recognizedescribe) | **POST** /image/recognize/describe | Describe an image in natural language
 *RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/Api/RecognizeApi.md#recognizedetectandunskewdocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
@@ -116,8 +117,10 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AgeDetectionResult](docs/Model/AgeDetectionResult.md)
+ - [ColorResult](docs/Model/ColorResult.md)
  - [DetectedLicensePlate](docs/Model/DetectedLicensePlate.md)
  - [DetectedObject](docs/Model/DetectedObject.md)
+ - [DominantColorResult](docs/Model/DominantColorResult.md)
  - [DrawPolygonInstance](docs/Model/DrawPolygonInstance.md)
  - [DrawPolygonRequest](docs/Model/DrawPolygonRequest.md)
  - [DrawRectangleInstance](docs/Model/DrawRectangleInstance.md)

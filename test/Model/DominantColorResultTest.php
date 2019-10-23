@@ -1,6 +1,6 @@
 <?php
 /**
- * DetectedLicensePlateTest
+ * DominantColorResultTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * DetectedLicensePlateTest Class Doc Comment
+ * DominantColorResultTest Class Doc Comment
  *
  * @category    Class */
-// * @description License plate found in the image
+// * @description Result of performing a get dominant color operation
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class DetectedLicensePlateTest extends \PHPUnit_Framework_TestCase
+class DominantColorResultTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,58 +71,23 @@ class DetectedLicensePlateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "DetectedLicensePlate"
+     * Test "DominantColorResult"
      */
-    public function testDetectedLicensePlate()
+    public function testDominantColorResult()
     {
     }
 
     /**
-     * Test attribute "license_plate_text_best_match"
+     * Test attribute "successful"
      */
-    public function testPropertyLicensePlateTextBestMatch()
+    public function testPropertySuccessful()
     {
     }
 
     /**
-     * Test attribute "license_plate_text_runner_up"
+     * Test attribute "dominant_colors"
      */
-    public function testPropertyLicensePlateTextRunnerUp()
-    {
-    }
-
-    /**
-     * Test attribute "location_x"
-     */
-    public function testPropertyLocationX()
-    {
-    }
-
-    /**
-     * Test attribute "location_y"
-     */
-    public function testPropertyLocationY()
-    {
-    }
-
-    /**
-     * Test attribute "width"
-     */
-    public function testPropertyWidth()
-    {
-    }
-
-    /**
-     * Test attribute "height"
-     */
-    public function testPropertyHeight()
-    {
-    }
-
-    /**
-     * Test attribute "license_plate_recognition_confidence_level"
-     */
-    public function testPropertyLicensePlateRecognitionConfidenceLevel()
+    public function testPropertyDominantColors()
     {
     }
 }

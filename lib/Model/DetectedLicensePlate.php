@@ -58,12 +58,12 @@ class DetectedLicensePlate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'license_plate_text_best_match' => 'string',
+        'license_plate_text_runner_up' => 'string',
         'location_x' => 'int',
         'location_y' => 'int',
         'width' => 'int',
         'height' => 'int',
-        'license_plate_text_best_match' => 'string',
-        'license_plate_text_runner_up' => 'string',
         'license_plate_recognition_confidence_level' => 'double'
     ];
 
@@ -73,12 +73,12 @@ class DetectedLicensePlate implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'license_plate_text_best_match' => null,
+        'license_plate_text_runner_up' => null,
         'location_x' => 'int32',
         'location_y' => 'int32',
         'width' => 'int32',
         'height' => 'int32',
-        'license_plate_text_best_match' => null,
-        'license_plate_text_runner_up' => null,
         'license_plate_recognition_confidence_level' => 'double'
     ];
 
@@ -109,12 +109,12 @@ class DetectedLicensePlate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'license_plate_text_best_match' => 'LicensePlateText_BestMatch',
+        'license_plate_text_runner_up' => 'LicensePlateText_RunnerUp',
         'location_x' => 'LocationX',
         'location_y' => 'LocationY',
         'width' => 'Width',
         'height' => 'Height',
-        'license_plate_text_best_match' => 'LicensePlateText_BestMatch',
-        'license_plate_text_runner_up' => 'LicensePlateText_RunnerUp',
         'license_plate_recognition_confidence_level' => 'LicensePlateRecognitionConfidenceLevel'
     ];
 
@@ -124,12 +124,12 @@ class DetectedLicensePlate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'license_plate_text_best_match' => 'setLicensePlateTextBestMatch',
+        'license_plate_text_runner_up' => 'setLicensePlateTextRunnerUp',
         'location_x' => 'setLocationX',
         'location_y' => 'setLocationY',
         'width' => 'setWidth',
         'height' => 'setHeight',
-        'license_plate_text_best_match' => 'setLicensePlateTextBestMatch',
-        'license_plate_text_runner_up' => 'setLicensePlateTextRunnerUp',
         'license_plate_recognition_confidence_level' => 'setLicensePlateRecognitionConfidenceLevel'
     ];
 
@@ -139,12 +139,12 @@ class DetectedLicensePlate implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'license_plate_text_best_match' => 'getLicensePlateTextBestMatch',
+        'license_plate_text_runner_up' => 'getLicensePlateTextRunnerUp',
         'location_x' => 'getLocationX',
         'location_y' => 'getLocationY',
         'width' => 'getWidth',
         'height' => 'getHeight',
-        'license_plate_text_best_match' => 'getLicensePlateTextBestMatch',
-        'license_plate_text_runner_up' => 'getLicensePlateTextRunnerUp',
         'license_plate_recognition_confidence_level' => 'getLicensePlateRecognitionConfidenceLevel'
     ];
 
@@ -208,12 +208,12 @@ class DetectedLicensePlate implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['license_plate_text_best_match'] = isset($data['license_plate_text_best_match']) ? $data['license_plate_text_best_match'] : null;
+        $this->container['license_plate_text_runner_up'] = isset($data['license_plate_text_runner_up']) ? $data['license_plate_text_runner_up'] : null;
         $this->container['location_x'] = isset($data['location_x']) ? $data['location_x'] : null;
         $this->container['location_y'] = isset($data['location_y']) ? $data['location_y'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
-        $this->container['license_plate_text_best_match'] = isset($data['license_plate_text_best_match']) ? $data['license_plate_text_best_match'] : null;
-        $this->container['license_plate_text_runner_up'] = isset($data['license_plate_text_runner_up']) ? $data['license_plate_text_runner_up'] : null;
         $this->container['license_plate_recognition_confidence_level'] = isset($data['license_plate_recognition_confidence_level']) ? $data['license_plate_recognition_confidence_level'] : null;
     }
 
@@ -241,102 +241,6 @@ class DetectedLicensePlate implements ModelInterface, ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets location_x
-     *
-     * @return int
-     */
-    public function getLocationX()
-    {
-        return $this->container['location_x'];
-    }
-
-    /**
-     * Sets location_x
-     *
-     * @param int $location_x location_x
-     *
-     * @return $this
-     */
-    public function setLocationX($location_x)
-    {
-        $this->container['location_x'] = $location_x;
-
-        return $this;
-    }
-
-    /**
-     * Gets location_y
-     *
-     * @return int
-     */
-    public function getLocationY()
-    {
-        return $this->container['location_y'];
-    }
-
-    /**
-     * Sets location_y
-     *
-     * @param int $location_y location_y
-     *
-     * @return $this
-     */
-    public function setLocationY($location_y)
-    {
-        $this->container['location_y'] = $location_y;
-
-        return $this;
-    }
-
-    /**
-     * Gets width
-     *
-     * @return int
-     */
-    public function getWidth()
-    {
-        return $this->container['width'];
-    }
-
-    /**
-     * Sets width
-     *
-     * @param int $width width
-     *
-     * @return $this
-     */
-    public function setWidth($width)
-    {
-        $this->container['width'] = $width;
-
-        return $this;
-    }
-
-    /**
-     * Gets height
-     *
-     * @return int
-     */
-    public function getHeight()
-    {
-        return $this->container['height'];
-    }
-
-    /**
-     * Sets height
-     *
-     * @param int $height height
-     *
-     * @return $this
-     */
-    public function setHeight($height)
-    {
-        $this->container['height'] = $height;
-
-        return $this;
-    }
 
     /**
      * Gets license_plate_text_best_match
@@ -382,6 +286,102 @@ class DetectedLicensePlate implements ModelInterface, ArrayAccess
     public function setLicensePlateTextRunnerUp($license_plate_text_runner_up)
     {
         $this->container['license_plate_text_runner_up'] = $license_plate_text_runner_up;
+
+        return $this;
+    }
+
+    /**
+     * Gets location_x
+     *
+     * @return int
+     */
+    public function getLocationX()
+    {
+        return $this->container['location_x'];
+    }
+
+    /**
+     * Sets location_x
+     *
+     * @param int $location_x X location of the left edge of the license plate, starting from the left edge of the photo (X = 0)
+     *
+     * @return $this
+     */
+    public function setLocationX($location_x)
+    {
+        $this->container['location_x'] = $location_x;
+
+        return $this;
+    }
+
+    /**
+     * Gets location_y
+     *
+     * @return int
+     */
+    public function getLocationY()
+    {
+        return $this->container['location_y'];
+    }
+
+    /**
+     * Sets location_y
+     *
+     * @param int $location_y Y location of the top edge of the license plate, starting from the top edge of the photo (Y = 0)
+     *
+     * @return $this
+     */
+    public function setLocationY($location_y)
+    {
+        $this->container['location_y'] = $location_y;
+
+        return $this;
+    }
+
+    /**
+     * Gets width
+     *
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->container['width'];
+    }
+
+    /**
+     * Sets width
+     *
+     * @param int $width Width of the license plate's location in pixels
+     *
+     * @return $this
+     */
+    public function setWidth($width)
+    {
+        $this->container['width'] = $width;
+
+        return $this;
+    }
+
+    /**
+     * Gets height
+     *
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->container['height'];
+    }
+
+    /**
+     * Sets height
+     *
+     * @param int $height Height of the license plate's location in pixels
+     *
+     * @return $this
+     */
+    public function setHeight($height)
+    {
+        $this->container['height'] = $height;
 
         return $this;
     }

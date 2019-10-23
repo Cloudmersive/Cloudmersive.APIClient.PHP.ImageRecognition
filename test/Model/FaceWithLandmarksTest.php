@@ -78,6 +78,34 @@ class FaceWithLandmarksTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "left_x"
+     */
+    public function testPropertyLeftX()
+    {
+    }
+
+    /**
+     * Test attribute "top_y"
+     */
+    public function testPropertyTopY()
+    {
+    }
+
+    /**
+     * Test attribute "right_x"
+     */
+    public function testPropertyRightX()
+    {
+    }
+
+    /**
+     * Test attribute "bottom_y"
+     */
+    public function testPropertyBottomY()
+    {
+    }
+
+    /**
      * Test attribute "left_eyebrow"
      */
     public function testPropertyLeftEyebrow()
@@ -137,34 +165,6 @@ class FaceWithLandmarksTest extends \PHPUnit_Framework_TestCase
      * Test attribute "lips_outer_outline"
      */
     public function testPropertyLipsOuterOutline()
-    {
-    }
-
-    /**
-     * Test attribute "left_x"
-     */
-    public function testPropertyLeftX()
-    {
-    }
-
-    /**
-     * Test attribute "top_y"
-     */
-    public function testPropertyTopY()
-    {
-    }
-
-    /**
-     * Test attribute "right_x"
-     */
-    public function testPropertyRightX()
-    {
-    }
-
-    /**
-     * Test attribute "bottom_y"
-     */
-    public function testPropertyBottomY()
     {
     }
 }

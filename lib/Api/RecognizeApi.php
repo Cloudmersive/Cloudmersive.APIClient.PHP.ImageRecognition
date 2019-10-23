@@ -1416,14 +1416,15 @@ class RecognizeApi
      *
      * Detect large text in a photo
      *
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TextDetectionResult
      */
-    public function recognizeDetectTextLarge()
+    public function recognizeDetectTextLarge($image_file)
     {
-        list($response) = $this->recognizeDetectTextLargeWithHttpInfo();
+        list($response) = $this->recognizeDetectTextLargeWithHttpInfo($image_file);
         return $response;
     }
 
@@ -1432,15 +1433,16 @@ class RecognizeApi
      *
      * Detect large text in a photo
      *
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TextDetectionResult, HTTP status code, HTTP response headers (array of strings)
      */
-    public function recognizeDetectTextLargeWithHttpInfo()
+    public function recognizeDetectTextLargeWithHttpInfo($image_file)
     {
         $returnType = '\Swagger\Client\Model\TextDetectionResult';
-        $request = $this->recognizeDetectTextLargeRequest();
+        $request = $this->recognizeDetectTextLargeRequest($image_file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1506,13 +1508,14 @@ class RecognizeApi
      *
      * Detect large text in a photo
      *
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function recognizeDetectTextLargeAsync()
+    public function recognizeDetectTextLargeAsync($image_file)
     {
-        return $this->recognizeDetectTextLargeAsyncWithHttpInfo()
+        return $this->recognizeDetectTextLargeAsyncWithHttpInfo($image_file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1525,14 +1528,15 @@ class RecognizeApi
      *
      * Detect large text in a photo
      *
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function recognizeDetectTextLargeAsyncWithHttpInfo()
+    public function recognizeDetectTextLargeAsyncWithHttpInfo($image_file)
     {
         $returnType = '\Swagger\Client\Model\TextDetectionResult';
-        $request = $this->recognizeDetectTextLargeRequest();
+        $request = $this->recognizeDetectTextLargeRequest($image_file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1574,12 +1578,19 @@ class RecognizeApi
     /**
      * Create request for operation 'recognizeDetectTextLarge'
      *
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function recognizeDetectTextLargeRequest()
+    protected function recognizeDetectTextLargeRequest($image_file)
     {
+        // verify the required parameter 'image_file' is set
+        if ($image_file === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $image_file when calling recognizeDetectTextLarge'
+            );
+        }
 
         $resourcePath = '/image/recognize/detect-text/large';
         $formParams = [];
@@ -1590,6 +1601,11 @@ class RecognizeApi
 
 
 
+        // form params
+        if ($image_file !== null) {
+            $multipart = true;
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+        }
         // body params
         $_tempBody = null;
 
@@ -1600,7 +1616,7 @@ class RecognizeApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json', 'text/json', 'application/xml', 'text/xml'],
-                []
+                ['multipart/form-data']
             );
         }
 

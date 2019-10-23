@@ -1,6 +1,6 @@
 <?php
 /**
- * FaceCompareResponse
+ * ColorResult
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * FaceCompareResponse Class Doc Comment
+ * ColorResult Class Doc Comment
  *
  * @category Class
- * @description Results of comparing/matching faces in an image
+ * @description Individual color
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class FaceCompareResponse implements ModelInterface, ArrayAccess
+class ColorResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FaceCompareResponse';
+    protected static $swaggerModelName = 'ColorResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,9 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'successful' => 'bool',
-        'faces' => '\Swagger\Client\Model\FaceMatch[]',
-        'face_count' => 'int',
-        'error_details' => 'string'
+        'r' => 'int',
+        'g' => 'int',
+        'b' => 'int'
     ];
 
     /**
@@ -70,10 +69,9 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'successful' => null,
-        'faces' => null,
-        'face_count' => 'int32',
-        'error_details' => null
+        'r' => 'int32',
+        'g' => 'int32',
+        'b' => 'int32'
     ];
 
     /**
@@ -103,10 +101,9 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'successful' => 'Successful',
-        'faces' => 'Faces',
-        'face_count' => 'FaceCount',
-        'error_details' => 'ErrorDetails'
+        'r' => 'R',
+        'g' => 'G',
+        'b' => 'B'
     ];
 
     /**
@@ -115,10 +112,9 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'successful' => 'setSuccessful',
-        'faces' => 'setFaces',
-        'face_count' => 'setFaceCount',
-        'error_details' => 'setErrorDetails'
+        'r' => 'setR',
+        'g' => 'setG',
+        'b' => 'setB'
     ];
 
     /**
@@ -127,10 +123,9 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'successful' => 'getSuccessful',
-        'faces' => 'getFaces',
-        'face_count' => 'getFaceCount',
-        'error_details' => 'getErrorDetails'
+        'r' => 'getR',
+        'g' => 'getG',
+        'b' => 'getB'
     ];
 
     /**
@@ -193,10 +188,9 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['successful'] = isset($data['successful']) ? $data['successful'] : null;
-        $this->container['faces'] = isset($data['faces']) ? $data['faces'] : null;
-        $this->container['face_count'] = isset($data['face_count']) ? $data['face_count'] : null;
-        $this->container['error_details'] = isset($data['error_details']) ? $data['error_details'] : null;
+        $this->container['r'] = isset($data['r']) ? $data['r'] : null;
+        $this->container['g'] = isset($data['g']) ? $data['g'] : null;
+        $this->container['b'] = isset($data['b']) ? $data['b'] : null;
     }
 
     /**
@@ -225,97 +219,73 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets successful
-     *
-     * @return bool
-     */
-    public function getSuccessful()
-    {
-        return $this->container['successful'];
-    }
-
-    /**
-     * Sets successful
-     *
-     * @param bool $successful True if the operation was successful, false otherwise
-     *
-     * @return $this
-     */
-    public function setSuccessful($successful)
-    {
-        $this->container['successful'] = $successful;
-
-        return $this;
-    }
-
-    /**
-     * Gets faces
-     *
-     * @return \Swagger\Client\Model\FaceMatch[]
-     */
-    public function getFaces()
-    {
-        return $this->container['faces'];
-    }
-
-    /**
-     * Sets faces
-     *
-     * @param \Swagger\Client\Model\FaceMatch[] $faces Array of faces found in the input image
-     *
-     * @return $this
-     */
-    public function setFaces($faces)
-    {
-        $this->container['faces'] = $faces;
-
-        return $this;
-    }
-
-    /**
-     * Gets face_count
+     * Gets r
      *
      * @return int
      */
-    public function getFaceCount()
+    public function getR()
     {
-        return $this->container['face_count'];
+        return $this->container['r'];
     }
 
     /**
-     * Sets face_count
+     * Sets r
      *
-     * @param int $face_count Number of faces found in the image
+     * @param int $r Red (R) channel pixel value of this color
      *
      * @return $this
      */
-    public function setFaceCount($face_count)
+    public function setR($r)
     {
-        $this->container['face_count'] = $face_count;
+        $this->container['r'] = $r;
 
         return $this;
     }
 
     /**
-     * Gets error_details
+     * Gets g
      *
-     * @return string
+     * @return int
      */
-    public function getErrorDetails()
+    public function getG()
     {
-        return $this->container['error_details'];
+        return $this->container['g'];
     }
 
     /**
-     * Sets error_details
+     * Sets g
      *
-     * @param string $error_details Details of any errors that occurred
+     * @param int $g Green (G) channel pixel value of this color
      *
      * @return $this
      */
-    public function setErrorDetails($error_details)
+    public function setG($g)
     {
-        $this->container['error_details'] = $error_details;
+        $this->container['g'] = $g;
+
+        return $this;
+    }
+
+    /**
+     * Gets b
+     *
+     * @return int
+     */
+    public function getB()
+    {
+        return $this->container['b'];
+    }
+
+    /**
+     * Sets b
+     *
+     * @param int $b Blue (B) channel pixel value of this color
+     *
+     * @return $this
+     */
+    public function setB($b)
+    {
+        $this->container['b'] = $b;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * DetectedLicensePlateTest
+ * ColorResultTest
  *
  * PHP version 5
  *
@@ -30,16 +30,16 @@
 namespace Swagger\Client;
 
 /**
- * DetectedLicensePlateTest Class Doc Comment
+ * ColorResultTest Class Doc Comment
  *
  * @category    Class */
-// * @description License plate found in the image
+// * @description Individual color
 /**
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
  */
-class DetectedLicensePlateTest extends \PHPUnit_Framework_TestCase
+class ColorResultTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -71,58 +71,30 @@ class DetectedLicensePlateTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test "DetectedLicensePlate"
+     * Test "ColorResult"
      */
-    public function testDetectedLicensePlate()
+    public function testColorResult()
     {
     }
 
     /**
-     * Test attribute "license_plate_text_best_match"
+     * Test attribute "r"
      */
-    public function testPropertyLicensePlateTextBestMatch()
+    public function testPropertyR()
     {
     }
 
     /**
-     * Test attribute "license_plate_text_runner_up"
+     * Test attribute "g"
      */
-    public function testPropertyLicensePlateTextRunnerUp()
+    public function testPropertyG()
     {
     }
 
     /**
-     * Test attribute "location_x"
+     * Test attribute "b"
      */
-    public function testPropertyLocationX()
-    {
-    }
-
-    /**
-     * Test attribute "location_y"
-     */
-    public function testPropertyLocationY()
-    {
-    }
-
-    /**
-     * Test attribute "width"
-     */
-    public function testPropertyWidth()
-    {
-    }
-
-    /**
-     * Test attribute "height"
-     */
-    public function testPropertyHeight()
-    {
-    }
-
-    /**
-     * Test attribute "license_plate_recognition_confidence_level"
-     */
-    public function testPropertyLicensePlateRecognitionConfidenceLevel()
+    public function testPropertyB()
     {
     }
 }

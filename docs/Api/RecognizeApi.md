@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **recognizeDetectTextLarge**
-> \Swagger\Client\Model\TextDetectionResult recognizeDetectTextLarge()
+> \Swagger\Client\Model\TextDetectionResult recognizeDetectTextLarge($image_file)
 
 Detect large text in a photo
 
@@ -313,9 +313,10 @@ $apiInstance = new Swagger\Client\Api\RecognizeApi(
     new GuzzleHttp\Client(),
     $config
 );
+$image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try {
-    $result = $apiInstance->recognizeDetectTextLarge();
+    $result = $apiInstance->recognizeDetectTextLarge($image_file);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling RecognizeApi->recognizeDetectTextLarge: ', $e->getMessage(), PHP_EOL;
@@ -324,7 +325,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
 
@@ -336,7 +340,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

@@ -78,13 +78,6 @@ class FaceCompareResponseTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "error_details"
-     */
-    public function testPropertyErrorDetails()
-    {
-    }
-
-    /**
      * Test attribute "successful"
      */
     public function testPropertySuccessful()
@@ -102,6 +95,13 @@ class FaceCompareResponseTest extends \PHPUnit_Framework_TestCase
      * Test attribute "face_count"
      */
     public function testPropertyFaceCount()
+    {
+    }
+
+    /**
+     * Test attribute "error_details"
+     */
+    public function testPropertyErrorDetails()
     {
     }
 }

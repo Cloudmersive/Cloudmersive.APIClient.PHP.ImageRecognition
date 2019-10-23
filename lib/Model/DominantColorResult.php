@@ -1,6 +1,6 @@
 <?php
 /**
- * FaceCompareResponse
+ * DominantColorResult
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * FaceCompareResponse Class Doc Comment
+ * DominantColorResult Class Doc Comment
  *
  * @category Class
- * @description Results of comparing/matching faces in an image
+ * @description Result of performing a get dominant color operation
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class FaceCompareResponse implements ModelInterface, ArrayAccess
+class DominantColorResult implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'FaceCompareResponse';
+    protected static $swaggerModelName = 'DominantColorResult';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,7 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'successful' => 'bool',
-        'faces' => '\Swagger\Client\Model\FaceMatch[]',
-        'face_count' => 'int',
-        'error_details' => 'string'
+        'dominant_colors' => '\Swagger\Client\Model\ColorResult[]'
     ];
 
     /**
@@ -71,9 +69,7 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'successful' => null,
-        'faces' => null,
-        'face_count' => 'int32',
-        'error_details' => null
+        'dominant_colors' => null
     ];
 
     /**
@@ -104,9 +100,7 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'successful' => 'Successful',
-        'faces' => 'Faces',
-        'face_count' => 'FaceCount',
-        'error_details' => 'ErrorDetails'
+        'dominant_colors' => 'DominantColors'
     ];
 
     /**
@@ -116,9 +110,7 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'successful' => 'setSuccessful',
-        'faces' => 'setFaces',
-        'face_count' => 'setFaceCount',
-        'error_details' => 'setErrorDetails'
+        'dominant_colors' => 'setDominantColors'
     ];
 
     /**
@@ -128,9 +120,7 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'successful' => 'getSuccessful',
-        'faces' => 'getFaces',
-        'face_count' => 'getFaceCount',
-        'error_details' => 'getErrorDetails'
+        'dominant_colors' => 'getDominantColors'
     ];
 
     /**
@@ -194,9 +184,7 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['successful'] = isset($data['successful']) ? $data['successful'] : null;
-        $this->container['faces'] = isset($data['faces']) ? $data['faces'] : null;
-        $this->container['face_count'] = isset($data['face_count']) ? $data['face_count'] : null;
-        $this->container['error_details'] = isset($data['error_details']) ? $data['error_details'] : null;
+        $this->container['dominant_colors'] = isset($data['dominant_colors']) ? $data['dominant_colors'] : null;
     }
 
     /**
@@ -249,73 +237,25 @@ class FaceCompareResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets faces
+     * Gets dominant_colors
      *
-     * @return \Swagger\Client\Model\FaceMatch[]
+     * @return \Swagger\Client\Model\ColorResult[]
      */
-    public function getFaces()
+    public function getDominantColors()
     {
-        return $this->container['faces'];
+        return $this->container['dominant_colors'];
     }
 
     /**
-     * Sets faces
+     * Sets dominant_colors
      *
-     * @param \Swagger\Client\Model\FaceMatch[] $faces Array of faces found in the input image
+     * @param \Swagger\Client\Model\ColorResult[] $dominant_colors Dominant colors in the image, in order where most dominant color is in the first index position (0), the second most-dominant color is in index position 1 and so on
      *
      * @return $this
      */
-    public function setFaces($faces)
+    public function setDominantColors($dominant_colors)
     {
-        $this->container['faces'] = $faces;
-
-        return $this;
-    }
-
-    /**
-     * Gets face_count
-     *
-     * @return int
-     */
-    public function getFaceCount()
-    {
-        return $this->container['face_count'];
-    }
-
-    /**
-     * Sets face_count
-     *
-     * @param int $face_count Number of faces found in the image
-     *
-     * @return $this
-     */
-    public function setFaceCount($face_count)
-    {
-        $this->container['face_count'] = $face_count;
-
-        return $this;
-    }
-
-    /**
-     * Gets error_details
-     *
-     * @return string
-     */
-    public function getErrorDetails()
-    {
-        return $this->container['error_details'];
-    }
-
-    /**
-     * Sets error_details
-     *
-     * @param string $error_details Details of any errors that occurred
-     *
-     * @return $this
-     */
-    public function setErrorDetails($error_details)
-    {
-        $this->container['error_details'] = $error_details;
+        $this->container['dominant_colors'] = $dominant_colors;
 
         return $this;
     }
