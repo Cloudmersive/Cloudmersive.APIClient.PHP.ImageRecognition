@@ -59,6 +59,7 @@ class FindSymbolResult implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'successful' => 'bool',
+        'match_score' => 'double',
         'x_left' => 'int',
         'y_top' => 'int',
         'width' => 'int',
@@ -72,6 +73,7 @@ class FindSymbolResult implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'successful' => null,
+        'match_score' => 'double',
         'x_left' => 'int32',
         'y_top' => 'int32',
         'width' => 'int32',
@@ -106,6 +108,7 @@ class FindSymbolResult implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'successful' => 'Successful',
+        'match_score' => 'MatchScore',
         'x_left' => 'XLeft',
         'y_top' => 'YTop',
         'width' => 'Width',
@@ -119,6 +122,7 @@ class FindSymbolResult implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'successful' => 'setSuccessful',
+        'match_score' => 'setMatchScore',
         'x_left' => 'setXLeft',
         'y_top' => 'setYTop',
         'width' => 'setWidth',
@@ -132,6 +136,7 @@ class FindSymbolResult implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'successful' => 'getSuccessful',
+        'match_score' => 'getMatchScore',
         'x_left' => 'getXLeft',
         'y_top' => 'getYTop',
         'width' => 'getWidth',
@@ -199,6 +204,7 @@ class FindSymbolResult implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['successful'] = isset($data['successful']) ? $data['successful'] : null;
+        $this->container['match_score'] = isset($data['match_score']) ? $data['match_score'] : null;
         $this->container['x_left'] = isset($data['x_left']) ? $data['x_left'] : null;
         $this->container['y_top'] = isset($data['y_top']) ? $data['y_top'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
@@ -250,6 +256,30 @@ class FindSymbolResult implements ModelInterface, ArrayAccess
     public function setSuccessful($successful)
     {
         $this->container['successful'] = $successful;
+
+        return $this;
+    }
+
+    /**
+     * Gets match_score
+     *
+     * @return double
+     */
+    public function getMatchScore()
+    {
+        return $this->container['match_score'];
+    }
+
+    /**
+     * Sets match_score
+     *
+     * @param double $match_score Score between 0.0 and 1.0 that measures how closely the symbol matched; scores above 0.2 are good
+     *
+     * @return $this
+     */
+    public function setMatchScore($match_score)
+    {
+        $this->container['match_score'] = $match_score;
 
         return $this;
     }

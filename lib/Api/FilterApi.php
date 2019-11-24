@@ -1824,14 +1824,15 @@ class FilterApi
      * Posterize the image by reducing distinct colors
      *
      * @param  int $levels Number of unique colors to retain in the output image (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return object
+     * @return string
      */
-    public function filterPosterize($levels)
+    public function filterPosterize($levels, $image_file)
     {
-        list($response) = $this->filterPosterizeWithHttpInfo($levels);
+        list($response) = $this->filterPosterizeWithHttpInfo($levels, $image_file);
         return $response;
     }
 
@@ -1841,15 +1842,16 @@ class FilterApi
      * Posterize the image by reducing distinct colors
      *
      * @param  int $levels Number of unique colors to retain in the output image (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function filterPosterizeWithHttpInfo($levels)
+    public function filterPosterizeWithHttpInfo($levels, $image_file)
     {
-        $returnType = 'object';
-        $request = $this->filterPosterizeRequest($levels);
+        $returnType = 'string';
+        $request = $this->filterPosterizeRequest($levels, $image_file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1900,7 +1902,7 @@ class FilterApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'object',
+                        'string',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1916,13 +1918,14 @@ class FilterApi
      * Posterize the image by reducing distinct colors
      *
      * @param  int $levels Number of unique colors to retain in the output image (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function filterPosterizeAsync($levels)
+    public function filterPosterizeAsync($levels, $image_file)
     {
-        return $this->filterPosterizeAsyncWithHttpInfo($levels)
+        return $this->filterPosterizeAsyncWithHttpInfo($levels, $image_file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1936,14 +1939,15 @@ class FilterApi
      * Posterize the image by reducing distinct colors
      *
      * @param  int $levels Number of unique colors to retain in the output image (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function filterPosterizeAsyncWithHttpInfo($levels)
+    public function filterPosterizeAsyncWithHttpInfo($levels, $image_file)
     {
-        $returnType = 'object';
-        $request = $this->filterPosterizeRequest($levels);
+        $returnType = 'string';
+        $request = $this->filterPosterizeRequest($levels, $image_file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1986,16 +1990,23 @@ class FilterApi
      * Create request for operation 'filterPosterize'
      *
      * @param  int $levels Number of unique colors to retain in the output image (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function filterPosterizeRequest($levels)
+    protected function filterPosterizeRequest($levels, $image_file)
     {
         // verify the required parameter 'levels' is set
         if ($levels === null) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $levels when calling filterPosterize'
+            );
+        }
+        // verify the required parameter 'image_file' is set
+        if ($image_file === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $image_file when calling filterPosterize'
             );
         }
 
@@ -2012,6 +2023,11 @@ class FilterApi
         }
 
 
+        // form params
+        if ($image_file !== null) {
+            $multipart = true;
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+        }
         // body params
         $_tempBody = null;
 
@@ -2022,7 +2038,7 @@ class FilterApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/octet-stream'],
-                []
+                ['multipart/form-data']
             );
         }
 

@@ -361,7 +361,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **filterPosterize**
-> object filterPosterize($levels)
+> string filterPosterize($levels, $image_file)
 
 Posterize the image by reducing distinct colors
 
@@ -384,9 +384,10 @@ $apiInstance = new Swagger\Client\Api\FilterApi(
     $config
 );
 $levels = 56; // int | Number of unique colors to retain in the output image
+$image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try {
-    $result = $apiInstance->filterPosterize($levels);
+    $result = $apiInstance->filterPosterize($levels, $image_file);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FilterApi->filterPosterize: ', $e->getMessage(), PHP_EOL;
@@ -399,10 +400,11 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **levels** | **int**| Number of unique colors to retain in the output image |
+ **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
 
-**object**
+**string**
 
 ### Authorization
 
@@ -410,7 +412,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
