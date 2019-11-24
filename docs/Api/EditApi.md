@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**editDrawText**](EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
-[**editDropShadow**](EditApi.md#editDropShadow) | **POST** /image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
+[**editDropShadow**](EditApi.md#editDropShadow) | **POST** /image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
 [**editRotate**](EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
 
@@ -437,8 +437,8 @@ $apiInstance = new Swagger\Client\Api\EditApi(
     new GuzzleHttp\Client(),
     $config
 );
-$x = 56; // int | Horizontal (X) offset of the drop shadow
-$y = 56; // int | Vertical (Y) offset of the drop shadow
+$x = 56; // int | 
+$y = 56; // int | 
 $sigma = 56; // int | Sigma (blur distance) of the drop shadow
 $opacity = 56; // int | Opacity of the drop shadow; 0 is 0% and 100 is 100%
 $image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
@@ -456,8 +456,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x** | **int**| Horizontal (X) offset of the drop shadow |
- **y** | **int**| Vertical (Y) offset of the drop shadow |
+ **x** | **int**|  |
+ **y** | **int**|  |
  **sigma** | **int**| Sigma (blur distance) of the drop shadow |
  **opacity** | **int**| Opacity of the drop shadow; 0 is 0% and 100 is 100% |
  **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |

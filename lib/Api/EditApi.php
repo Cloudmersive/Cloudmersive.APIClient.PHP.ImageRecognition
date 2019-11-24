@@ -2059,8 +2059,8 @@ class EditApi
      *
      * Add a customizeable drop shadow to an image
      *
-     * @param  int $x Horizontal (X) offset of the drop shadow (required)
-     * @param  int $y Vertical (Y) offset of the drop shadow (required)
+     * @param  int $x x (required)
+     * @param  int $y y (required)
      * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
      * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -2080,8 +2080,8 @@ class EditApi
      *
      * Add a customizeable drop shadow to an image
      *
-     * @param  int $x Horizontal (X) offset of the drop shadow (required)
-     * @param  int $y Vertical (Y) offset of the drop shadow (required)
+     * @param  int $x (required)
+     * @param  int $y (required)
      * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
      * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -2159,8 +2159,8 @@ class EditApi
      *
      * Add a customizeable drop shadow to an image
      *
-     * @param  int $x Horizontal (X) offset of the drop shadow (required)
-     * @param  int $y Vertical (Y) offset of the drop shadow (required)
+     * @param  int $x (required)
+     * @param  int $y (required)
      * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
      * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -2183,8 +2183,8 @@ class EditApi
      *
      * Add a customizeable drop shadow to an image
      *
-     * @param  int $x Horizontal (X) offset of the drop shadow (required)
-     * @param  int $y Vertical (Y) offset of the drop shadow (required)
+     * @param  int $x (required)
+     * @param  int $y (required)
      * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
      * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -2237,8 +2237,8 @@ class EditApi
     /**
      * Create request for operation 'editDropShadow'
      *
-     * @param  int $x Horizontal (X) offset of the drop shadow (required)
-     * @param  int $y Vertical (Y) offset of the drop shadow (required)
+     * @param  int $x (required)
+     * @param  int $y (required)
      * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
      * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -2279,7 +2279,7 @@ class EditApi
             );
         }
 
-        $resourcePath = '/image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity}';
+        $resourcePath = '/image/edit/drop-shadow/{X}/{Y}/{sigma}/{opacity}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2290,7 +2290,7 @@ class EditApi
         // path params
         if ($x !== null) {
             $resourcePath = str_replace(
-                '{' . 'x' . '}',
+                '{' . 'X' . '}',
                 ObjectSerializer::toPathValue($x),
                 $resourcePath
             );
@@ -2298,7 +2298,7 @@ class EditApi
         // path params
         if ($y !== null) {
             $resourcePath = str_replace(
-                '{' . 'y' . '}',
+                '{' . 'Y' . '}',
                 ObjectSerializer::toPathValue($y),
                 $resourcePath
             );
