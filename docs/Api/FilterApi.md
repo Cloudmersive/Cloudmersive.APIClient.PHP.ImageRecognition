@@ -1,80 +1,25 @@
-# Swagger\Client\RecognizeApi
+# Swagger\Client\FilterApi
 
 All URIs are relative to *https://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**recognizeDescribe**](RecognizeApi.md#recognizeDescribe) | **POST** /image/recognize/describe | Describe an image in natural language
-[**recognizeDetectAndUnskewDocument**](RecognizeApi.md#recognizeDetectAndUnskewDocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
-[**recognizeDetectObjects**](RecognizeApi.md#recognizeDetectObjects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
-[**recognizeDetectPeople**](RecognizeApi.md#recognizeDetectPeople) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
-[**recognizeDetectTextFine**](RecognizeApi.md#recognizeDetectTextFine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
-[**recognizeDetectTextLarge**](RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
-[**recognizeDetectVehicleLicensePlates**](RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
-[**recognizeFindSymbol**](RecognizeApi.md#recognizeFindSymbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
+[**filterBlackAndWhite**](FilterApi.md#filterBlackAndWhite) | **POST** /image/filter/black-and-white | Convert image to black-and-white grayscale
+[**filterDespeckle**](FilterApi.md#filterDespeckle) | **POST** /image/filter/despeckle | Despeckle (remove point noise) from the image
+[**filterEdgeDetect**](FilterApi.md#filterEdgeDetect) | **POST** /image/filter/edge-detect/{radius} | Detect and highlight edges in an image
+[**filterEmboss**](FilterApi.md#filterEmboss) | **POST** /image/filter/emboss/{radius}/{sigma} | Emboss an image
+[**filterGaussianBlur**](FilterApi.md#filterGaussianBlur) | **POST** /image/filter/blur/guassian/{radius}/{sigma} | Perform a guassian blur on the input image
+[**filterMotionBlur**](FilterApi.md#filterMotionBlur) | **POST** /image/filter/blur/motion/{radius}/{sigma}/{angle} | Perform a motion blur on the input image
+[**filterPosterize**](FilterApi.md#filterPosterize) | **POST** /image/filter/posterize | Posterize the image by reducing distinct colors
+[**filterSwirl**](FilterApi.md#filterSwirl) | **POST** /image/filter/swirl | Swirl distort the image
 
 
-# **recognizeDescribe**
-> \Swagger\Client\Model\ImageDescriptionResponse recognizeDescribe($image_file)
+# **filterBlackAndWhite**
+> string filterBlackAndWhite($image_file)
 
-Describe an image in natural language
+Convert image to black-and-white grayscale
 
-Generate an English language text description of the image as a sentence.
-
-### Example
-```php
-<?php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-// Configure API key authorization: Apikey
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
-
-$apiInstance = new Swagger\Client\Api\RecognizeApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client(),
-    $config
-);
-$image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-
-try {
-    $result = $apiInstance->recognizeDescribe($image_file);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling RecognizeApi->recognizeDescribe: ', $e->getMessage(), PHP_EOL;
-}
-?>
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
-
-### Return type
-
-[**\Swagger\Client\Model\ImageDescriptionResponse**](../Model/ImageDescriptionResponse.md)
-
-### Authorization
-
-[Apikey](../../README.md#Apikey)
-
-### HTTP request headers
-
- - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
-
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
-# **recognizeDetectAndUnskewDocument**
-> string recognizeDetectAndUnskewDocument($image_file, $post_processing_effect)
-
-Detect and unskew a photo of a document
-
-Detect and unskew a photo of a document (e.g. taken on a cell phone) into a perfectly square image.  Great for document scanning applications; once unskewed, this image is perfect for converting to PDF using the Convert API or optical character recognition using the OCR API.
+Remove color from the image by converting to a grayscale, black-and-white image
 
 ### Example
 ```php
@@ -86,20 +31,19 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Ap
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\RecognizeApi(
+$apiInstance = new Swagger\Client\Api\FilterApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
 $image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
-$post_processing_effect = "post_processing_effect_example"; // string | Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations).
 
 try {
-    $result = $apiInstance->recognizeDetectAndUnskewDocument($image_file, $post_processing_effect);
+    $result = $apiInstance->filterBlackAndWhite($image_file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RecognizeApi->recognizeDetectAndUnskewDocument: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FilterApi->filterBlackAndWhite: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -109,7 +53,6 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
- **post_processing_effect** | **string**| Optional, post-processing effects to apply to the email, default is None.  Possible values are None and BlackAndWhite (force the image into a black and white view to aid in OCR operations). | [optional]
 
 ### Return type
 
@@ -122,16 +65,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **recognizeDetectObjects**
-> \Swagger\Client\Model\ObjectDetectionResult recognizeDetectObjects($image_file)
+# **filterDespeckle**
+> string filterDespeckle($image_file)
 
-Detect objects, including types and locations, in an image
+Despeckle (remove point noise) from the image
 
-Identify the position, size and description of objects in an image, along with a recognition confidence level.  Detects both human people and objects in an image.
+Remove point noise / despeckle the input image
 
 ### Example
 ```php
@@ -143,7 +86,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Ap
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\RecognizeApi(
+$apiInstance = new Swagger\Client\Api\FilterApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -152,10 +95,10 @@ $apiInstance = new Swagger\Client\Api\RecognizeApi(
 $image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try {
-    $result = $apiInstance->recognizeDetectObjects($image_file);
+    $result = $apiInstance->filterDespeckle($image_file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RecognizeApi->recognizeDetectObjects: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FilterApi->filterDespeckle: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -168,7 +111,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\ObjectDetectionResult**](../Model/ObjectDetectionResult.md)
+**string**
 
 ### Authorization
 
@@ -177,16 +120,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **recognizeDetectPeople**
-> \Swagger\Client\Model\ObjectDetectionResult recognizeDetectPeople($image_file)
+# **filterEdgeDetect**
+> string filterEdgeDetect($radius, $image_file)
 
-Detect people, including locations, in an image
+Detect and highlight edges in an image
 
-Identify the position, and size of human people in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+Perform an edge detection operation on the input image
 
 ### Example
 ```php
@@ -198,19 +141,20 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Ap
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\RecognizeApi(
+$apiInstance = new Swagger\Client\Api\FilterApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
+$radius = 56; // int | Radius in pixels of the edge detection operation; a larger radius will produce a greater effect
 $image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try {
-    $result = $apiInstance->recognizeDetectPeople($image_file);
+    $result = $apiInstance->filterEdgeDetect($radius, $image_file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RecognizeApi->recognizeDetectPeople: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FilterApi->filterEdgeDetect: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -219,11 +163,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **int**| Radius in pixels of the edge detection operation; a larger radius will produce a greater effect |
  **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
 
-[**\Swagger\Client\Model\ObjectDetectionResult**](../Model/ObjectDetectionResult.md)
+**string**
 
 ### Authorization
 
@@ -232,16 +177,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **recognizeDetectTextFine**
-> \Swagger\Client\Model\FineTextDetectionResult recognizeDetectTextFine($image_file)
+# **filterEmboss**
+> string filterEmboss($radius, $sigma, $image_file)
 
-Detect fine text in a photo of a document
+Emboss an image
 
-Identify the position, and size of small/fine text within a photograph of a document.  Identify the location of small text in a photo - such as words and other forms of high density text.  Can be used on a scan of a document or a photograph (e.g. smartphone camera) of a document, page or receipt.  For OCR purposes - please see our Deep Learning OCR APIs.
+Perform an emboss operation on the input image
 
 ### Example
 ```php
@@ -253,19 +198,21 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Ap
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\RecognizeApi(
+$apiInstance = new Swagger\Client\Api\FilterApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
+$radius = 56; // int | Radius in pixels of the emboss operation; a larger radius will produce a greater effect
+$sigma = 56; // int | Sigma, or variance, of the emboss operation
 $image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try {
-    $result = $apiInstance->recognizeDetectTextFine($image_file);
+    $result = $apiInstance->filterEmboss($radius, $sigma, $image_file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RecognizeApi->recognizeDetectTextFine: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FilterApi->filterEmboss: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -274,11 +221,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **int**| Radius in pixels of the emboss operation; a larger radius will produce a greater effect |
+ **sigma** | **int**| Sigma, or variance, of the emboss operation |
  **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
 
-[**\Swagger\Client\Model\FineTextDetectionResult**](../Model/FineTextDetectionResult.md)
+**string**
 
 ### Authorization
 
@@ -287,16 +236,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **recognizeDetectTextLarge**
-> \Swagger\Client\Model\TextDetectionResult recognizeDetectTextLarge($image_file)
+# **filterGaussianBlur**
+> string filterGaussianBlur($radius, $sigma, $image_file)
 
-Detect large text in a photo
+Perform a guassian blur on the input image
 
-Identify the position, and size of large text within a photograph.  Identify the location of large text in a photo - such as signs, titles, etc. and other forms of large, low-density text.  Not suitable for high-density text (e.g. scans of documents, receipts, etc.) for OCR purposes - for OCR, please see our Deep Learning OCR APIs.
+Perform a gaussian blur on the input image
 
 ### Example
 ```php
@@ -308,19 +257,21 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Ap
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\RecognizeApi(
+$apiInstance = new Swagger\Client\Api\FilterApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
+$radius = 56; // int | Radius in pixels of the blur operation; a larger radius will produce a greater blur effect
+$sigma = 56; // int | Sigma, or variance, of the gaussian blur operation
 $image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try {
-    $result = $apiInstance->recognizeDetectTextLarge($image_file);
+    $result = $apiInstance->filterGaussianBlur($radius, $sigma, $image_file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RecognizeApi->recognizeDetectTextLarge: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FilterApi->filterGaussianBlur: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -329,11 +280,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **int**| Radius in pixels of the blur operation; a larger radius will produce a greater blur effect |
+ **sigma** | **int**| Sigma, or variance, of the gaussian blur operation |
  **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
 
-[**\Swagger\Client\Model\TextDetectionResult**](../Model/TextDetectionResult.md)
+**string**
 
 ### Authorization
 
@@ -342,16 +295,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **recognizeDetectVehicleLicensePlates**
-> \Swagger\Client\Model\VehicleLicensePlateDetectionResult recognizeDetectVehicleLicensePlates($image_file)
+# **filterMotionBlur**
+> string filterMotionBlur($radius, $sigma, $angle, $image_file)
 
-Detect vehicle license plates in an image
+Perform a motion blur on the input image
 
-Identify the position, and size, and content of vehicle license plates in an image.  License plates should be within 15-20 degrees on-axis to the camera.
+Perform a motion blur on the input image at a specific angle
 
 ### Example
 ```php
@@ -363,19 +316,22 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Ap
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\RecognizeApi(
+$apiInstance = new Swagger\Client\Api\FilterApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
+$radius = 56; // int | Radius in pixels of the blur operation; a larger radius will produce a greater blur effect
+$sigma = 56; // int | Sigma, or variance, of the motion blur operation
+$angle = 56; // int | Angle of the motion blur in degrees
 $image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try {
-    $result = $apiInstance->recognizeDetectVehicleLicensePlates($image_file);
+    $result = $apiInstance->filterMotionBlur($radius, $sigma, $angle, $image_file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RecognizeApi->recognizeDetectVehicleLicensePlates: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FilterApi->filterMotionBlur: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -384,11 +340,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **radius** | **int**| Radius in pixels of the blur operation; a larger radius will produce a greater blur effect |
+ **sigma** | **int**| Sigma, or variance, of the motion blur operation |
+ **angle** | **int**| Angle of the motion blur in degrees |
  **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
 
-[**\Swagger\Client\Model\VehicleLicensePlateDetectionResult**](../Model/VehicleLicensePlateDetectionResult.md)
+**string**
 
 ### Authorization
 
@@ -397,16 +356,16 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **recognizeFindSymbol**
-> \Swagger\Client\Model\FindSymbolResult recognizeFindSymbol($input_image, $target_image)
+# **filterPosterize**
+> object filterPosterize($levels)
 
-Find the location of a symbol in an image
+Posterize the image by reducing distinct colors
 
-Determine if an image contains a symbol, and if so, the location of that symbol in the image.
+Reduce the unique number of colors in the image to the specified level
 
 ### Example
 ```php
@@ -418,20 +377,19 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Ap
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\RecognizeApi(
+$apiInstance = new Swagger\Client\Api\FilterApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$input_image = "/path/to/file.txt"; // \SplFileObject | Image file to search through for the target image.
-$target_image = "/path/to/file.txt"; // \SplFileObject | Image to find in the input image.
+$levels = 56; // int | Number of unique colors to retain in the output image
 
 try {
-    $result = $apiInstance->recognizeFindSymbol($input_image, $target_image);
+    $result = $apiInstance->filterPosterize($levels);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling RecognizeApi->recognizeFindSymbol: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FilterApi->filterPosterize: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
@@ -440,12 +398,68 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **input_image** | **\SplFileObject**| Image file to search through for the target image. |
- **target_image** | **\SplFileObject**| Image to find in the input image. |
+ **levels** | **int**| Number of unique colors to retain in the output image |
 
 ### Return type
 
-[**\Swagger\Client\Model\FindSymbolResult**](../Model/FindSymbolResult.md)
+**object**
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **filterSwirl**
+> string filterSwirl($degrees, $image_file)
+
+Swirl distort the image
+
+Swirl distort the image by the specified number of degrees
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Apikey
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\FilterApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$degrees = 56; // int | Degrees of swirl
+$image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+try {
+    $result = $apiInstance->filterSwirl($degrees, $image_file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FilterApi->filterSwirl: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **degrees** | **int**| Degrees of swirl |
+ **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+**string**
 
 ### Authorization
 
@@ -454,7 +468,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

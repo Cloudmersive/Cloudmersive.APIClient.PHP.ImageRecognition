@@ -1,6 +1,6 @@
 <?php
 /**
- * ResizeApiTest
+ * FilterApiTest
  * PHP version 5
  *
  * @category Class
@@ -33,14 +33,14 @@ use \Swagger\Client\ApiException;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * ResizeApiTest Class Doc Comment
+ * FilterApiTest Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ResizeApiTest extends \PHPUnit_Framework_TestCase
+class FilterApiTest extends \PHPUnit_Framework_TestCase
 {
 
     /**
@@ -72,22 +72,82 @@ class ResizeApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for resizePost
+     * Test case for filterBlackAndWhite
      *
-     * Resize an image while preserving aspect ratio.
+     * Convert image to black-and-white grayscale.
      *
      */
-    public function testResizePost()
+    public function testFilterBlackAndWhite()
     {
     }
 
     /**
-     * Test case for resizeResizeSimple
+     * Test case for filterDespeckle
      *
-     * Resize an image.
+     * Despeckle (remove point noise) from the image.
      *
      */
-    public function testResizeResizeSimple()
+    public function testFilterDespeckle()
+    {
+    }
+
+    /**
+     * Test case for filterEdgeDetect
+     *
+     * Detect and highlight edges in an image.
+     *
+     */
+    public function testFilterEdgeDetect()
+    {
+    }
+
+    /**
+     * Test case for filterEmboss
+     *
+     * Emboss an image.
+     *
+     */
+    public function testFilterEmboss()
+    {
+    }
+
+    /**
+     * Test case for filterGaussianBlur
+     *
+     * Perform a guassian blur on the input image.
+     *
+     */
+    public function testFilterGaussianBlur()
+    {
+    }
+
+    /**
+     * Test case for filterMotionBlur
+     *
+     * Perform a motion blur on the input image.
+     *
+     */
+    public function testFilterMotionBlur()
+    {
+    }
+
+    /**
+     * Test case for filterPosterize
+     *
+     * Posterize the image by reducing distinct colors.
+     *
+     */
+    public function testFilterPosterize()
+    {
+    }
+
+    /**
+     * Test case for filterSwirl
+     *
+     * Swirl distort the image.
+     *
+     */
+    public function testFilterSwirl()
     {
     }
 }

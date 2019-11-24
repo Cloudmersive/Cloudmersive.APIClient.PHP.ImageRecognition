@@ -1,6 +1,6 @@
 <?php
 /**
- * EditApi
+ * FilterApi
  * PHP version 5
  *
  * @category Class
@@ -40,14 +40,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * EditApi Class Doc Comment
+ * FilterApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class EditApi
+class FilterApi
 {
     /**
      * @var ClientInterface
@@ -83,9 +83,9 @@ class EditApi
     }
 
     /**
-     * Operation editAutoOrient
+     * Operation filterBlackAndWhite
      *
-     * Normalizes image rotation and removes EXIF rotation data
+     * Convert image to black-and-white grayscale
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -93,16 +93,16 @@ class EditApi
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function editAutoOrient($image_file)
+    public function filterBlackAndWhite($image_file)
     {
-        list($response) = $this->editAutoOrientWithHttpInfo($image_file);
+        list($response) = $this->filterBlackAndWhiteWithHttpInfo($image_file);
         return $response;
     }
 
     /**
-     * Operation editAutoOrientWithHttpInfo
+     * Operation filterBlackAndWhiteWithHttpInfo
      *
-     * Normalizes image rotation and removes EXIF rotation data
+     * Convert image to black-and-white grayscale
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -110,10 +110,10 @@ class EditApi
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function editAutoOrientWithHttpInfo($image_file)
+    public function filterBlackAndWhiteWithHttpInfo($image_file)
     {
         $returnType = 'string';
-        $request = $this->editAutoOrientRequest($image_file);
+        $request = $this->filterBlackAndWhiteRequest($image_file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -175,18 +175,18 @@ class EditApi
     }
 
     /**
-     * Operation editAutoOrientAsync
+     * Operation filterBlackAndWhiteAsync
      *
-     * Normalizes image rotation and removes EXIF rotation data
+     * Convert image to black-and-white grayscale
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editAutoOrientAsync($image_file)
+    public function filterBlackAndWhiteAsync($image_file)
     {
-        return $this->editAutoOrientAsyncWithHttpInfo($image_file)
+        return $this->filterBlackAndWhiteAsyncWithHttpInfo($image_file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -195,19 +195,19 @@ class EditApi
     }
 
     /**
-     * Operation editAutoOrientAsyncWithHttpInfo
+     * Operation filterBlackAndWhiteAsyncWithHttpInfo
      *
-     * Normalizes image rotation and removes EXIF rotation data
+     * Convert image to black-and-white grayscale
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editAutoOrientAsyncWithHttpInfo($image_file)
+    public function filterBlackAndWhiteAsyncWithHttpInfo($image_file)
     {
         $returnType = 'string';
-        $request = $this->editAutoOrientRequest($image_file);
+        $request = $this->filterBlackAndWhiteRequest($image_file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -247,23 +247,23 @@ class EditApi
     }
 
     /**
-     * Create request for operation 'editAutoOrient'
+     * Create request for operation 'filterBlackAndWhite'
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function editAutoOrientRequest($image_file)
+    protected function filterBlackAndWhiteRequest($image_file)
     {
         // verify the required parameter 'image_file' is set
         if ($image_file === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $image_file when calling editAutoOrient'
+                'Missing the required parameter $image_file when calling filterBlackAndWhite'
             );
         }
 
-        $resourcePath = '/image/edit/auto-orient/remove-exif';
+        $resourcePath = '/image/filter/black-and-white';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -347,41 +347,37 @@ class EditApi
     }
 
     /**
-     * Operation editCompositeBasic
+     * Operation filterDespeckle
      *
-     * Composite two images together
+     * Despeckle (remove point noise) from the image
      *
-     * @param  string $location Location to composite the layered images; possible values are: \&quot;center\&quot;, \&quot;top-left\&quot;, \&quot;top-center\&quot;, \&quot;top-right\&quot;, \&quot;center-left\&quot;, \&quot;center-right\&quot;, \&quot;bottom-left\&quot;, \&quot;bottom-center\&quot;, \&quot;bottom-right\&quot; (required)
-     * @param  \SplFileObject $base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @param  \SplFileObject $layered_image Image to layer on top of the base image. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function editCompositeBasic($location, $base_image, $layered_image)
+    public function filterDespeckle($image_file)
     {
-        list($response) = $this->editCompositeBasicWithHttpInfo($location, $base_image, $layered_image);
+        list($response) = $this->filterDespeckleWithHttpInfo($image_file);
         return $response;
     }
 
     /**
-     * Operation editCompositeBasicWithHttpInfo
+     * Operation filterDespeckleWithHttpInfo
      *
-     * Composite two images together
+     * Despeckle (remove point noise) from the image
      *
-     * @param  string $location Location to composite the layered images; possible values are: \&quot;center\&quot;, \&quot;top-left\&quot;, \&quot;top-center\&quot;, \&quot;top-right\&quot;, \&quot;center-left\&quot;, \&quot;center-right\&quot;, \&quot;bottom-left\&quot;, \&quot;bottom-center\&quot;, \&quot;bottom-right\&quot; (required)
-     * @param  \SplFileObject $base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @param  \SplFileObject $layered_image Image to layer on top of the base image. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function editCompositeBasicWithHttpInfo($location, $base_image, $layered_image)
+    public function filterDespeckleWithHttpInfo($image_file)
     {
         $returnType = 'string';
-        $request = $this->editCompositeBasicRequest($location, $base_image, $layered_image);
+        $request = $this->filterDespeckleRequest($image_file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -443,20 +439,18 @@ class EditApi
     }
 
     /**
-     * Operation editCompositeBasicAsync
+     * Operation filterDespeckleAsync
      *
-     * Composite two images together
+     * Despeckle (remove point noise) from the image
      *
-     * @param  string $location Location to composite the layered images; possible values are: \&quot;center\&quot;, \&quot;top-left\&quot;, \&quot;top-center\&quot;, \&quot;top-right\&quot;, \&quot;center-left\&quot;, \&quot;center-right\&quot;, \&quot;bottom-left\&quot;, \&quot;bottom-center\&quot;, \&quot;bottom-right\&quot; (required)
-     * @param  \SplFileObject $base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @param  \SplFileObject $layered_image Image to layer on top of the base image. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editCompositeBasicAsync($location, $base_image, $layered_image)
+    public function filterDespeckleAsync($image_file)
     {
-        return $this->editCompositeBasicAsyncWithHttpInfo($location, $base_image, $layered_image)
+        return $this->filterDespeckleAsyncWithHttpInfo($image_file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -465,21 +459,19 @@ class EditApi
     }
 
     /**
-     * Operation editCompositeBasicAsyncWithHttpInfo
+     * Operation filterDespeckleAsyncWithHttpInfo
      *
-     * Composite two images together
+     * Despeckle (remove point noise) from the image
      *
-     * @param  string $location Location to composite the layered images; possible values are: \&quot;center\&quot;, \&quot;top-left\&quot;, \&quot;top-center\&quot;, \&quot;top-right\&quot;, \&quot;center-left\&quot;, \&quot;center-right\&quot;, \&quot;bottom-left\&quot;, \&quot;bottom-center\&quot;, \&quot;bottom-right\&quot; (required)
-     * @param  \SplFileObject $base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @param  \SplFileObject $layered_image Image to layer on top of the base image. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editCompositeBasicAsyncWithHttpInfo($location, $base_image, $layered_image)
+    public function filterDespeckleAsyncWithHttpInfo($image_file)
     {
         $returnType = 'string';
-        $request = $this->editCompositeBasicRequest($location, $base_image, $layered_image);
+        $request = $this->filterDespeckleRequest($image_file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -519,325 +511,23 @@ class EditApi
     }
 
     /**
-     * Create request for operation 'editCompositeBasic'
+     * Create request for operation 'filterDespeckle'
      *
-     * @param  string $location Location to composite the layered images; possible values are: \&quot;center\&quot;, \&quot;top-left\&quot;, \&quot;top-center\&quot;, \&quot;top-right\&quot;, \&quot;center-left\&quot;, \&quot;center-right\&quot;, \&quot;bottom-left\&quot;, \&quot;bottom-center\&quot;, \&quot;bottom-right\&quot; (required)
-     * @param  \SplFileObject $base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     * @param  \SplFileObject $layered_image Image to layer on top of the base image. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function editCompositeBasicRequest($location, $base_image, $layered_image)
-    {
-        // verify the required parameter 'location' is set
-        if ($location === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $location when calling editCompositeBasic'
-            );
-        }
-        // verify the required parameter 'base_image' is set
-        if ($base_image === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $base_image when calling editCompositeBasic'
-            );
-        }
-        // verify the required parameter 'layered_image' is set
-        if ($layered_image === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $layered_image when calling editCompositeBasic'
-            );
-        }
-
-        $resourcePath = '/image/edit/composite/{location}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($location !== null) {
-            $resourcePath = str_replace(
-                '{' . 'location' . '}',
-                ObjectSerializer::toPathValue($location),
-                $resourcePath
-            );
-        }
-
-        // form params
-        if ($base_image !== null) {
-            $multipart = true;
-            $formParams['baseImage'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($base_image), 'rb');
-        }
-        // form params
-        if ($layered_image !== null) {
-            $multipart = true;
-            $formParams['layeredImage'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($layered_image), 'rb');
-        }
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
-                ['multipart/form-data']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
-        if ($apiKey !== null) {
-            $headers['Apikey'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation editContrastAdaptive
-     *
-     * Adaptively adjust the contrast of the image to be more appealing and easy to see
-     *
-     * @param  double $gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. (required)
-     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string
-     */
-    public function editContrastAdaptive($gamma, $image_file)
-    {
-        list($response) = $this->editContrastAdaptiveWithHttpInfo($gamma, $image_file);
-        return $response;
-    }
-
-    /**
-     * Operation editContrastAdaptiveWithHttpInfo
-     *
-     * Adaptively adjust the contrast of the image to be more appealing and easy to see
-     *
-     * @param  double $gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. (required)
-     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function editContrastAdaptiveWithHttpInfo($gamma, $image_file)
-    {
-        $returnType = 'string';
-        $request = $this->editContrastAdaptiveRequest($gamma, $image_file);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation editContrastAdaptiveAsync
-     *
-     * Adaptively adjust the contrast of the image to be more appealing and easy to see
-     *
-     * @param  double $gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. (required)
-     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function editContrastAdaptiveAsync($gamma, $image_file)
-    {
-        return $this->editContrastAdaptiveAsyncWithHttpInfo($gamma, $image_file)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation editContrastAdaptiveAsyncWithHttpInfo
-     *
-     * Adaptively adjust the contrast of the image to be more appealing and easy to see
-     *
-     * @param  double $gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. (required)
-     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function editContrastAdaptiveAsyncWithHttpInfo($gamma, $image_file)
-    {
-        $returnType = 'string';
-        $request = $this->editContrastAdaptiveRequest($gamma, $image_file);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'editContrastAdaptive'
-     *
-     * @param  double $gamma Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function editContrastAdaptiveRequest($gamma, $image_file)
+    protected function filterDespeckleRequest($image_file)
     {
-        // verify the required parameter 'gamma' is set
-        if ($gamma === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $gamma when calling editContrastAdaptive'
-            );
-        }
         // verify the required parameter 'image_file' is set
         if ($image_file === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $image_file when calling editContrastAdaptive'
+                'Missing the required parameter $image_file when calling filterDespeckle'
             );
         }
 
-        $resourcePath = '/image/edit/contrast/{gamma}/adaptive';
+        $resourcePath = '/image/filter/despeckle';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -845,14 +535,6 @@ class EditApi
         $multipart = false;
 
 
-        // path params
-        if ($gamma !== null) {
-            $resourcePath = str_replace(
-                '{' . 'gamma' . '}',
-                ObjectSerializer::toPathValue($gamma),
-                $resourcePath
-            );
-        }
 
         // form params
         if ($image_file !== null) {
@@ -864,11 +546,11 @@ class EditApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -929,45 +611,39 @@ class EditApi
     }
 
     /**
-     * Operation editCropRectangle
+     * Operation filterEdgeDetect
      *
-     * Crop an image to a rectangular area
+     * Detect and highlight edges in an image
      *
-     * @param  int $left The left edge of the rectangular crop area in pixels (X). (required)
-     * @param  int $top The top edge of the rectangular crop area in pixels (Y). (required)
-     * @param  int $width The width of the rectangular crop area in pixels. (required)
-     * @param  int $height The height of the rectangular crop area in pixels. (required)
+     * @param  int $radius Radius in pixels of the edge detection operation; a larger radius will produce a greater effect (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function editCropRectangle($left, $top, $width, $height, $image_file)
+    public function filterEdgeDetect($radius, $image_file)
     {
-        list($response) = $this->editCropRectangleWithHttpInfo($left, $top, $width, $height, $image_file);
+        list($response) = $this->filterEdgeDetectWithHttpInfo($radius, $image_file);
         return $response;
     }
 
     /**
-     * Operation editCropRectangleWithHttpInfo
+     * Operation filterEdgeDetectWithHttpInfo
      *
-     * Crop an image to a rectangular area
+     * Detect and highlight edges in an image
      *
-     * @param  int $left The left edge of the rectangular crop area in pixels (X). (required)
-     * @param  int $top The top edge of the rectangular crop area in pixels (Y). (required)
-     * @param  int $width The width of the rectangular crop area in pixels. (required)
-     * @param  int $height The height of the rectangular crop area in pixels. (required)
+     * @param  int $radius Radius in pixels of the edge detection operation; a larger radius will produce a greater effect (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function editCropRectangleWithHttpInfo($left, $top, $width, $height, $image_file)
+    public function filterEdgeDetectWithHttpInfo($radius, $image_file)
     {
         $returnType = 'string';
-        $request = $this->editCropRectangleRequest($left, $top, $width, $height, $image_file);
+        $request = $this->filterEdgeDetectRequest($radius, $image_file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1029,22 +705,19 @@ class EditApi
     }
 
     /**
-     * Operation editCropRectangleAsync
+     * Operation filterEdgeDetectAsync
      *
-     * Crop an image to a rectangular area
+     * Detect and highlight edges in an image
      *
-     * @param  int $left The left edge of the rectangular crop area in pixels (X). (required)
-     * @param  int $top The top edge of the rectangular crop area in pixels (Y). (required)
-     * @param  int $width The width of the rectangular crop area in pixels. (required)
-     * @param  int $height The height of the rectangular crop area in pixels. (required)
+     * @param  int $radius Radius in pixels of the edge detection operation; a larger radius will produce a greater effect (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editCropRectangleAsync($left, $top, $width, $height, $image_file)
+    public function filterEdgeDetectAsync($radius, $image_file)
     {
-        return $this->editCropRectangleAsyncWithHttpInfo($left, $top, $width, $height, $image_file)
+        return $this->filterEdgeDetectAsyncWithHttpInfo($radius, $image_file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1053,23 +726,20 @@ class EditApi
     }
 
     /**
-     * Operation editCropRectangleAsyncWithHttpInfo
+     * Operation filterEdgeDetectAsyncWithHttpInfo
      *
-     * Crop an image to a rectangular area
+     * Detect and highlight edges in an image
      *
-     * @param  int $left The left edge of the rectangular crop area in pixels (X). (required)
-     * @param  int $top The top edge of the rectangular crop area in pixels (Y). (required)
-     * @param  int $width The width of the rectangular crop area in pixels. (required)
-     * @param  int $height The height of the rectangular crop area in pixels. (required)
+     * @param  int $radius Radius in pixels of the edge detection operation; a larger radius will produce a greater effect (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editCropRectangleAsyncWithHttpInfo($left, $top, $width, $height, $image_file)
+    public function filterEdgeDetectAsyncWithHttpInfo($radius, $image_file)
     {
         $returnType = 'string';
-        $request = $this->editCropRectangleRequest($left, $top, $width, $height, $image_file);
+        $request = $this->filterEdgeDetectRequest($radius, $image_file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1109,51 +779,30 @@ class EditApi
     }
 
     /**
-     * Create request for operation 'editCropRectangle'
+     * Create request for operation 'filterEdgeDetect'
      *
-     * @param  int $left The left edge of the rectangular crop area in pixels (X). (required)
-     * @param  int $top The top edge of the rectangular crop area in pixels (Y). (required)
-     * @param  int $width The width of the rectangular crop area in pixels. (required)
-     * @param  int $height The height of the rectangular crop area in pixels. (required)
+     * @param  int $radius Radius in pixels of the edge detection operation; a larger radius will produce a greater effect (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function editCropRectangleRequest($left, $top, $width, $height, $image_file)
+    protected function filterEdgeDetectRequest($radius, $image_file)
     {
-        // verify the required parameter 'left' is set
-        if ($left === null) {
+        // verify the required parameter 'radius' is set
+        if ($radius === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $left when calling editCropRectangle'
-            );
-        }
-        // verify the required parameter 'top' is set
-        if ($top === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $top when calling editCropRectangle'
-            );
-        }
-        // verify the required parameter 'width' is set
-        if ($width === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $width when calling editCropRectangle'
-            );
-        }
-        // verify the required parameter 'height' is set
-        if ($height === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $height when calling editCropRectangle'
+                'Missing the required parameter $radius when calling filterEdgeDetect'
             );
         }
         // verify the required parameter 'image_file' is set
         if ($image_file === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $image_file when calling editCropRectangle'
+                'Missing the required parameter $image_file when calling filterEdgeDetect'
             );
         }
 
-        $resourcePath = '/image/edit/crop/rectangle/{left}/{top}/{width}/{height}';
+        $resourcePath = '/image/filter/edge-detect/{radius}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1162,34 +811,10 @@ class EditApi
 
 
         // path params
-        if ($left !== null) {
+        if ($radius !== null) {
             $resourcePath = str_replace(
-                '{' . 'left' . '}',
-                ObjectSerializer::toPathValue($left),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($top !== null) {
-            $resourcePath = str_replace(
-                '{' . 'top' . '}',
-                ObjectSerializer::toPathValue($top),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($width !== null) {
-            $resourcePath = str_replace(
-                '{' . 'width' . '}',
-                ObjectSerializer::toPathValue($width),
-                $resourcePath
-            );
-        }
-        // path params
-        if ($height !== null) {
-            $resourcePath = str_replace(
-                '{' . 'height' . '}',
-                ObjectSerializer::toPathValue($height),
+                '{' . 'radius' . '}',
+                ObjectSerializer::toPathValue($radius),
                 $resourcePath
             );
         }
@@ -1269,37 +894,41 @@ class EditApi
     }
 
     /**
-     * Operation editDrawPolygon
+     * Operation filterEmboss
      *
-     * Draw a polygon onto an image
+     * Emboss an image
      *
-     * @param  \Swagger\Client\Model\DrawPolygonRequest $request request (required)
+     * @param  int $radius Radius in pixels of the emboss operation; a larger radius will produce a greater effect (required)
+     * @param  int $sigma Sigma, or variance, of the emboss operation (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function editDrawPolygon($request)
+    public function filterEmboss($radius, $sigma, $image_file)
     {
-        list($response) = $this->editDrawPolygonWithHttpInfo($request);
+        list($response) = $this->filterEmbossWithHttpInfo($radius, $sigma, $image_file);
         return $response;
     }
 
     /**
-     * Operation editDrawPolygonWithHttpInfo
+     * Operation filterEmbossWithHttpInfo
      *
-     * Draw a polygon onto an image
+     * Emboss an image
      *
-     * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
+     * @param  int $radius Radius in pixels of the emboss operation; a larger radius will produce a greater effect (required)
+     * @param  int $sigma Sigma, or variance, of the emboss operation (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function editDrawPolygonWithHttpInfo($request)
+    public function filterEmbossWithHttpInfo($radius, $sigma, $image_file)
     {
         $returnType = 'string';
-        $request = $this->editDrawPolygonRequest($request);
+        $request = $this->filterEmbossRequest($radius, $sigma, $image_file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1361,18 +990,20 @@ class EditApi
     }
 
     /**
-     * Operation editDrawPolygonAsync
+     * Operation filterEmbossAsync
      *
-     * Draw a polygon onto an image
+     * Emboss an image
      *
-     * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
+     * @param  int $radius Radius in pixels of the emboss operation; a larger radius will produce a greater effect (required)
+     * @param  int $sigma Sigma, or variance, of the emboss operation (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editDrawPolygonAsync($request)
+    public function filterEmbossAsync($radius, $sigma, $image_file)
     {
-        return $this->editDrawPolygonAsyncWithHttpInfo($request)
+        return $this->filterEmbossAsyncWithHttpInfo($radius, $sigma, $image_file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1381,19 +1012,21 @@ class EditApi
     }
 
     /**
-     * Operation editDrawPolygonAsyncWithHttpInfo
+     * Operation filterEmbossAsyncWithHttpInfo
      *
-     * Draw a polygon onto an image
+     * Emboss an image
      *
-     * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
+     * @param  int $radius Radius in pixels of the emboss operation; a larger radius will produce a greater effect (required)
+     * @param  int $sigma Sigma, or variance, of the emboss operation (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editDrawPolygonAsyncWithHttpInfo($request)
+    public function filterEmbossAsyncWithHttpInfo($radius, $sigma, $image_file)
     {
         $returnType = 'string';
-        $request = $this->editDrawPolygonRequest($request);
+        $request = $this->filterEmbossRequest($radius, $sigma, $image_file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1433,853 +1066,37 @@ class EditApi
     }
 
     /**
-     * Create request for operation 'editDrawPolygon'
+     * Create request for operation 'filterEmboss'
      *
-     * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function editDrawPolygonRequest($request)
-    {
-        // verify the required parameter 'request' is set
-        if ($request === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $request when calling editDrawPolygon'
-            );
-        }
-
-        $resourcePath = '/image/edit/draw/polygon';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($request)) {
-            $_tempBody = $request;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
-        if ($apiKey !== null) {
-            $headers['Apikey'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation editDrawRectangle
-     *
-     * Draw a rectangle onto an image
-     *
-     * @param  \Swagger\Client\Model\DrawRectangleRequest $request request (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string
-     */
-    public function editDrawRectangle($request)
-    {
-        list($response) = $this->editDrawRectangleWithHttpInfo($request);
-        return $response;
-    }
-
-    /**
-     * Operation editDrawRectangleWithHttpInfo
-     *
-     * Draw a rectangle onto an image
-     *
-     * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function editDrawRectangleWithHttpInfo($request)
-    {
-        $returnType = 'string';
-        $request = $this->editDrawRectangleRequest($request);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation editDrawRectangleAsync
-     *
-     * Draw a rectangle onto an image
-     *
-     * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function editDrawRectangleAsync($request)
-    {
-        return $this->editDrawRectangleAsyncWithHttpInfo($request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation editDrawRectangleAsyncWithHttpInfo
-     *
-     * Draw a rectangle onto an image
-     *
-     * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function editDrawRectangleAsyncWithHttpInfo($request)
-    {
-        $returnType = 'string';
-        $request = $this->editDrawRectangleRequest($request);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'editDrawRectangle'
-     *
-     * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function editDrawRectangleRequest($request)
-    {
-        // verify the required parameter 'request' is set
-        if ($request === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $request when calling editDrawRectangle'
-            );
-        }
-
-        $resourcePath = '/image/edit/draw/rectangle';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($request)) {
-            $_tempBody = $request;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
-        if ($apiKey !== null) {
-            $headers['Apikey'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation editDrawText
-     *
-     * Draw text onto an image
-     *
-     * @param  \Swagger\Client\Model\DrawTextRequest $request request (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string
-     */
-    public function editDrawText($request)
-    {
-        list($response) = $this->editDrawTextWithHttpInfo($request);
-        return $response;
-    }
-
-    /**
-     * Operation editDrawTextWithHttpInfo
-     *
-     * Draw text onto an image
-     *
-     * @param  \Swagger\Client\Model\DrawTextRequest $request (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function editDrawTextWithHttpInfo($request)
-    {
-        $returnType = 'string';
-        $request = $this->editDrawTextRequest($request);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation editDrawTextAsync
-     *
-     * Draw text onto an image
-     *
-     * @param  \Swagger\Client\Model\DrawTextRequest $request (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function editDrawTextAsync($request)
-    {
-        return $this->editDrawTextAsyncWithHttpInfo($request)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation editDrawTextAsyncWithHttpInfo
-     *
-     * Draw text onto an image
-     *
-     * @param  \Swagger\Client\Model\DrawTextRequest $request (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function editDrawTextAsyncWithHttpInfo($request)
-    {
-        $returnType = 'string';
-        $request = $this->editDrawTextRequest($request);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'editDrawText'
-     *
-     * @param  \Swagger\Client\Model\DrawTextRequest $request (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function editDrawTextRequest($request)
-    {
-        // verify the required parameter 'request' is set
-        if ($request === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $request when calling editDrawText'
-            );
-        }
-
-        $resourcePath = '/image/edit/draw/text';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-
-        // body params
-        $_tempBody = null;
-        if (isset($request)) {
-            $_tempBody = $request;
-        }
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
-                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
-        if ($apiKey !== null) {
-            $headers['Apikey'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation editDropShadow
-     *
-     * Add a customizeable drop shadow to an image
-     *
-     * @param  int $x Horizontal (X) offset of the drop shadow (required)
-     * @param  int $y Vertical (Y) offset of the drop shadow (required)
-     * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
-     * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
-     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return string
-     */
-    public function editDropShadow($x, $y, $sigma, $opacity, $image_file)
-    {
-        list($response) = $this->editDropShadowWithHttpInfo($x, $y, $sigma, $opacity, $image_file);
-        return $response;
-    }
-
-    /**
-     * Operation editDropShadowWithHttpInfo
-     *
-     * Add a customizeable drop shadow to an image
-     *
-     * @param  int $x Horizontal (X) offset of the drop shadow (required)
-     * @param  int $y Vertical (Y) offset of the drop shadow (required)
-     * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
-     * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
-     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of string, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function editDropShadowWithHttpInfo($x, $y, $sigma, $opacity, $image_file)
-    {
-        $returnType = 'string';
-        $request = $this->editDropShadowRequest($x, $y, $sigma, $opacity, $image_file);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if ($returnType !== 'string') {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        'string',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation editDropShadowAsync
-     *
-     * Add a customizeable drop shadow to an image
-     *
-     * @param  int $x Horizontal (X) offset of the drop shadow (required)
-     * @param  int $y Vertical (Y) offset of the drop shadow (required)
-     * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
-     * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
-     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function editDropShadowAsync($x, $y, $sigma, $opacity, $image_file)
-    {
-        return $this->editDropShadowAsyncWithHttpInfo($x, $y, $sigma, $opacity, $image_file)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation editDropShadowAsyncWithHttpInfo
-     *
-     * Add a customizeable drop shadow to an image
-     *
-     * @param  int $x Horizontal (X) offset of the drop shadow (required)
-     * @param  int $y Vertical (Y) offset of the drop shadow (required)
-     * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
-     * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
-     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function editDropShadowAsyncWithHttpInfo($x, $y, $sigma, $opacity, $image_file)
-    {
-        $returnType = 'string';
-        $request = $this->editDropShadowRequest($x, $y, $sigma, $opacity, $image_file);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'editDropShadow'
-     *
-     * @param  int $x Horizontal (X) offset of the drop shadow (required)
-     * @param  int $y Vertical (Y) offset of the drop shadow (required)
-     * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
-     * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
+     * @param  int $radius Radius in pixels of the emboss operation; a larger radius will produce a greater effect (required)
+     * @param  int $sigma Sigma, or variance, of the emboss operation (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function editDropShadowRequest($x, $y, $sigma, $opacity, $image_file)
+    protected function filterEmbossRequest($radius, $sigma, $image_file)
     {
-        // verify the required parameter 'x' is set
-        if ($x === null) {
+        // verify the required parameter 'radius' is set
+        if ($radius === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $x when calling editDropShadow'
-            );
-        }
-        // verify the required parameter 'y' is set
-        if ($y === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $y when calling editDropShadow'
+                'Missing the required parameter $radius when calling filterEmboss'
             );
         }
         // verify the required parameter 'sigma' is set
         if ($sigma === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $sigma when calling editDropShadow'
-            );
-        }
-        // verify the required parameter 'opacity' is set
-        if ($opacity === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $opacity when calling editDropShadow'
+                'Missing the required parameter $sigma when calling filterEmboss'
             );
         }
         // verify the required parameter 'image_file' is set
         if ($image_file === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $image_file when calling editDropShadow'
+                'Missing the required parameter $image_file when calling filterEmboss'
             );
         }
 
-        $resourcePath = '/image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity}';
+        $resourcePath = '/image/filter/emboss/{radius}/{sigma}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -2288,18 +1105,625 @@ class EditApi
 
 
         // path params
-        if ($x !== null) {
+        if ($radius !== null) {
             $resourcePath = str_replace(
-                '{' . 'x' . '}',
-                ObjectSerializer::toPathValue($x),
+                '{' . 'radius' . '}',
+                ObjectSerializer::toPathValue($radius),
                 $resourcePath
             );
         }
         // path params
-        if ($y !== null) {
+        if ($sigma !== null) {
             $resourcePath = str_replace(
-                '{' . 'y' . '}',
-                ObjectSerializer::toPathValue($y),
+                '{' . 'sigma' . '}',
+                ObjectSerializer::toPathValue($sigma),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($image_file !== null) {
+            $multipart = true;
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/octet-stream']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/octet-stream'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation filterGaussianBlur
+     *
+     * Perform a guassian blur on the input image
+     *
+     * @param  int $radius Radius in pixels of the blur operation; a larger radius will produce a greater blur effect (required)
+     * @param  int $sigma Sigma, or variance, of the gaussian blur operation (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function filterGaussianBlur($radius, $sigma, $image_file)
+    {
+        list($response) = $this->filterGaussianBlurWithHttpInfo($radius, $sigma, $image_file);
+        return $response;
+    }
+
+    /**
+     * Operation filterGaussianBlurWithHttpInfo
+     *
+     * Perform a guassian blur on the input image
+     *
+     * @param  int $radius Radius in pixels of the blur operation; a larger radius will produce a greater blur effect (required)
+     * @param  int $sigma Sigma, or variance, of the gaussian blur operation (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function filterGaussianBlurWithHttpInfo($radius, $sigma, $image_file)
+    {
+        $returnType = 'string';
+        $request = $this->filterGaussianBlurRequest($radius, $sigma, $image_file);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation filterGaussianBlurAsync
+     *
+     * Perform a guassian blur on the input image
+     *
+     * @param  int $radius Radius in pixels of the blur operation; a larger radius will produce a greater blur effect (required)
+     * @param  int $sigma Sigma, or variance, of the gaussian blur operation (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function filterGaussianBlurAsync($radius, $sigma, $image_file)
+    {
+        return $this->filterGaussianBlurAsyncWithHttpInfo($radius, $sigma, $image_file)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation filterGaussianBlurAsyncWithHttpInfo
+     *
+     * Perform a guassian blur on the input image
+     *
+     * @param  int $radius Radius in pixels of the blur operation; a larger radius will produce a greater blur effect (required)
+     * @param  int $sigma Sigma, or variance, of the gaussian blur operation (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function filterGaussianBlurAsyncWithHttpInfo($radius, $sigma, $image_file)
+    {
+        $returnType = 'string';
+        $request = $this->filterGaussianBlurRequest($radius, $sigma, $image_file);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'filterGaussianBlur'
+     *
+     * @param  int $radius Radius in pixels of the blur operation; a larger radius will produce a greater blur effect (required)
+     * @param  int $sigma Sigma, or variance, of the gaussian blur operation (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function filterGaussianBlurRequest($radius, $sigma, $image_file)
+    {
+        // verify the required parameter 'radius' is set
+        if ($radius === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $radius when calling filterGaussianBlur'
+            );
+        }
+        // verify the required parameter 'sigma' is set
+        if ($sigma === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sigma when calling filterGaussianBlur'
+            );
+        }
+        // verify the required parameter 'image_file' is set
+        if ($image_file === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $image_file when calling filterGaussianBlur'
+            );
+        }
+
+        $resourcePath = '/image/filter/blur/guassian/{radius}/{sigma}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($radius !== null) {
+            $resourcePath = str_replace(
+                '{' . 'radius' . '}',
+                ObjectSerializer::toPathValue($radius),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($sigma !== null) {
+            $resourcePath = str_replace(
+                '{' . 'sigma' . '}',
+                ObjectSerializer::toPathValue($sigma),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($image_file !== null) {
+            $multipart = true;
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/octet-stream']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/octet-stream'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation filterMotionBlur
+     *
+     * Perform a motion blur on the input image
+     *
+     * @param  int $radius Radius in pixels of the blur operation; a larger radius will produce a greater blur effect (required)
+     * @param  int $sigma Sigma, or variance, of the motion blur operation (required)
+     * @param  int $angle Angle of the motion blur in degrees (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function filterMotionBlur($radius, $sigma, $angle, $image_file)
+    {
+        list($response) = $this->filterMotionBlurWithHttpInfo($radius, $sigma, $angle, $image_file);
+        return $response;
+    }
+
+    /**
+     * Operation filterMotionBlurWithHttpInfo
+     *
+     * Perform a motion blur on the input image
+     *
+     * @param  int $radius Radius in pixels of the blur operation; a larger radius will produce a greater blur effect (required)
+     * @param  int $sigma Sigma, or variance, of the motion blur operation (required)
+     * @param  int $angle Angle of the motion blur in degrees (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function filterMotionBlurWithHttpInfo($radius, $sigma, $angle, $image_file)
+    {
+        $returnType = 'string';
+        $request = $this->filterMotionBlurRequest($radius, $sigma, $angle, $image_file);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation filterMotionBlurAsync
+     *
+     * Perform a motion blur on the input image
+     *
+     * @param  int $radius Radius in pixels of the blur operation; a larger radius will produce a greater blur effect (required)
+     * @param  int $sigma Sigma, or variance, of the motion blur operation (required)
+     * @param  int $angle Angle of the motion blur in degrees (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function filterMotionBlurAsync($radius, $sigma, $angle, $image_file)
+    {
+        return $this->filterMotionBlurAsyncWithHttpInfo($radius, $sigma, $angle, $image_file)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation filterMotionBlurAsyncWithHttpInfo
+     *
+     * Perform a motion blur on the input image
+     *
+     * @param  int $radius Radius in pixels of the blur operation; a larger radius will produce a greater blur effect (required)
+     * @param  int $sigma Sigma, or variance, of the motion blur operation (required)
+     * @param  int $angle Angle of the motion blur in degrees (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function filterMotionBlurAsyncWithHttpInfo($radius, $sigma, $angle, $image_file)
+    {
+        $returnType = 'string';
+        $request = $this->filterMotionBlurRequest($radius, $sigma, $angle, $image_file);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'filterMotionBlur'
+     *
+     * @param  int $radius Radius in pixels of the blur operation; a larger radius will produce a greater blur effect (required)
+     * @param  int $sigma Sigma, or variance, of the motion blur operation (required)
+     * @param  int $angle Angle of the motion blur in degrees (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function filterMotionBlurRequest($radius, $sigma, $angle, $image_file)
+    {
+        // verify the required parameter 'radius' is set
+        if ($radius === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $radius when calling filterMotionBlur'
+            );
+        }
+        // verify the required parameter 'sigma' is set
+        if ($sigma === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $sigma when calling filterMotionBlur'
+            );
+        }
+        // verify the required parameter 'angle' is set
+        if ($angle === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $angle when calling filterMotionBlur'
+            );
+        }
+        // verify the required parameter 'image_file' is set
+        if ($image_file === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $image_file when calling filterMotionBlur'
+            );
+        }
+
+        $resourcePath = '/image/filter/blur/motion/{radius}/{sigma}/{angle}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($radius !== null) {
+            $resourcePath = str_replace(
+                '{' . 'radius' . '}',
+                ObjectSerializer::toPathValue($radius),
                 $resourcePath
             );
         }
@@ -2312,10 +1736,10 @@ class EditApi
             );
         }
         // path params
-        if ($opacity !== null) {
+        if ($angle !== null) {
             $resourcePath = str_replace(
-                '{' . 'opacity' . '}',
-                ObjectSerializer::toPathValue($opacity),
+                '{' . 'angle' . '}',
+                ObjectSerializer::toPathValue($angle),
                 $resourcePath
             );
         }
@@ -2395,39 +1819,302 @@ class EditApi
     }
 
     /**
-     * Operation editRotate
+     * Operation filterPosterize
      *
-     * Rotate an image any number of degrees
+     * Posterize the image by reducing distinct colors
      *
-     * @param  double $degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param  int $levels Number of unique colors to retain in the output image (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return object
+     */
+    public function filterPosterize($levels)
+    {
+        list($response) = $this->filterPosterizeWithHttpInfo($levels);
+        return $response;
+    }
+
+    /**
+     * Operation filterPosterizeWithHttpInfo
+     *
+     * Posterize the image by reducing distinct colors
+     *
+     * @param  int $levels Number of unique colors to retain in the output image (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of object, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function filterPosterizeWithHttpInfo($levels)
+    {
+        $returnType = 'object';
+        $request = $this->filterPosterizeRequest($levels);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'object',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation filterPosterizeAsync
+     *
+     * Posterize the image by reducing distinct colors
+     *
+     * @param  int $levels Number of unique colors to retain in the output image (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function filterPosterizeAsync($levels)
+    {
+        return $this->filterPosterizeAsyncWithHttpInfo($levels)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation filterPosterizeAsyncWithHttpInfo
+     *
+     * Posterize the image by reducing distinct colors
+     *
+     * @param  int $levels Number of unique colors to retain in the output image (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function filterPosterizeAsyncWithHttpInfo($levels)
+    {
+        $returnType = 'object';
+        $request = $this->filterPosterizeRequest($levels);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'filterPosterize'
+     *
+     * @param  int $levels Number of unique colors to retain in the output image (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function filterPosterizeRequest($levels)
+    {
+        // verify the required parameter 'levels' is set
+        if ($levels === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $levels when calling filterPosterize'
+            );
+        }
+
+        $resourcePath = '/image/filter/posterize';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        if ($levels !== null) {
+            $queryParams['levels'] = ObjectSerializer::toQueryValue($levels);
+        }
+
+
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/octet-stream']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/octet-stream'],
+                []
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation filterSwirl
+     *
+     * Swirl distort the image
+     *
+     * @param  int $degrees Degrees of swirl (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function editRotate($degrees, $image_file)
+    public function filterSwirl($degrees, $image_file)
     {
-        list($response) = $this->editRotateWithHttpInfo($degrees, $image_file);
+        list($response) = $this->filterSwirlWithHttpInfo($degrees, $image_file);
         return $response;
     }
 
     /**
-     * Operation editRotateWithHttpInfo
+     * Operation filterSwirlWithHttpInfo
      *
-     * Rotate an image any number of degrees
+     * Swirl distort the image
      *
-     * @param  double $degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param  int $degrees Degrees of swirl (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function editRotateWithHttpInfo($degrees, $image_file)
+    public function filterSwirlWithHttpInfo($degrees, $image_file)
     {
         $returnType = 'string';
-        $request = $this->editRotateRequest($degrees, $image_file);
+        $request = $this->filterSwirlRequest($degrees, $image_file);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2489,19 +2176,19 @@ class EditApi
     }
 
     /**
-     * Operation editRotateAsync
+     * Operation filterSwirlAsync
      *
-     * Rotate an image any number of degrees
+     * Swirl distort the image
      *
-     * @param  double $degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param  int $degrees Degrees of swirl (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editRotateAsync($degrees, $image_file)
+    public function filterSwirlAsync($degrees, $image_file)
     {
-        return $this->editRotateAsyncWithHttpInfo($degrees, $image_file)
+        return $this->filterSwirlAsyncWithHttpInfo($degrees, $image_file)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2510,20 +2197,20 @@ class EditApi
     }
 
     /**
-     * Operation editRotateAsyncWithHttpInfo
+     * Operation filterSwirlAsyncWithHttpInfo
      *
-     * Rotate an image any number of degrees
+     * Swirl distort the image
      *
-     * @param  double $degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param  int $degrees Degrees of swirl (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function editRotateAsyncWithHttpInfo($degrees, $image_file)
+    public function filterSwirlAsyncWithHttpInfo($degrees, $image_file)
     {
         $returnType = 'string';
-        $request = $this->editRotateRequest($degrees, $image_file);
+        $request = $this->filterSwirlRequest($degrees, $image_file);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2563,45 +2250,41 @@ class EditApi
     }
 
     /**
-     * Create request for operation 'editRotate'
+     * Create request for operation 'filterSwirl'
      *
-     * @param  double $degrees Degrees to rotate the image; values range from 0.0 to 360.0. (required)
+     * @param  int $degrees Degrees of swirl (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function editRotateRequest($degrees, $image_file)
+    protected function filterSwirlRequest($degrees, $image_file)
     {
         // verify the required parameter 'degrees' is set
         if ($degrees === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $degrees when calling editRotate'
+                'Missing the required parameter $degrees when calling filterSwirl'
             );
         }
         // verify the required parameter 'image_file' is set
         if ($image_file === null) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $image_file when calling editRotate'
+                'Missing the required parameter $image_file when calling filterSwirl'
             );
         }
 
-        $resourcePath = '/image/edit/rotate/{degrees}/angle';
+        $resourcePath = '/image/filter/swirl';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
-
-        // path params
+        // query params
         if ($degrees !== null) {
-            $resourcePath = str_replace(
-                '{' . 'degrees' . '}',
-                ObjectSerializer::toPathValue($degrees),
-                $resourcePath
-            );
+            $queryParams['degrees'] = ObjectSerializer::toQueryValue($degrees);
         }
+
 
         // form params
         if ($image_file !== null) {

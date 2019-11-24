@@ -102,6 +102,16 @@ class EditApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for editCropRectangle
+     *
+     * Crop an image to a rectangular area.
+     *
+     */
+    public function testEditCropRectangle()
+    {
+    }
+
+    /**
      * Test case for editDrawPolygon
      *
      * Draw a polygon onto an image.
@@ -128,6 +138,16 @@ class EditApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testEditDrawText()
+    {
+    }
+
+    /**
+     * Test case for editDropShadow
+     *
+     * Add a customizeable drop shadow to an image.
+     *
+     */
+    public function testEditDropShadow()
     {
     }
 

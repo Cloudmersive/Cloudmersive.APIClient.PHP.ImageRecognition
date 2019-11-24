@@ -7,9 +7,11 @@ Method | HTTP request | Description
 [**editAutoOrient**](EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
 [**editContrastAdaptive**](EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**editCropRectangle**](EditApi.md#editCropRectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 [**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
 [**editDrawText**](EditApi.md#editDrawText) | **POST** /image/edit/draw/text | Draw text onto an image
+[**editDropShadow**](EditApi.md#editDropShadow) | **POST** /image/edit/drop-shadow/{x}/{y}/{sigma}/{opacity} | Add a customizeable drop shadow to an image
 [**editRotate**](EditApi.md#editRotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 
 
@@ -184,6 +186,69 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **editCropRectangle**
+> string editCropRectangle($left, $top, $width, $height, $image_file)
+
+Crop an image to a rectangular area
+
+Crop an image to a target rectangular area
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Apikey
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\EditApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$left = 56; // int | The left edge of the rectangular crop area in pixels (X).
+$top = 56; // int | The top edge of the rectangular crop area in pixels (Y).
+$width = 56; // int | The width of the rectangular crop area in pixels.
+$height = 56; // int | The height of the rectangular crop area in pixels.
+$image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+try {
+    $result = $apiInstance->editCropRectangle($left, $top, $width, $height, $image_file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EditApi->editCropRectangle: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **left** | **int**| The left edge of the rectangular crop area in pixels (X). |
+ **top** | **int**| The top edge of the rectangular crop area in pixels (Y). |
+ **width** | **int**| The width of the rectangular crop area in pixels. |
+ **height** | **int**| The height of the rectangular crop area in pixels. |
+ **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **editDrawPolygon**
 > string editDrawPolygon($request)
 
@@ -346,6 +411,69 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: image/png
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **editDropShadow**
+> string editDropShadow($x, $y, $sigma, $opacity, $image_file)
+
+Add a customizeable drop shadow to an image
+
+Add a customizeable drop shadow to the image
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Apikey
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\EditApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$x = 56; // int | Horizontal (X) offset of the drop shadow
+$y = 56; // int | Vertical (Y) offset of the drop shadow
+$sigma = 56; // int | Sigma (blur distance) of the drop shadow
+$opacity = 56; // int | Opacity of the drop shadow; 0 is 0% and 100 is 100%
+$image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+try {
+    $result = $apiInstance->editDropShadow($x, $y, $sigma, $opacity, $image_file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EditApi->editDropShadow: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **x** | **int**| Horizontal (X) offset of the drop shadow |
+ **y** | **int**| Vertical (Y) offset of the drop shadow |
+ **sigma** | **int**| Sigma (blur distance) of the drop shadow |
+ **opacity** | **int**| Opacity of the drop shadow; 0 is 0% and 100 is 100% |
+ **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

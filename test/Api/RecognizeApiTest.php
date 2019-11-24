@@ -140,4 +140,14 @@ class RecognizeApiTest extends \PHPUnit_Framework_TestCase
     public function testRecognizeDetectVehicleLicensePlates()
     {
     }
+
+    /**
+     * Test case for recognizeFindSymbol
+     *
+     * Find the location of a symbol in an image.
+     *
+     */
+    public function testRecognizeFindSymbol()
+    {
+    }
 }
