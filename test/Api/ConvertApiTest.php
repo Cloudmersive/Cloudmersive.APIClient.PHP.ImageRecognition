@@ -72,6 +72,16 @@ class ConvertApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for convertToBmp
+     *
+     * Convert input image to Bitmap BMP format.
+     *
+     */
+    public function testConvertToBmp()
+    {
+    }
+
+    /**
      * Test case for convertToGif
      *
      * Convert input image to GIF format.
@@ -92,12 +102,42 @@ class ConvertApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for convertToPhotoshop
+     *
+     * Convert input image to Photoshop PSD format.
+     *
+     */
+    public function testConvertToPhotoshop()
+    {
+    }
+
+    /**
      * Test case for convertToPng
      *
      * Convert input image to PNG format.
      *
      */
     public function testConvertToPng()
+    {
+    }
+
+    /**
+     * Test case for convertToTiff
+     *
+     * Convert input image to TIFF format.
+     *
+     */
+    public function testConvertToTiff()
+    {
+    }
+
+    /**
+     * Test case for convertToWebP
+     *
+     * Convert input image to WebP format.
+     *
+     */
+    public function testConvertToWebP()
     {
     }
 }
