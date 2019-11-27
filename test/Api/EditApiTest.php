@@ -152,6 +152,16 @@ class EditApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for editRemoveTransparency
+     *
+     * Remove transparency from the image.
+     *
+     */
+    public function testEditRemoveTransparency()
+    {
+    }
+
+    /**
      * Test case for editRotate
      *
      * Rotate an image any number of degrees.
