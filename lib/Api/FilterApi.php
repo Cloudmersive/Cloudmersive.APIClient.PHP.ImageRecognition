@@ -349,7 +349,7 @@ class FilterApi
     /**
      * Operation filterDespeckle
      *
-     * Despeckle (remove point noise) from the image
+     * Despeckle to remove point noise from the image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -366,7 +366,7 @@ class FilterApi
     /**
      * Operation filterDespeckleWithHttpInfo
      *
-     * Despeckle (remove point noise) from the image
+     * Despeckle to remove point noise from the image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -441,7 +441,7 @@ class FilterApi
     /**
      * Operation filterDespeckleAsync
      *
-     * Despeckle (remove point noise) from the image
+     * Despeckle to remove point noise from the image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -461,7 +461,7 @@ class FilterApi
     /**
      * Operation filterDespeckleAsyncWithHttpInfo
      *
-     * Despeckle (remove point noise) from the image
+     * Despeckle to remove point noise from the image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *

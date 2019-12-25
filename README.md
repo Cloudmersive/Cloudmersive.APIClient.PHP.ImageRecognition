@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.5.7
+- Package version: 1.5.8
 
 
 ## Requirements
@@ -90,7 +90,7 @@ Class | Method | HTTP request | Description
 *ArtisticApi* | [**artisticPainting**](docs/Api/ArtisticApi.md#artisticpainting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
 *ConvertApi* | [**convertToBmp**](docs/Api/ConvertApi.md#converttobmp) | **POST** /image/convert/to/bmp | Convert input image to Bitmap BMP format
 *ConvertApi* | [**convertToGif**](docs/Api/ConvertApi.md#converttogif) | **POST** /image/convert/to/gif | Convert input image to GIF format
-*ConvertApi* | [**convertToJpg**](docs/Api/ConvertApi.md#converttojpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG/JPEG format
+*ConvertApi* | [**convertToJpg**](docs/Api/ConvertApi.md#converttojpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG, JPEG format
 *ConvertApi* | [**convertToPhotoshop**](docs/Api/ConvertApi.md#converttophotoshop) | **POST** /image/convert/to/psd | Convert input image to Photoshop PSD format
 *ConvertApi* | [**convertToPng**](docs/Api/ConvertApi.md#converttopng) | **POST** /image/convert/to/png | Convert input image to PNG format
 *ConvertApi* | [**convertToTiff**](docs/Api/ConvertApi.md#converttotiff) | **POST** /image/convert/to/tiff | Convert input image to TIFF format
@@ -106,14 +106,14 @@ Class | Method | HTTP request | Description
 *EditApi* | [**editRemoveTransparency**](docs/Api/EditApi.md#editremovetransparency) | **POST** /image/edit/remove-transparency | Remove transparency from the image
 *EditApi* | [**editRotate**](docs/Api/EditApi.md#editrotate) | **POST** /image/edit/rotate/{degrees}/angle | Rotate an image any number of degrees
 *FaceApi* | [**faceCompare**](docs/Api/FaceApi.md#facecompare) | **POST** /image/face/compare-and-match | Compare and match faces
-*FaceApi* | [**faceCropFirst**](docs/Api/FaceApi.md#facecropfirst) | **POST** /image/face/crop/first | Crop image to face (square)
-*FaceApi* | [**faceCropFirstRound**](docs/Api/FaceApi.md#facecropfirstround) | **POST** /image/face/crop/first/round | Crop image to face (round)
+*FaceApi* | [**faceCropFirst**](docs/Api/FaceApi.md#facecropfirst) | **POST** /image/face/crop/first | Crop image to face with square crop
+*FaceApi* | [**faceCropFirstRound**](docs/Api/FaceApi.md#facecropfirstround) | **POST** /image/face/crop/first/round | Crop image to face with round crop
 *FaceApi* | [**faceDetectAge**](docs/Api/FaceApi.md#facedetectage) | **POST** /image/face/detect-age | Detect the age of people in an image
 *FaceApi* | [**faceDetectGender**](docs/Api/FaceApi.md#facedetectgender) | **POST** /image/face/detect-gender | Detect the gender of people in an image
-*FaceApi* | [**faceLocate**](docs/Api/FaceApi.md#facelocate) | **POST** /image/face/locate | Find faces in an image
-*FaceApi* | [**faceLocateWithLandmarks**](docs/Api/FaceApi.md#facelocatewithlandmarks) | **POST** /image/face/locate-with-landmarks | Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+*FaceApi* | [**faceLocate**](docs/Api/FaceApi.md#facelocate) | **POST** /image/face/locate | Detect and find faces in an image
+*FaceApi* | [**faceLocateWithLandmarks**](docs/Api/FaceApi.md#facelocatewithlandmarks) | **POST** /image/face/locate-with-landmarks | Detect and find faces and landmarks eyes and nose and mouth in image
 *FilterApi* | [**filterBlackAndWhite**](docs/Api/FilterApi.md#filterblackandwhite) | **POST** /image/filter/black-and-white | Convert image to black-and-white grayscale
-*FilterApi* | [**filterDespeckle**](docs/Api/FilterApi.md#filterdespeckle) | **POST** /image/filter/despeckle | Despeckle (remove point noise) from the image
+*FilterApi* | [**filterDespeckle**](docs/Api/FilterApi.md#filterdespeckle) | **POST** /image/filter/despeckle | Despeckle to remove point noise from the image
 *FilterApi* | [**filterEdgeDetect**](docs/Api/FilterApi.md#filteredgedetect) | **POST** /image/filter/edge-detect/{radius} | Detect and highlight edges in an image
 *FilterApi* | [**filterEmboss**](docs/Api/FilterApi.md#filteremboss) | **POST** /image/filter/emboss/{radius}/{sigma} | Emboss an image
 *FilterApi* | [**filterGaussianBlur**](docs/Api/FilterApi.md#filtergaussianblur) | **POST** /image/filter/blur/guassian/{radius}/{sigma} | Perform a guassian blur on the input image
@@ -121,12 +121,12 @@ Class | Method | HTTP request | Description
 *FilterApi* | [**filterPosterize**](docs/Api/FilterApi.md#filterposterize) | **POST** /image/filter/posterize | Posterize the image by reducing distinct colors
 *FilterApi* | [**filterSwirl**](docs/Api/FilterApi.md#filterswirl) | **POST** /image/filter/swirl | Swirl distort the image
 *InfoApi* | [**infoGetDominantColor**](docs/Api/InfoApi.md#infogetdominantcolor) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
-*InfoApi* | [**infoGetMetadata**](docs/Api/InfoApi.md#infogetmetadata) | **POST** /image/get-info/metadata | Returns the image metadata, including EXIF and resolution
-*NsfwApi* | [**nsfwClassify**](docs/Api/NsfwApi.md#nsfwclassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) racy content classification
+*InfoApi* | [**infoGetMetadata**](docs/Api/InfoApi.md#infogetmetadata) | **POST** /image/get-info/metadata | Returns the image metadata including EXIF and resolution
+*NsfwApi* | [**nsfwClassify**](docs/Api/NsfwApi.md#nsfwclassify) | **POST** /image/nsfw/classify | Not safe for work NSFW racy content classification
 *RecognizeApi* | [**recognizeDescribe**](docs/Api/RecognizeApi.md#recognizedescribe) | **POST** /image/recognize/describe | Describe an image in natural language
 *RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/Api/RecognizeApi.md#recognizedetectandunskewdocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
-*RecognizeApi* | [**recognizeDetectObjects**](docs/Api/RecognizeApi.md#recognizedetectobjects) | **POST** /image/recognize/detect-objects | Detect objects, including types and locations, in an image
-*RecognizeApi* | [**recognizeDetectPeople**](docs/Api/RecognizeApi.md#recognizedetectpeople) | **POST** /image/recognize/detect-people | Detect people, including locations, in an image
+*RecognizeApi* | [**recognizeDetectObjects**](docs/Api/RecognizeApi.md#recognizedetectobjects) | **POST** /image/recognize/detect-objects | Detect objects including types and locations in an image
+*RecognizeApi* | [**recognizeDetectPeople**](docs/Api/RecognizeApi.md#recognizedetectpeople) | **POST** /image/recognize/detect-people | Detect people including locations in an image
 *RecognizeApi* | [**recognizeDetectTextFine**](docs/Api/RecognizeApi.md#recognizedetecttextfine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 *RecognizeApi* | [**recognizeDetectTextLarge**](docs/Api/RecognizeApi.md#recognizedetecttextlarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 *RecognizeApi* | [**recognizeDetectVehicleLicensePlates**](docs/Api/RecognizeApi.md#recognizedetectvehiclelicenseplates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image

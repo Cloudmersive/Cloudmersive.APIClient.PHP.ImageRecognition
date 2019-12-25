@@ -58,10 +58,10 @@ class FaceLocateResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'error_details' => 'string',
         'successful' => 'bool',
         'faces' => '\Swagger\Client\Model\Face[]',
-        'face_count' => 'int'
+        'face_count' => 'int',
+        'error_details' => 'string'
     ];
 
     /**
@@ -70,10 +70,10 @@ class FaceLocateResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'error_details' => null,
         'successful' => null,
         'faces' => null,
-        'face_count' => 'int32'
+        'face_count' => 'int32',
+        'error_details' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class FaceLocateResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'error_details' => 'ErrorDetails',
         'successful' => 'Successful',
         'faces' => 'Faces',
-        'face_count' => 'FaceCount'
+        'face_count' => 'FaceCount',
+        'error_details' => 'ErrorDetails'
     ];
 
     /**
@@ -115,10 +115,10 @@ class FaceLocateResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'error_details' => 'setErrorDetails',
         'successful' => 'setSuccessful',
         'faces' => 'setFaces',
-        'face_count' => 'setFaceCount'
+        'face_count' => 'setFaceCount',
+        'error_details' => 'setErrorDetails'
     ];
 
     /**
@@ -127,10 +127,10 @@ class FaceLocateResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'error_details' => 'getErrorDetails',
         'successful' => 'getSuccessful',
         'faces' => 'getFaces',
-        'face_count' => 'getFaceCount'
+        'face_count' => 'getFaceCount',
+        'error_details' => 'getErrorDetails'
     ];
 
     /**
@@ -193,10 +193,10 @@ class FaceLocateResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['error_details'] = isset($data['error_details']) ? $data['error_details'] : null;
         $this->container['successful'] = isset($data['successful']) ? $data['successful'] : null;
         $this->container['faces'] = isset($data['faces']) ? $data['faces'] : null;
         $this->container['face_count'] = isset($data['face_count']) ? $data['face_count'] : null;
+        $this->container['error_details'] = isset($data['error_details']) ? $data['error_details'] : null;
     }
 
     /**
@@ -223,30 +223,6 @@ class FaceLocateResponse implements ModelInterface, ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets error_details
-     *
-     * @return string
-     */
-    public function getErrorDetails()
-    {
-        return $this->container['error_details'];
-    }
-
-    /**
-     * Sets error_details
-     *
-     * @param string $error_details error_details
-     *
-     * @return $this
-     */
-    public function setErrorDetails($error_details)
-    {
-        $this->container['error_details'] = $error_details;
-
-        return $this;
-    }
 
     /**
      * Gets successful
@@ -316,6 +292,30 @@ class FaceLocateResponse implements ModelInterface, ArrayAccess
     public function setFaceCount($face_count)
     {
         $this->container['face_count'] = $face_count;
+
+        return $this;
+    }
+
+    /**
+     * Gets error_details
+     *
+     * @return string
+     */
+    public function getErrorDetails()
+    {
+        return $this->container['error_details'];
+    }
+
+    /**
+     * Sets error_details
+     *
+     * @param string $error_details Details of any errors that occurred
+     *
+     * @return $this
+     */
+    public function setErrorDetails($error_details)
+    {
+        $this->container['error_details'] = $error_details;
 
         return $this;
     }

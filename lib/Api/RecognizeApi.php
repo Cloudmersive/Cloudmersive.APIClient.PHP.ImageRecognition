@@ -622,7 +622,7 @@ class RecognizeApi
     /**
      * Operation recognizeDetectObjects
      *
-     * Detect objects, including types and locations, in an image
+     * Detect objects including types and locations in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -639,7 +639,7 @@ class RecognizeApi
     /**
      * Operation recognizeDetectObjectsWithHttpInfo
      *
-     * Detect objects, including types and locations, in an image
+     * Detect objects including types and locations in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -714,7 +714,7 @@ class RecognizeApi
     /**
      * Operation recognizeDetectObjectsAsync
      *
-     * Detect objects, including types and locations, in an image
+     * Detect objects including types and locations in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -734,7 +734,7 @@ class RecognizeApi
     /**
      * Operation recognizeDetectObjectsAsyncWithHttpInfo
      *
-     * Detect objects, including types and locations, in an image
+     * Detect objects including types and locations in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -886,7 +886,7 @@ class RecognizeApi
     /**
      * Operation recognizeDetectPeople
      *
-     * Detect people, including locations, in an image
+     * Detect people including locations in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -903,7 +903,7 @@ class RecognizeApi
     /**
      * Operation recognizeDetectPeopleWithHttpInfo
      *
-     * Detect people, including locations, in an image
+     * Detect people including locations in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -978,7 +978,7 @@ class RecognizeApi
     /**
      * Operation recognizeDetectPeopleAsync
      *
-     * Detect people, including locations, in an image
+     * Detect people including locations in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -998,7 +998,7 @@ class RecognizeApi
     /**
      * Operation recognizeDetectPeopleAsyncWithHttpInfo
      *
-     * Detect people, including locations, in an image
+     * Detect people including locations in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *

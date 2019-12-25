@@ -5,7 +5,7 @@ All URIs are relative to *https://api.cloudmersive.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**infoGetDominantColor**](InfoApi.md#infoGetDominantColor) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
-[**infoGetMetadata**](InfoApi.md#infoGetMetadata) | **POST** /image/get-info/metadata | Returns the image metadata, including EXIF and resolution
+[**infoGetMetadata**](InfoApi.md#infoGetMetadata) | **POST** /image/get-info/metadata | Returns the image metadata including EXIF and resolution
 
 
 # **infoGetDominantColor**
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 # **infoGetMetadata**
 > \Swagger\Client\Model\ImageMetadata infoGetMetadata($image_file)
 
-Returns the image metadata, including EXIF and resolution
+Returns the image metadata including EXIF and resolution
 
 Returns the metadata information on the image, including file type, EXIF (if available), and resolution.
 

@@ -320,11 +320,11 @@ class ResizeApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -389,8 +389,8 @@ class ResizeApi
      *
      * Resize an image
      *
-     * @param  int $width width (required)
-     * @param  int $height height (required)
+     * @param  int $width Width of the output image - final image will be exactly this width (required)
+     * @param  int $height Height of the output image - final image will be exactly this height (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -408,8 +408,8 @@ class ResizeApi
      *
      * Resize an image
      *
-     * @param  int $width (required)
-     * @param  int $height (required)
+     * @param  int $width Width of the output image - final image will be exactly this width (required)
+     * @param  int $height Height of the output image - final image will be exactly this height (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
@@ -485,8 +485,8 @@ class ResizeApi
      *
      * Resize an image
      *
-     * @param  int $width (required)
-     * @param  int $height (required)
+     * @param  int $width Width of the output image - final image will be exactly this width (required)
+     * @param  int $height Height of the output image - final image will be exactly this height (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
@@ -507,8 +507,8 @@ class ResizeApi
      *
      * Resize an image
      *
-     * @param  int $width (required)
-     * @param  int $height (required)
+     * @param  int $width Width of the output image - final image will be exactly this width (required)
+     * @param  int $height Height of the output image - final image will be exactly this height (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
@@ -559,8 +559,8 @@ class ResizeApi
     /**
      * Create request for operation 'resizeResizeSimple'
      *
-     * @param  int $width (required)
-     * @param  int $height (required)
+     * @param  int $width Width of the output image - final image will be exactly this width (required)
+     * @param  int $height Height of the output image - final image will be exactly this height (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
      * @throws \InvalidArgumentException
@@ -622,11 +622,11 @@ class ResizeApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }

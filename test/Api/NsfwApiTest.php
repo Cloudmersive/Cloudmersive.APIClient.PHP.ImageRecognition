@@ -74,7 +74,7 @@ class NsfwApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for nsfwClassify
      *
-     * Not safe for work (NSFW) racy content classification.
+     * Not safe for work NSFW racy content classification.
      *
      */
     public function testNsfwClassify()

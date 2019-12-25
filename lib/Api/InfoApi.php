@@ -349,7 +349,7 @@ class InfoApi
     /**
      * Operation infoGetMetadata
      *
-     * Returns the image metadata, including EXIF and resolution
+     * Returns the image metadata including EXIF and resolution
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -366,7 +366,7 @@ class InfoApi
     /**
      * Operation infoGetMetadataWithHttpInfo
      *
-     * Returns the image metadata, including EXIF and resolution
+     * Returns the image metadata including EXIF and resolution
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -441,7 +441,7 @@ class InfoApi
     /**
      * Operation infoGetMetadataAsync
      *
-     * Returns the image metadata, including EXIF and resolution
+     * Returns the image metadata including EXIF and resolution
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -461,7 +461,7 @@ class InfoApi
     /**
      * Operation infoGetMetadataAsyncWithHttpInfo
      *
-     * Returns the image metadata, including EXIF and resolution
+     * Returns the image metadata including EXIF and resolution
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *

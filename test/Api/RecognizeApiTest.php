@@ -94,7 +94,7 @@ class RecognizeApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for recognizeDetectObjects
      *
-     * Detect objects, including types and locations, in an image.
+     * Detect objects including types and locations in an image.
      *
      */
     public function testRecognizeDetectObjects()
@@ -104,7 +104,7 @@ class RecognizeApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for recognizeDetectPeople
      *
-     * Detect people, including locations, in an image.
+     * Detect people including locations in an image.
      *
      */
     public function testRecognizeDetectPeople()

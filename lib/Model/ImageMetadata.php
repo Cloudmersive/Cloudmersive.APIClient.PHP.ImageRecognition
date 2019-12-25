@@ -59,10 +59,12 @@ class ImageMetadata implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'successful' => 'bool',
+        'is_valid_image' => 'bool',
         'file_format' => 'string',
         'width' => 'int',
         'height' => 'int',
         'bit_depth' => 'int',
+        'has_transparency' => 'bool',
         'color_space' => 'string',
         'exif_profile_name' => 'string',
         'exif_values' => '\Swagger\Client\Model\ImageMetadataExifValue[]'
@@ -75,10 +77,12 @@ class ImageMetadata implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'successful' => null,
+        'is_valid_image' => null,
         'file_format' => null,
         'width' => 'int32',
         'height' => 'int32',
         'bit_depth' => 'int32',
+        'has_transparency' => null,
         'color_space' => null,
         'exif_profile_name' => null,
         'exif_values' => null
@@ -112,10 +116,12 @@ class ImageMetadata implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'successful' => 'Successful',
+        'is_valid_image' => 'IsValidImage',
         'file_format' => 'FileFormat',
         'width' => 'Width',
         'height' => 'Height',
         'bit_depth' => 'BitDepth',
+        'has_transparency' => 'HasTransparency',
         'color_space' => 'ColorSpace',
         'exif_profile_name' => 'ExifProfileName',
         'exif_values' => 'ExifValues'
@@ -128,10 +134,12 @@ class ImageMetadata implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'successful' => 'setSuccessful',
+        'is_valid_image' => 'setIsValidImage',
         'file_format' => 'setFileFormat',
         'width' => 'setWidth',
         'height' => 'setHeight',
         'bit_depth' => 'setBitDepth',
+        'has_transparency' => 'setHasTransparency',
         'color_space' => 'setColorSpace',
         'exif_profile_name' => 'setExifProfileName',
         'exif_values' => 'setExifValues'
@@ -144,10 +152,12 @@ class ImageMetadata implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'successful' => 'getSuccessful',
+        'is_valid_image' => 'getIsValidImage',
         'file_format' => 'getFileFormat',
         'width' => 'getWidth',
         'height' => 'getHeight',
         'bit_depth' => 'getBitDepth',
+        'has_transparency' => 'getHasTransparency',
         'color_space' => 'getColorSpace',
         'exif_profile_name' => 'getExifProfileName',
         'exif_values' => 'getExifValues'
@@ -214,10 +224,12 @@ class ImageMetadata implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['successful'] = isset($data['successful']) ? $data['successful'] : null;
+        $this->container['is_valid_image'] = isset($data['is_valid_image']) ? $data['is_valid_image'] : null;
         $this->container['file_format'] = isset($data['file_format']) ? $data['file_format'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['bit_depth'] = isset($data['bit_depth']) ? $data['bit_depth'] : null;
+        $this->container['has_transparency'] = isset($data['has_transparency']) ? $data['has_transparency'] : null;
         $this->container['color_space'] = isset($data['color_space']) ? $data['color_space'] : null;
         $this->container['exif_profile_name'] = isset($data['exif_profile_name']) ? $data['exif_profile_name'] : null;
         $this->container['exif_values'] = isset($data['exif_values']) ? $data['exif_values'] : null;
@@ -268,6 +280,30 @@ class ImageMetadata implements ModelInterface, ArrayAccess
     public function setSuccessful($successful)
     {
         $this->container['successful'] = $successful;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_valid_image
+     *
+     * @return bool
+     */
+    public function getIsValidImage()
+    {
+        return $this->container['is_valid_image'];
+    }
+
+    /**
+     * Sets is_valid_image
+     *
+     * @param bool $is_valid_image True if the input image is a valid image file, false otherwise
+     *
+     * @return $this
+     */
+    public function setIsValidImage($is_valid_image)
+    {
+        $this->container['is_valid_image'] = $is_valid_image;
 
         return $this;
     }
@@ -364,6 +400,30 @@ class ImageMetadata implements ModelInterface, ArrayAccess
     public function setBitDepth($bit_depth)
     {
         $this->container['bit_depth'] = $bit_depth;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_transparency
+     *
+     * @return bool
+     */
+    public function getHasTransparency()
+    {
+        return $this->container['has_transparency'];
+    }
+
+    /**
+     * Sets has_transparency
+     *
+     * @param bool $has_transparency True if the image has transaprency in the form of an alpha channel, false otherwise
+     *
+     * @return $this
+     */
+    public function setHasTransparency($has_transparency)
+    {
+        $this->container['has_transparency'] = $has_transparency;
 
         return $this;
     }

@@ -126,7 +126,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -273,7 +273,7 @@ $apiInstance = new Swagger\Client\Api\EditApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request = new \Swagger\Client\Model\DrawPolygonRequest(); // \Swagger\Client\Model\DrawPolygonRequest | 
+$request = new \Swagger\Client\Model\DrawPolygonRequest(); // \Swagger\Client\Model\DrawPolygonRequest | Polygon drawing request parameters
 
 try {
     $result = $apiInstance->editDrawPolygon($request);
@@ -288,7 +288,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**\Swagger\Client\Model\DrawPolygonRequest**](../Model/DrawPolygonRequest.md)|  |
+ **request** | [**\Swagger\Client\Model\DrawPolygonRequest**](../Model/DrawPolygonRequest.md)| Polygon drawing request parameters |
 
 ### Return type
 
@@ -301,7 +301,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -328,7 +328,7 @@ $apiInstance = new Swagger\Client\Api\EditApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request = new \Swagger\Client\Model\DrawRectangleRequest(); // \Swagger\Client\Model\DrawRectangleRequest | 
+$request = new \Swagger\Client\Model\DrawRectangleRequest(); // \Swagger\Client\Model\DrawRectangleRequest | Draw rectangle parameters
 
 try {
     $result = $apiInstance->editDrawRectangle($request);
@@ -343,7 +343,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**\Swagger\Client\Model\DrawRectangleRequest**](../Model/DrawRectangleRequest.md)|  |
+ **request** | [**\Swagger\Client\Model\DrawRectangleRequest**](../Model/DrawRectangleRequest.md)| Draw rectangle parameters |
 
 ### Return type
 
@@ -356,7 +356,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -383,7 +383,7 @@ $apiInstance = new Swagger\Client\Api\EditApi(
     new GuzzleHttp\Client(),
     $config
 );
-$request = new \Swagger\Client\Model\DrawTextRequest(); // \Swagger\Client\Model\DrawTextRequest | 
+$request = new \Swagger\Client\Model\DrawTextRequest(); // \Swagger\Client\Model\DrawTextRequest | Draw text parameters
 
 try {
     $result = $apiInstance->editDrawText($request);
@@ -398,7 +398,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **request** | [**\Swagger\Client\Model\DrawTextRequest**](../Model/DrawTextRequest.md)|  |
+ **request** | [**\Swagger\Client\Model\DrawTextRequest**](../Model/DrawTextRequest.md)| Draw text parameters |
 
 ### Return type
 
@@ -411,7 +411,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -438,8 +438,8 @@ $apiInstance = new Swagger\Client\Api\EditApi(
     new GuzzleHttp\Client(),
     $config
 );
-$x = 56; // int | 
-$y = 56; // int | 
+$x = 56; // int | Horizontal (X) offset of the drop shadow
+$y = 56; // int | Vertical (Y) offset of the drop shadow
 $sigma = 56; // int | Sigma (blur distance) of the drop shadow
 $opacity = 56; // int | Opacity of the drop shadow; 0 is 0% and 100 is 100%
 $image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
@@ -457,8 +457,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **x** | **int**|  |
- **y** | **int**|  |
+ **x** | **int**| Horizontal (X) offset of the drop shadow |
+ **y** | **int**| Vertical (Y) offset of the drop shadow |
  **sigma** | **int**| Sigma (blur distance) of the drop shadow |
  **opacity** | **int**| Opacity of the drop shadow; 0 is 0% and 100 is 100% |
  **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |

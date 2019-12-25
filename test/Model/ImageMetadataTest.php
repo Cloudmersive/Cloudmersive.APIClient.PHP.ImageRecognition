@@ -85,6 +85,13 @@ class ImageMetadataTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test attribute "is_valid_image"
+     */
+    public function testPropertyIsValidImage()
+    {
+    }
+
+    /**
      * Test attribute "file_format"
      */
     public function testPropertyFileFormat()
@@ -109,6 +116,13 @@ class ImageMetadataTest extends \PHPUnit_Framework_TestCase
      * Test attribute "bit_depth"
      */
     public function testPropertyBitDepth()
+    {
+    }
+
+    /**
+     * Test attribute "has_transparency"
+     */
+    public function testPropertyHasTransparency()
     {
     }
 

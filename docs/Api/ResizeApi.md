@@ -63,7 +63,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -90,8 +90,8 @@ $apiInstance = new Swagger\Client\Api\ResizeApi(
     new GuzzleHttp\Client(),
     $config
 );
-$width = 56; // int | 
-$height = 56; // int | 
+$width = 56; // int | Width of the output image - final image will be exactly this width
+$height = 56; // int | Height of the output image - final image will be exactly this height
 $image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try {
@@ -107,8 +107,8 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **width** | **int**|  |
- **height** | **int**|  |
+ **width** | **int**| Width of the output image - final image will be exactly this width |
+ **height** | **int**| Height of the output image - final image will be exactly this height |
  **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

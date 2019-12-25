@@ -84,7 +84,7 @@ class FaceApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for faceCropFirst
      *
-     * Crop image to face (square).
+     * Crop image to face with square crop.
      *
      */
     public function testFaceCropFirst()
@@ -94,7 +94,7 @@ class FaceApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for faceCropFirstRound
      *
-     * Crop image to face (round).
+     * Crop image to face with round crop.
      *
      */
     public function testFaceCropFirstRound()
@@ -124,7 +124,7 @@ class FaceApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for faceLocate
      *
-     * Find faces in an image.
+     * Detect and find faces in an image.
      *
      */
     public function testFaceLocate()
@@ -134,7 +134,7 @@ class FaceApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for faceLocateWithLandmarks
      *
-     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image.
+     * Detect and find faces and landmarks eyes and nose and mouth in image.
      *
      */
     public function testFaceLocateWithLandmarks()

@@ -365,7 +365,7 @@ class FaceApi
     /**
      * Operation faceCropFirst
      *
-     * Crop image to face (square)
+     * Crop image to face with square crop
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -382,7 +382,7 @@ class FaceApi
     /**
      * Operation faceCropFirstWithHttpInfo
      *
-     * Crop image to face (square)
+     * Crop image to face with square crop
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -457,7 +457,7 @@ class FaceApi
     /**
      * Operation faceCropFirstAsync
      *
-     * Crop image to face (square)
+     * Crop image to face with square crop
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -477,7 +477,7 @@ class FaceApi
     /**
      * Operation faceCropFirstAsyncWithHttpInfo
      *
-     * Crop image to face (square)
+     * Crop image to face with square crop
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -629,7 +629,7 @@ class FaceApi
     /**
      * Operation faceCropFirstRound
      *
-     * Crop image to face (round)
+     * Crop image to face with round crop
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -646,7 +646,7 @@ class FaceApi
     /**
      * Operation faceCropFirstRoundWithHttpInfo
      *
-     * Crop image to face (round)
+     * Crop image to face with round crop
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -721,7 +721,7 @@ class FaceApi
     /**
      * Operation faceCropFirstRoundAsync
      *
-     * Crop image to face (round)
+     * Crop image to face with round crop
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -741,7 +741,7 @@ class FaceApi
     /**
      * Operation faceCropFirstRoundAsyncWithHttpInfo
      *
-     * Crop image to face (round)
+     * Crop image to face with round crop
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -1421,7 +1421,7 @@ class FaceApi
     /**
      * Operation faceLocate
      *
-     * Find faces in an image
+     * Detect and find faces in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -1438,7 +1438,7 @@ class FaceApi
     /**
      * Operation faceLocateWithHttpInfo
      *
-     * Find faces in an image
+     * Detect and find faces in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -1513,7 +1513,7 @@ class FaceApi
     /**
      * Operation faceLocateAsync
      *
-     * Find faces in an image
+     * Detect and find faces in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -1533,7 +1533,7 @@ class FaceApi
     /**
      * Operation faceLocateAsyncWithHttpInfo
      *
-     * Find faces in an image
+     * Detect and find faces in an image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -1685,7 +1685,7 @@ class FaceApi
     /**
      * Operation faceLocateWithLandmarks
      *
-     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     * Detect and find faces and landmarks eyes and nose and mouth in image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -1702,7 +1702,7 @@ class FaceApi
     /**
      * Operation faceLocateWithLandmarksWithHttpInfo
      *
-     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     * Detect and find faces and landmarks eyes and nose and mouth in image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -1777,7 +1777,7 @@ class FaceApi
     /**
      * Operation faceLocateWithLandmarksAsync
      *
-     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     * Detect and find faces and landmarks eyes and nose and mouth in image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -1797,7 +1797,7 @@ class FaceApi
     /**
      * Operation faceLocateWithLandmarksAsyncWithHttpInfo
      *
-     * Find faces and face landmarks (eyes, eye brows, nose, mouth) in an image
+     * Detect and find faces and landmarks eyes and nose and mouth in image
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *

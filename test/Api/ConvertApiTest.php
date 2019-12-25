@@ -94,7 +94,7 @@ class ConvertApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for convertToJpg
      *
-     * Convert input image to JPG/JPEG format.
+     * Convert input image to JPG, JPEG format.
      *
      */
     public function testConvertToJpg()

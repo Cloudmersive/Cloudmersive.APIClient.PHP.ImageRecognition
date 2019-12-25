@@ -84,7 +84,7 @@ class FilterApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for filterDespeckle
      *
-     * Despeckle (remove point noise) from the image.
+     * Despeckle to remove point noise from the image.
      *
      */
     public function testFilterDespeckle()

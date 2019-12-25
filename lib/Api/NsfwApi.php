@@ -85,7 +85,7 @@ class NsfwApi
     /**
      * Operation nsfwClassify
      *
-     * Not safe for work (NSFW) racy content classification
+     * Not safe for work NSFW racy content classification
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -102,7 +102,7 @@ class NsfwApi
     /**
      * Operation nsfwClassifyWithHttpInfo
      *
-     * Not safe for work (NSFW) racy content classification
+     * Not safe for work NSFW racy content classification
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -177,7 +177,7 @@ class NsfwApi
     /**
      * Operation nsfwClassifyAsync
      *
-     * Not safe for work (NSFW) racy content classification
+     * Not safe for work NSFW racy content classification
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *
@@ -197,7 +197,7 @@ class NsfwApi
     /**
      * Operation nsfwClassifyAsyncWithHttpInfo
      *
-     * Not safe for work (NSFW) racy content classification
+     * Not safe for work NSFW racy content classification
      *
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
      *

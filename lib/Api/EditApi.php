@@ -581,11 +581,11 @@ class EditApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -864,11 +864,11 @@ class EditApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -1273,7 +1273,7 @@ class EditApi
      *
      * Draw a polygon onto an image
      *
-     * @param  \Swagger\Client\Model\DrawPolygonRequest $request request (required)
+     * @param  \Swagger\Client\Model\DrawPolygonRequest $request Polygon drawing request parameters (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1290,7 +1290,7 @@ class EditApi
      *
      * Draw a polygon onto an image
      *
-     * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawPolygonRequest $request Polygon drawing request parameters (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1365,7 +1365,7 @@ class EditApi
      *
      * Draw a polygon onto an image
      *
-     * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawPolygonRequest $request Polygon drawing request parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1385,7 +1385,7 @@ class EditApi
      *
      * Draw a polygon onto an image
      *
-     * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawPolygonRequest $request Polygon drawing request parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1435,7 +1435,7 @@ class EditApi
     /**
      * Create request for operation 'editDrawPolygon'
      *
-     * @param  \Swagger\Client\Model\DrawPolygonRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawPolygonRequest $request Polygon drawing request parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1466,11 +1466,11 @@ class EditApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
             );
         }
@@ -1535,7 +1535,7 @@ class EditApi
      *
      * Draw a rectangle onto an image
      *
-     * @param  \Swagger\Client\Model\DrawRectangleRequest $request request (required)
+     * @param  \Swagger\Client\Model\DrawRectangleRequest $request Draw rectangle parameters (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1552,7 +1552,7 @@ class EditApi
      *
      * Draw a rectangle onto an image
      *
-     * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawRectangleRequest $request Draw rectangle parameters (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1627,7 +1627,7 @@ class EditApi
      *
      * Draw a rectangle onto an image
      *
-     * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawRectangleRequest $request Draw rectangle parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1647,7 +1647,7 @@ class EditApi
      *
      * Draw a rectangle onto an image
      *
-     * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawRectangleRequest $request Draw rectangle parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1697,7 +1697,7 @@ class EditApi
     /**
      * Create request for operation 'editDrawRectangle'
      *
-     * @param  \Swagger\Client\Model\DrawRectangleRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawRectangleRequest $request Draw rectangle parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1728,11 +1728,11 @@ class EditApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
             );
         }
@@ -1797,7 +1797,7 @@ class EditApi
      *
      * Draw text onto an image
      *
-     * @param  \Swagger\Client\Model\DrawTextRequest $request request (required)
+     * @param  \Swagger\Client\Model\DrawTextRequest $request Draw text parameters (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1814,7 +1814,7 @@ class EditApi
      *
      * Draw text onto an image
      *
-     * @param  \Swagger\Client\Model\DrawTextRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawTextRequest $request Draw text parameters (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1889,7 +1889,7 @@ class EditApi
      *
      * Draw text onto an image
      *
-     * @param  \Swagger\Client\Model\DrawTextRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawTextRequest $request Draw text parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1909,7 +1909,7 @@ class EditApi
      *
      * Draw text onto an image
      *
-     * @param  \Swagger\Client\Model\DrawTextRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawTextRequest $request Draw text parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1959,7 +1959,7 @@ class EditApi
     /**
      * Create request for operation 'editDrawText'
      *
-     * @param  \Swagger\Client\Model\DrawTextRequest $request (required)
+     * @param  \Swagger\Client\Model\DrawTextRequest $request Draw text parameters (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1990,11 +1990,11 @@ class EditApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
             );
         }
@@ -2059,8 +2059,8 @@ class EditApi
      *
      * Add a customizeable drop shadow to an image
      *
-     * @param  int $x x (required)
-     * @param  int $y y (required)
+     * @param  int $x Horizontal (X) offset of the drop shadow (required)
+     * @param  int $y Vertical (Y) offset of the drop shadow (required)
      * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
      * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -2080,8 +2080,8 @@ class EditApi
      *
      * Add a customizeable drop shadow to an image
      *
-     * @param  int $x (required)
-     * @param  int $y (required)
+     * @param  int $x Horizontal (X) offset of the drop shadow (required)
+     * @param  int $y Vertical (Y) offset of the drop shadow (required)
      * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
      * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -2159,8 +2159,8 @@ class EditApi
      *
      * Add a customizeable drop shadow to an image
      *
-     * @param  int $x (required)
-     * @param  int $y (required)
+     * @param  int $x Horizontal (X) offset of the drop shadow (required)
+     * @param  int $y Vertical (Y) offset of the drop shadow (required)
      * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
      * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -2183,8 +2183,8 @@ class EditApi
      *
      * Add a customizeable drop shadow to an image
      *
-     * @param  int $x (required)
-     * @param  int $y (required)
+     * @param  int $x Horizontal (X) offset of the drop shadow (required)
+     * @param  int $y Vertical (Y) offset of the drop shadow (required)
      * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
      * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -2237,8 +2237,8 @@ class EditApi
     /**
      * Create request for operation 'editDropShadow'
      *
-     * @param  int $x (required)
-     * @param  int $y (required)
+     * @param  int $x Horizontal (X) offset of the drop shadow (required)
+     * @param  int $y Vertical (Y) offset of the drop shadow (required)
      * @param  int $sigma Sigma (blur distance) of the drop shadow (required)
      * @param  int $opacity Opacity of the drop shadow; 0 is 0% and 100 is 100% (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)

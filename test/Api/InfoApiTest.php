@@ -84,7 +84,7 @@ class InfoApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for infoGetMetadata
      *
-     * Returns the image metadata, including EXIF and resolution.
+     * Returns the image metadata including EXIF and resolution.
      *
      */
     public function testInfoGetMetadata()

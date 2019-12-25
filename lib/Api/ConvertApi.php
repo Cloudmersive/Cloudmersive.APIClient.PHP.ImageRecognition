@@ -546,11 +546,11 @@ class ConvertApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/gif']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/gif'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -613,7 +613,7 @@ class ConvertApi
     /**
      * Operation convertToJpg
      *
-     * Convert input image to JPG/JPEG format
+     * Convert input image to JPG, JPEG format
      *
      * @param  int $quality Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75 (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -631,7 +631,7 @@ class ConvertApi
     /**
      * Operation convertToJpgWithHttpInfo
      *
-     * Convert input image to JPG/JPEG format
+     * Convert input image to JPG, JPEG format
      *
      * @param  int $quality Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75 (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -707,7 +707,7 @@ class ConvertApi
     /**
      * Operation convertToJpgAsync
      *
-     * Convert input image to JPG/JPEG format
+     * Convert input image to JPG, JPEG format
      *
      * @param  int $quality Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75 (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -728,7 +728,7 @@ class ConvertApi
     /**
      * Operation convertToJpgAsyncWithHttpInfo
      *
-     * Convert input image to JPG/JPEG format
+     * Convert input image to JPG, JPEG format
      *
      * @param  int $quality Set the JPEG quality level; lowest quality is 1 (highest compression), highest quality (lowest compression) is 100; recommended value is 75 (required)
      * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
@@ -829,11 +829,11 @@ class ConvertApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/jpg']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/jpg'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -1357,11 +1357,11 @@ class ConvertApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['image/png']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['image/png'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
