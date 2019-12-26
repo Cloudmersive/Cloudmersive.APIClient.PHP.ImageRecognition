@@ -152,6 +152,26 @@ class EditApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for editInvert
+     *
+     * Invert, negate the colors in the image.
+     *
+     */
+    public function testEditInvert()
+    {
+    }
+
+    /**
+     * Test case for editRemoveExifData
+     *
+     * Remove EXIF data from the image.
+     *
+     */
+    public function testEditRemoveExifData()
+    {
+    }
+
+    /**
      * Test case for editRemoveTransparency
      *
      * Remove transparency from the image.
