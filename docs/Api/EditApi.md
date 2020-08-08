@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**editAutoOrient**](EditApi.md#editAutoOrient) | **POST** /image/edit/auto-orient/remove-exif | Normalizes image rotation and removes EXIF rotation data
 [**editCompositeBasic**](EditApi.md#editCompositeBasic) | **POST** /image/edit/composite/{location} | Composite two images together
+[**editCompositePrecise**](EditApi.md#editCompositePrecise) | **POST** /image/edit/composite/precise | Composite two images together precisely
 [**editContrastAdaptive**](EditApi.md#editContrastAdaptive) | **POST** /image/edit/contrast/{gamma}/adaptive | Adaptively adjust the contrast of the image to be more appealing and easy to see
+[**editCropCircle**](EditApi.md#editCropCircle) | **POST** /image/edit/crop/circle/{left}/{top}/{radius} | Crop an image to an circular area
 [**editCropRectangle**](EditApi.md#editCropRectangle) | **POST** /image/edit/crop/rectangle/{left}/{top}/{width}/{height} | Crop an image to a rectangular area
 [**editDrawPolygon**](EditApi.md#editDrawPolygon) | **POST** /image/edit/draw/polygon | Draw a polygon onto an image
 [**editDrawRectangle**](EditApi.md#editDrawRectangle) | **POST** /image/edit/draw/rectangle | Draw a rectangle onto an image
@@ -132,6 +134,75 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
+# **editCompositePrecise**
+> string editCompositePrecise($base_image, $layered_image, $top, $bottom, $left, $right, $width, $height)
+
+Composite two images together precisely
+
+Composites two input images together; a layered image onto a base image. Position is based on distance in pixels from each side.  The first image you input is the base image.  The second image (the layered image) will be composited on top of this base image.  Supports PNG transparency.  To control padding you can include transparent pixels at the border(s) of your layered images as appropriate.  Providing multiple parameters in a single axis (for example top and bottom) is not recommended, since only one of the parameters will be used per axis.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Apikey
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\EditApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$base_image = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+$layered_image = "/path/to/file.txt"; // \SplFileObject | Image to layer on top of the base image.
+$top = 56; // int | Optional; Desired distance in pixels from the top of the base image to the top of the layered image.
+$bottom = 56; // int | Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image.
+$left = 56; // int | Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image.
+$right = 56; // int | Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image.
+$width = 56; // int | Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally.
+$height = 56; // int | Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally.
+
+try {
+    $result = $apiInstance->editCompositePrecise($base_image, $layered_image, $top, $bottom, $left, $right, $width, $height);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EditApi->editCompositePrecise: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **base_image** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+ **layered_image** | **\SplFileObject**| Image to layer on top of the base image. |
+ **top** | **int**| Optional; Desired distance in pixels from the top of the base image to the top of the layered image. | [optional]
+ **bottom** | **int**| Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. | [optional]
+ **left** | **int**| Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. | [optional]
+ **right** | **int**| Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. | [optional]
+ **width** | **int**| Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. | [optional]
+ **height** | **int**| Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. | [optional]
+
+### Return type
+
+**string**
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
 # **editContrastAdaptive**
 > string editContrastAdaptive($gamma, $image_file)
 
@@ -172,6 +243,67 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **gamma** | **double**| Gamma value to adjust the contrast in the image.  Recommended value is 2.0.  Values between 0.0 and 1.0 will reduce contrast, while values above 1.0 will increase contrast. |
+ **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **editCropCircle**
+> string editCropCircle($left, $top, $radius, $image_file)
+
+Crop an image to an circular area
+
+Crop an image to a target circular area
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Apikey
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\EditApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$left = 56; // int | The left edge of the circular crop area in pixels (X).
+$top = 56; // int | The top edge of the circular crop area in pixels (Y).
+$radius = 56; // int | The radius of the circular crop area in pixels.
+$image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+try {
+    $result = $apiInstance->editCropCircle($left, $top, $radius, $image_file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling EditApi->editCropCircle: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **left** | **int**| The left edge of the circular crop area in pixels (X). |
+ **top** | **int**| The top edge of the circular crop area in pixels (Y). |
+ **radius** | **int**| The radius of the circular crop area in pixels. |
  **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type

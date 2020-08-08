@@ -285,7 +285,7 @@ class DrawTextInstance implements ModelInterface, ArrayAccess
     /**
      * Sets font_family_name
      *
-     * @param string $font_family_name Font Family to use.  Leave blank to default to \"Arial\".
+     * @param string $font_family_name Font Family to use.  Leave blank to default to \"Arial\".  Supported fonts including Arial, Calibri, Cambria, Candara, Consolas, Constantia, Corbel, Courier New, Courier Regular, Georgia, Impact Regular, Lucida, Modern Regular, Tahoma, Times New Roman, Verdana
      *
      * @return $this
      */

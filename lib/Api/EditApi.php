@@ -646,6 +646,340 @@ class EditApi
     }
 
     /**
+     * Operation editCompositePrecise
+     *
+     * Composite two images together precisely
+     *
+     * @param  \SplFileObject $base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  \SplFileObject $layered_image Image to layer on top of the base image. (required)
+     * @param  int $top Optional; Desired distance in pixels from the top of the base image to the top of the layered image. (optional)
+     * @param  int $bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. (optional)
+     * @param  int $left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. (optional)
+     * @param  int $right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. (optional)
+     * @param  int $width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. (optional)
+     * @param  int $height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function editCompositePrecise($base_image, $layered_image, $top = null, $bottom = null, $left = null, $right = null, $width = null, $height = null)
+    {
+        list($response) = $this->editCompositePreciseWithHttpInfo($base_image, $layered_image, $top, $bottom, $left, $right, $width, $height);
+        return $response;
+    }
+
+    /**
+     * Operation editCompositePreciseWithHttpInfo
+     *
+     * Composite two images together precisely
+     *
+     * @param  \SplFileObject $base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  \SplFileObject $layered_image Image to layer on top of the base image. (required)
+     * @param  int $top Optional; Desired distance in pixels from the top of the base image to the top of the layered image. (optional)
+     * @param  int $bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. (optional)
+     * @param  int $left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. (optional)
+     * @param  int $right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. (optional)
+     * @param  int $width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. (optional)
+     * @param  int $height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function editCompositePreciseWithHttpInfo($base_image, $layered_image, $top = null, $bottom = null, $left = null, $right = null, $width = null, $height = null)
+    {
+        $returnType = 'string';
+        $request = $this->editCompositePreciseRequest($base_image, $layered_image, $top, $bottom, $left, $right, $width, $height);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation editCompositePreciseAsync
+     *
+     * Composite two images together precisely
+     *
+     * @param  \SplFileObject $base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  \SplFileObject $layered_image Image to layer on top of the base image. (required)
+     * @param  int $top Optional; Desired distance in pixels from the top of the base image to the top of the layered image. (optional)
+     * @param  int $bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. (optional)
+     * @param  int $left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. (optional)
+     * @param  int $right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. (optional)
+     * @param  int $width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. (optional)
+     * @param  int $height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function editCompositePreciseAsync($base_image, $layered_image, $top = null, $bottom = null, $left = null, $right = null, $width = null, $height = null)
+    {
+        return $this->editCompositePreciseAsyncWithHttpInfo($base_image, $layered_image, $top, $bottom, $left, $right, $width, $height)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation editCompositePreciseAsyncWithHttpInfo
+     *
+     * Composite two images together precisely
+     *
+     * @param  \SplFileObject $base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  \SplFileObject $layered_image Image to layer on top of the base image. (required)
+     * @param  int $top Optional; Desired distance in pixels from the top of the base image to the top of the layered image. (optional)
+     * @param  int $bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. (optional)
+     * @param  int $left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. (optional)
+     * @param  int $right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. (optional)
+     * @param  int $width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. (optional)
+     * @param  int $height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function editCompositePreciseAsyncWithHttpInfo($base_image, $layered_image, $top = null, $bottom = null, $left = null, $right = null, $width = null, $height = null)
+    {
+        $returnType = 'string';
+        $request = $this->editCompositePreciseRequest($base_image, $layered_image, $top, $bottom, $left, $right, $width, $height);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'editCompositePrecise'
+     *
+     * @param  \SplFileObject $base_image Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  \SplFileObject $layered_image Image to layer on top of the base image. (required)
+     * @param  int $top Optional; Desired distance in pixels from the top of the base image to the top of the layered image. (optional)
+     * @param  int $bottom Optional; Desired distance in pixels from the bottom of the base image to the bottom of the layered image. (optional)
+     * @param  int $left Optional; Desired distance in pixels from the left side of the base image to the left side of the layered image. (optional)
+     * @param  int $right Optional; Desired distance in pixels from the right side of the base image to the right side of the layered image. (optional)
+     * @param  int $width Optional; Desired width of the layered image in pixels. Leave height empty or 0 to automatically scale the image proportionally. (optional)
+     * @param  int $height Optional; Desired height of the layered image in pixels. Leave width empty or 0 to automatically scale the image proportionally. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function editCompositePreciseRequest($base_image, $layered_image, $top = null, $bottom = null, $left = null, $right = null, $width = null, $height = null)
+    {
+        // verify the required parameter 'base_image' is set
+        if ($base_image === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $base_image when calling editCompositePrecise'
+            );
+        }
+        // verify the required parameter 'layered_image' is set
+        if ($layered_image === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $layered_image when calling editCompositePrecise'
+            );
+        }
+
+        $resourcePath = '/image/edit/composite/precise';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($top !== null) {
+            $headerParams['top'] = ObjectSerializer::toHeaderValue($top);
+        }
+        // header params
+        if ($bottom !== null) {
+            $headerParams['bottom'] = ObjectSerializer::toHeaderValue($bottom);
+        }
+        // header params
+        if ($left !== null) {
+            $headerParams['left'] = ObjectSerializer::toHeaderValue($left);
+        }
+        // header params
+        if ($right !== null) {
+            $headerParams['right'] = ObjectSerializer::toHeaderValue($right);
+        }
+        // header params
+        if ($width !== null) {
+            $headerParams['width'] = ObjectSerializer::toHeaderValue($width);
+        }
+        // header params
+        if ($height !== null) {
+            $headerParams['height'] = ObjectSerializer::toHeaderValue($height);
+        }
+
+
+        // form params
+        if ($base_image !== null) {
+            $multipart = true;
+            $formParams['baseImage'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($base_image), 'rb');
+        }
+        // form params
+        if ($layered_image !== null) {
+            $multipart = true;
+            $formParams['layeredImage'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($layered_image), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/octet-stream']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/octet-stream'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation editContrastAdaptive
      *
      * Adaptively adjust the contrast of the image to be more appealing and easy to see
@@ -850,6 +1184,327 @@ class EditApi
             $resourcePath = str_replace(
                 '{' . 'gamma' . '}',
                 ObjectSerializer::toPathValue($gamma),
+                $resourcePath
+            );
+        }
+
+        // form params
+        if ($image_file !== null) {
+            $multipart = true;
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/octet-stream']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/octet-stream'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation editCropCircle
+     *
+     * Crop an image to an circular area
+     *
+     * @param  int $left The left edge of the circular crop area in pixels (X). (required)
+     * @param  int $top The top edge of the circular crop area in pixels (Y). (required)
+     * @param  int $radius The radius of the circular crop area in pixels. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function editCropCircle($left, $top, $radius, $image_file)
+    {
+        list($response) = $this->editCropCircleWithHttpInfo($left, $top, $radius, $image_file);
+        return $response;
+    }
+
+    /**
+     * Operation editCropCircleWithHttpInfo
+     *
+     * Crop an image to an circular area
+     *
+     * @param  int $left The left edge of the circular crop area in pixels (X). (required)
+     * @param  int $top The top edge of the circular crop area in pixels (Y). (required)
+     * @param  int $radius The radius of the circular crop area in pixels. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function editCropCircleWithHttpInfo($left, $top, $radius, $image_file)
+    {
+        $returnType = 'string';
+        $request = $this->editCropCircleRequest($left, $top, $radius, $image_file);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation editCropCircleAsync
+     *
+     * Crop an image to an circular area
+     *
+     * @param  int $left The left edge of the circular crop area in pixels (X). (required)
+     * @param  int $top The top edge of the circular crop area in pixels (Y). (required)
+     * @param  int $radius The radius of the circular crop area in pixels. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function editCropCircleAsync($left, $top, $radius, $image_file)
+    {
+        return $this->editCropCircleAsyncWithHttpInfo($left, $top, $radius, $image_file)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation editCropCircleAsyncWithHttpInfo
+     *
+     * Crop an image to an circular area
+     *
+     * @param  int $left The left edge of the circular crop area in pixels (X). (required)
+     * @param  int $top The top edge of the circular crop area in pixels (Y). (required)
+     * @param  int $radius The radius of the circular crop area in pixels. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function editCropCircleAsyncWithHttpInfo($left, $top, $radius, $image_file)
+    {
+        $returnType = 'string';
+        $request = $this->editCropCircleRequest($left, $top, $radius, $image_file);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'editCropCircle'
+     *
+     * @param  int $left The left edge of the circular crop area in pixels (X). (required)
+     * @param  int $top The top edge of the circular crop area in pixels (Y). (required)
+     * @param  int $radius The radius of the circular crop area in pixels. (required)
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function editCropCircleRequest($left, $top, $radius, $image_file)
+    {
+        // verify the required parameter 'left' is set
+        if ($left === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $left when calling editCropCircle'
+            );
+        }
+        // verify the required parameter 'top' is set
+        if ($top === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $top when calling editCropCircle'
+            );
+        }
+        // verify the required parameter 'radius' is set
+        if ($radius === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $radius when calling editCropCircle'
+            );
+        }
+        // verify the required parameter 'image_file' is set
+        if ($image_file === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $image_file when calling editCropCircle'
+            );
+        }
+
+        $resourcePath = '/image/edit/crop/circle/{left}/{top}/{radius}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // path params
+        if ($left !== null) {
+            $resourcePath = str_replace(
+                '{' . 'left' . '}',
+                ObjectSerializer::toPathValue($left),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($top !== null) {
+            $resourcePath = str_replace(
+                '{' . 'top' . '}',
+                ObjectSerializer::toPathValue($top),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($radius !== null) {
+            $resourcePath = str_replace(
+                '{' . 'radius' . '}',
+                ObjectSerializer::toPathValue($radius),
                 $resourcePath
             );
         }
