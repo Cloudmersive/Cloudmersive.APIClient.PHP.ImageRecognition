@@ -4,7 +4,7 @@ Image Recognition and Processing APIs let you use Machine Learning to recognize 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 1.6.0
+- Package version: 1.6.1
 
 
 ## Requirements
@@ -137,12 +137,14 @@ Class | Method | HTTP request | Description
 *RecognizeApi* | [**recognizeFindSymbol**](docs/Api/RecognizeApi.md#recognizefindsymbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
 *ResizeApi* | [**resizePost**](docs/Api/ResizeApi.md#resizepost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
 *ResizeApi* | [**resizeResizeSimple**](docs/Api/ResizeApi.md#resizeresizesimple) | **POST** /image/resize/target/{width}/{height} | Resize an image
+*TextGenerationApi* | [**textGenerationCreateHandwritingPng**](docs/Api/TextGenerationApi.md#textgenerationcreatehandwritingpng) | **POST** /image/text/create/handwriting/png | Create an image of handwriting in PNG format
 
 
 ## Documentation For Models
 
  - [AgeDetectionResult](docs/Model/AgeDetectionResult.md)
  - [ColorResult](docs/Model/ColorResult.md)
+ - [CreateHandwritingRequest](docs/Model/CreateHandwritingRequest.md)
  - [DetectedLicensePlate](docs/Model/DetectedLicensePlate.md)
  - [DetectedObject](docs/Model/DetectedObject.md)
  - [DominantColorResult](docs/Model/DominantColorResult.md)

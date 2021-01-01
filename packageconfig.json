@@ -1,9 +1,9 @@
 ﻿{
-  "artifactVersion": "1.6.0",
-  "gitUserId": "Cloudmersive",
-  "gitRepoId": "Cloudmersive.APIClient.PHP.ImageRecognition",
-  "composerVendorName": "cloudmersive",
-  "composerProjectName": "cloudmersive_imagerecognition_api_client",
-  "packagePath": "cloudmersive_imagerecognition_api_client"
-  
-}  
+    "artifactVersion": "1.6.1",
+    "gitUserId": "Cloudmersive",
+    "gitRepoId": "Cloudmersive.APIClient.PHP.ImageRecognition",
+    "composerVendorName": "cloudmersive",
+    "composerProjectName": "cloudmersive_imagerecognition_api_client",
+    "packagePath": "cloudmersive_imagerecognition_api_client"
+
+}
