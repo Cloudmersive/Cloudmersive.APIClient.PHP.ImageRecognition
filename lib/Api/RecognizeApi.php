@@ -2220,6 +2220,830 @@ class RecognizeApi
     }
 
     /**
+     * Operation recognizeSimilarityCompare
+     *
+     * Compare two images for similarity
+     *
+     * @param  \SplFileObject $base_image Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  \SplFileObject $comparison_image Image to compare to the base image. (required)
+     * @param  string $recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function recognizeSimilarityCompare($base_image, $comparison_image, $recognition_mode = null)
+    {
+        list($response) = $this->recognizeSimilarityCompareWithHttpInfo($base_image, $comparison_image, $recognition_mode);
+        return $response;
+    }
+
+    /**
+     * Operation recognizeSimilarityCompareWithHttpInfo
+     *
+     * Compare two images for similarity
+     *
+     * @param  \SplFileObject $base_image Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  \SplFileObject $comparison_image Image to compare to the base image. (required)
+     * @param  string $recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function recognizeSimilarityCompareWithHttpInfo($base_image, $comparison_image, $recognition_mode = null)
+    {
+        $returnType = 'string';
+        $request = $this->recognizeSimilarityCompareRequest($base_image, $comparison_image, $recognition_mode);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation recognizeSimilarityCompareAsync
+     *
+     * Compare two images for similarity
+     *
+     * @param  \SplFileObject $base_image Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  \SplFileObject $comparison_image Image to compare to the base image. (required)
+     * @param  string $recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function recognizeSimilarityCompareAsync($base_image, $comparison_image, $recognition_mode = null)
+    {
+        return $this->recognizeSimilarityCompareAsyncWithHttpInfo($base_image, $comparison_image, $recognition_mode)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation recognizeSimilarityCompareAsyncWithHttpInfo
+     *
+     * Compare two images for similarity
+     *
+     * @param  \SplFileObject $base_image Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  \SplFileObject $comparison_image Image to compare to the base image. (required)
+     * @param  string $recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function recognizeSimilarityCompareAsyncWithHttpInfo($base_image, $comparison_image, $recognition_mode = null)
+    {
+        $returnType = 'string';
+        $request = $this->recognizeSimilarityCompareRequest($base_image, $comparison_image, $recognition_mode);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'recognizeSimilarityCompare'
+     *
+     * @param  \SplFileObject $base_image Image file to compare against.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  \SplFileObject $comparison_image Image to compare to the base image. (required)
+     * @param  string $recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function recognizeSimilarityCompareRequest($base_image, $comparison_image, $recognition_mode = null)
+    {
+        // verify the required parameter 'base_image' is set
+        if ($base_image === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $base_image when calling recognizeSimilarityCompare'
+            );
+        }
+        // verify the required parameter 'comparison_image' is set
+        if ($comparison_image === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $comparison_image when calling recognizeSimilarityCompare'
+            );
+        }
+
+        $resourcePath = '/image/recognize/similarity/compare';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($recognition_mode !== null) {
+            $headerParams['recognitionMode'] = ObjectSerializer::toHeaderValue($recognition_mode);
+        }
+
+
+        // form params
+        if ($base_image !== null) {
+            $multipart = true;
+            $formParams['baseImage'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($base_image), 'rb');
+        }
+        // form params
+        if ($comparison_image !== null) {
+            $multipart = true;
+            $formParams['comparisonImage'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($comparison_image), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation recognizeSimilarityHash
+     *
+     * Generate a perceptual image hash
+     *
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  string $recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\ImageSimilarityHashResponse
+     */
+    public function recognizeSimilarityHash($image_file, $recognition_mode = null)
+    {
+        list($response) = $this->recognizeSimilarityHashWithHttpInfo($image_file, $recognition_mode);
+        return $response;
+    }
+
+    /**
+     * Operation recognizeSimilarityHashWithHttpInfo
+     *
+     * Generate a perceptual image hash
+     *
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  string $recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\ImageSimilarityHashResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function recognizeSimilarityHashWithHttpInfo($image_file, $recognition_mode = null)
+    {
+        $returnType = '\Swagger\Client\Model\ImageSimilarityHashResponse';
+        $request = $this->recognizeSimilarityHashRequest($image_file, $recognition_mode);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ImageSimilarityHashResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation recognizeSimilarityHashAsync
+     *
+     * Generate a perceptual image hash
+     *
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  string $recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function recognizeSimilarityHashAsync($image_file, $recognition_mode = null)
+    {
+        return $this->recognizeSimilarityHashAsyncWithHttpInfo($image_file, $recognition_mode)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation recognizeSimilarityHashAsyncWithHttpInfo
+     *
+     * Generate a perceptual image hash
+     *
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  string $recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function recognizeSimilarityHashAsyncWithHttpInfo($image_file, $recognition_mode = null)
+    {
+        $returnType = '\Swagger\Client\Model\ImageSimilarityHashResponse';
+        $request = $this->recognizeSimilarityHashRequest($image_file, $recognition_mode);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'recognizeSimilarityHash'
+     *
+     * @param  \SplFileObject $image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. (required)
+     * @param  string $recognition_mode Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function recognizeSimilarityHashRequest($image_file, $recognition_mode = null)
+    {
+        // verify the required parameter 'image_file' is set
+        if ($image_file === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $image_file when calling recognizeSimilarityHash'
+            );
+        }
+
+        $resourcePath = '/image/recognize/similarity/hash';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($recognition_mode !== null) {
+            $headerParams['recognitionMode'] = ObjectSerializer::toHeaderValue($recognition_mode);
+        }
+
+
+        // form params
+        if ($image_file !== null) {
+            $multipart = true;
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation recognizeSimilarityHashDistance
+     *
+     * Calculates the similarity between two perceptual image hashes
+     *
+     * @param  \Swagger\Client\Model\ImageSimilarityHashDistanceRequest $request request (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\ImageSimilarityHashDistanceResponse
+     */
+    public function recognizeSimilarityHashDistance($request)
+    {
+        list($response) = $this->recognizeSimilarityHashDistanceWithHttpInfo($request);
+        return $response;
+    }
+
+    /**
+     * Operation recognizeSimilarityHashDistanceWithHttpInfo
+     *
+     * Calculates the similarity between two perceptual image hashes
+     *
+     * @param  \Swagger\Client\Model\ImageSimilarityHashDistanceRequest $request (required)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\ImageSimilarityHashDistanceResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function recognizeSimilarityHashDistanceWithHttpInfo($request)
+    {
+        $returnType = '\Swagger\Client\Model\ImageSimilarityHashDistanceResponse';
+        $request = $this->recognizeSimilarityHashDistanceRequest($request);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\ImageSimilarityHashDistanceResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation recognizeSimilarityHashDistanceAsync
+     *
+     * Calculates the similarity between two perceptual image hashes
+     *
+     * @param  \Swagger\Client\Model\ImageSimilarityHashDistanceRequest $request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function recognizeSimilarityHashDistanceAsync($request)
+    {
+        return $this->recognizeSimilarityHashDistanceAsyncWithHttpInfo($request)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation recognizeSimilarityHashDistanceAsyncWithHttpInfo
+     *
+     * Calculates the similarity between two perceptual image hashes
+     *
+     * @param  \Swagger\Client\Model\ImageSimilarityHashDistanceRequest $request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function recognizeSimilarityHashDistanceAsyncWithHttpInfo($request)
+    {
+        $returnType = '\Swagger\Client\Model\ImageSimilarityHashDistanceResponse';
+        $request = $this->recognizeSimilarityHashDistanceRequest($request);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'recognizeSimilarityHashDistance'
+     *
+     * @param  \Swagger\Client\Model\ImageSimilarityHashDistanceRequest $request (required)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function recognizeSimilarityHashDistanceRequest($request)
+    {
+        // verify the required parameter 'request' is set
+        if ($request === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $request when calling recognizeSimilarityHashDistance'
+            );
+        }
+
+        $resourcePath = '/image/recognize/similarity/hash/distance';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // body params
+        $_tempBody = null;
+        if (isset($request)) {
+            $_tempBody = $request;
+        }
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Create http client option
      *
      * @throws \RuntimeException on file opening failure

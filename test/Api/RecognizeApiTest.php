@@ -150,4 +150,34 @@ class RecognizeApiTest extends \PHPUnit_Framework_TestCase
     public function testRecognizeFindSymbol()
     {
     }
+
+    /**
+     * Test case for recognizeSimilarityCompare
+     *
+     * Compare two images for similarity.
+     *
+     */
+    public function testRecognizeSimilarityCompare()
+    {
+    }
+
+    /**
+     * Test case for recognizeSimilarityHash
+     *
+     * Generate a perceptual image hash.
+     *
+     */
+    public function testRecognizeSimilarityHash()
+    {
+    }
+
+    /**
+     * Test case for recognizeSimilarityHashDistance
+     *
+     * Calculates the similarity between two perceptual image hashes.
+     *
+     */
+    public function testRecognizeSimilarityHashDistance()
+    {
+    }
 }

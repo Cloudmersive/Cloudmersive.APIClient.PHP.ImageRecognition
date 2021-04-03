@@ -12,6 +12,9 @@ Method | HTTP request | Description
 [**recognizeDetectTextLarge**](RecognizeApi.md#recognizeDetectTextLarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 [**recognizeDetectVehicleLicensePlates**](RecognizeApi.md#recognizeDetectVehicleLicensePlates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
 [**recognizeFindSymbol**](RecognizeApi.md#recognizeFindSymbol) | **POST** /image/recognize/find/symbol | Find the location of a symbol in an image
+[**recognizeSimilarityCompare**](RecognizeApi.md#recognizeSimilarityCompare) | **POST** /image/recognize/similarity/compare | Compare two images for similarity
+[**recognizeSimilarityHash**](RecognizeApi.md#recognizeSimilarityHash) | **POST** /image/recognize/similarity/hash | Generate a perceptual image hash
+[**recognizeSimilarityHashDistance**](RecognizeApi.md#recognizeSimilarityHashDistance) | **POST** /image/recognize/similarity/hash/distance | Calculates the similarity between two perceptual image hashes
 
 
 # **recognizeDescribe**
@@ -454,6 +457,177 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **recognizeSimilarityCompare**
+> string recognizeSimilarityCompare($base_image, $comparison_image, $recognition_mode)
+
+Compare two images for similarity
+
+Generates an image similarity score using Deep Learning between 0.0 and 1.0, values closer to 1.0 indicate greater similarity
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Apikey
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\RecognizeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$base_image = "/path/to/file.txt"; // \SplFileObject | Image file to compare against.  Common file formats such as PNG, JPEG are supported.
+$comparison_image = "/path/to/file.txt"; // \SplFileObject | Image to compare to the base image.
+$recognition_mode = "recognition_mode_example"; // string | Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+
+try {
+    $result = $apiInstance->recognizeSimilarityCompare($base_image, $comparison_image, $recognition_mode);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RecognizeApi->recognizeSimilarityCompare: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **base_image** | **\SplFileObject**| Image file to compare against.  Common file formats such as PNG, JPEG are supported. |
+ **comparison_image** | **\SplFileObject**| Image to compare to the base image. |
+ **recognition_mode** | **string**| Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. | [optional]
+
+### Return type
+
+**string**
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **recognizeSimilarityHash**
+> \Swagger\Client\Model\ImageSimilarityHashResponse recognizeSimilarityHash($image_file, $recognition_mode)
+
+Generate a perceptual image hash
+
+Generates a hash value for the image; hash values that are closer together in terms of Hamming Distance are more similar.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Apikey
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\RecognizeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+$recognition_mode = "recognition_mode_example"; // string | Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal.
+
+try {
+    $result = $apiInstance->recognizeSimilarityHash($image_file, $recognition_mode);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RecognizeApi->recognizeSimilarityHash: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+ **recognition_mode** | **string**| Optional, specify the recognition mode; possible values are Normal, Basic and Advanced.  Default is Normal. | [optional]
+
+### Return type
+
+[**\Swagger\Client\Model\ImageSimilarityHashResponse**](../Model/ImageSimilarityHashResponse.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/json, text/json, application/xml, text/xml
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **recognizeSimilarityHashDistance**
+> \Swagger\Client\Model\ImageSimilarityHashDistanceResponse recognizeSimilarityHashDistance($request)
+
+Calculates the similarity between two perceptual image hashes
+
+Calculates the similarity between two perceptual image hashes by computing the Hamming Distance between them.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Apikey
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\RecognizeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$request = new \Swagger\Client\Model\ImageSimilarityHashDistanceRequest(); // \Swagger\Client\Model\ImageSimilarityHashDistanceRequest | 
+
+try {
+    $result = $apiInstance->recognizeSimilarityHashDistance($request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling RecognizeApi->recognizeSimilarityHashDistance: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **request** | [**\Swagger\Client\Model\ImageSimilarityHashDistanceRequest**](../Model/ImageSimilarityHashDistanceRequest.md)|  |
+
+### Return type
+
+[**\Swagger\Client\Model\ImageSimilarityHashDistanceResponse**](../Model/ImageSimilarityHashDistanceResponse.md)
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
  - **Accept**: application/json, text/json, application/xml, text/xml
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
