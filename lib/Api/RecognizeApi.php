@@ -280,7 +280,7 @@ class RecognizeApi
         // form params
         if ($image_file !== null) {
             $multipart = true;
-            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($image_file), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -560,7 +560,7 @@ class RecognizeApi
         // form params
         if ($image_file !== null) {
             $multipart = true;
-            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($image_file), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -831,7 +831,7 @@ class RecognizeApi
         // form params
         if ($image_file !== null) {
             $multipart = true;
-            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($image_file), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -1102,7 +1102,7 @@ class RecognizeApi
         // form params
         if ($image_file !== null) {
             $multipart = true;
-            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($image_file), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -1373,7 +1373,7 @@ class RecognizeApi
         // form params
         if ($image_file !== null) {
             $multipart = true;
-            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($image_file), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -1644,7 +1644,7 @@ class RecognizeApi
         // form params
         if ($image_file !== null) {
             $multipart = true;
-            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($image_file), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -1915,7 +1915,7 @@ class RecognizeApi
         // form params
         if ($image_file !== null) {
             $multipart = true;
-            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($image_file), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -2197,12 +2197,12 @@ class RecognizeApi
         // form params
         if ($input_image !== null) {
             $multipart = true;
-            $formParams['inputImage'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($input_image), 'rb');
+            $formParams['inputImage'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($input_image), 'rb');
         }
         // form params
         if ($target_image !== null) {
             $multipart = true;
-            $formParams['targetImage'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($target_image), 'rb');
+            $formParams['targetImage'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($target_image), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -2493,12 +2493,12 @@ class RecognizeApi
         // form params
         if ($base_image !== null) {
             $multipart = true;
-            $formParams['baseImage'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($base_image), 'rb');
+            $formParams['baseImage'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($base_image), 'rb');
         }
         // form params
         if ($comparison_image !== null) {
             $multipart = true;
-            $formParams['comparisonImage'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($comparison_image), 'rb');
+            $formParams['comparisonImage'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($comparison_image), 'rb');
         }
         // body params
         $_tempBody = null;
@@ -2778,7 +2778,7 @@ class RecognizeApi
         // form params
         if ($image_file !== null) {
             $multipart = true;
-            $formParams['imageFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($image_file), 'rb');
+            $formParams['imageFile'] = \GuzzleHttp\Psr7\Utils::tryFopen(ObjectSerializer::toFormValue($image_file), 'rb');
         }
         // body params
         $_tempBody = null;
