@@ -12,7 +12,7 @@
 /**
  * imageapi
  *
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  * 
@@ -88,26 +88,6 @@ class RecognizeApiTest extends \PHPUnit_Framework_TestCase
      *
      */
     public function testRecognizeDetectAndUnskewDocument()
-    {
-    }
-
-    /**
-     * Test case for recognizeDetectObjects
-     *
-     * Detect objects including types and locations in an image.
-     *
-     */
-    public function testRecognizeDetectObjects()
-    {
-    }
-
-    /**
-     * Test case for recognizeDetectPeople
-     *
-     * Detect people including locations in an image.
-     *
-     */
-    public function testRecognizeDetectPeople()
     {
     }
 

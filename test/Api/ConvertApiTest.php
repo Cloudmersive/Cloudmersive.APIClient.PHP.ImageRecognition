@@ -12,7 +12,7 @@
 /**
  * imageapi
  *
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  * 
@@ -94,10 +94,20 @@ class ConvertApiTest extends \PHPUnit_Framework_TestCase
     /**
      * Test case for convertToJpg
      *
-     * Convert input image to JPG, JPEG format.
+     * Convert input image to JPG, JPEG format at specific quality.
      *
      */
     public function testConvertToJpg()
+    {
+    }
+
+    /**
+     * Test case for convertToJpgDefaultQuality
+     *
+     * Convert input image to JPG, JPEG format.
+     *
+     */
+    public function testConvertToJpgDefaultQuality()
     {
     }
 

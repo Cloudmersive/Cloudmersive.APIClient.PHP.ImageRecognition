@@ -12,7 +12,7 @@
 /**
  * imageapi
  *
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  * 
@@ -1196,7 +1196,7 @@ class FaceApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\Model\GenderDetectionResult
+     * @return \Swagger\Client\Model\AgeDetectionResult
      */
     public function faceDetectGender($image_file)
     {
@@ -1213,11 +1213,11 @@ class FaceApi
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\Model\GenderDetectionResult, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\AgeDetectionResult, HTTP status code, HTTP response headers (array of strings)
      */
     public function faceDetectGenderWithHttpInfo($image_file)
     {
-        $returnType = '\Swagger\Client\Model\GenderDetectionResult';
+        $returnType = '\Swagger\Client\Model\AgeDetectionResult';
         $request = $this->faceDetectGenderRequest($image_file);
 
         try {
@@ -1269,7 +1269,7 @@ class FaceApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\Model\GenderDetectionResult',
+                        '\Swagger\Client\Model\AgeDetectionResult',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1311,7 +1311,7 @@ class FaceApi
      */
     public function faceDetectGenderAsyncWithHttpInfo($image_file)
     {
-        $returnType = '\Swagger\Client\Model\GenderDetectionResult';
+        $returnType = '\Swagger\Client\Model\AgeDetectionResult';
         $request = $this->faceDetectGenderRequest($image_file);
 
         return $this->client

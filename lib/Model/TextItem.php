@@ -13,7 +13,7 @@
 /**
  * imageapi
  *
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  * 
@@ -58,6 +58,7 @@ class TextItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'detected_text' => 'string',
         'left_x' => 'int',
         'top_y' => 'int',
         'width' => 'int',
@@ -70,6 +71,7 @@ class TextItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'detected_text' => null,
         'left_x' => 'int32',
         'top_y' => 'int32',
         'width' => 'int32',
@@ -103,6 +105,7 @@ class TextItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'detected_text' => 'DetectedText',
         'left_x' => 'LeftX',
         'top_y' => 'TopY',
         'width' => 'Width',
@@ -115,6 +118,7 @@ class TextItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'detected_text' => 'setDetectedText',
         'left_x' => 'setLeftX',
         'top_y' => 'setTopY',
         'width' => 'setWidth',
@@ -127,6 +131,7 @@ class TextItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'detected_text' => 'getDetectedText',
         'left_x' => 'getLeftX',
         'top_y' => 'getTopY',
         'width' => 'getWidth',
@@ -193,6 +198,7 @@ class TextItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['detected_text'] = isset($data['detected_text']) ? $data['detected_text'] : null;
         $this->container['left_x'] = isset($data['left_x']) ? $data['left_x'] : null;
         $this->container['top_y'] = isset($data['top_y']) ? $data['top_y'] : null;
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
@@ -222,6 +228,30 @@ class TextItem implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets detected_text
+     *
+     * @return string
+     */
+    public function getDetectedText()
+    {
+        return $this->container['detected_text'];
+    }
+
+    /**
+     * Sets detected_text
+     *
+     * @param string $detected_text Text detected in the image
+     *
+     * @return $this
+     */
+    public function setDetectedText($detected_text)
+    {
+        $this->container['detected_text'] = $detected_text;
+
+        return $this;
+    }
 
     /**
      * Gets left_x

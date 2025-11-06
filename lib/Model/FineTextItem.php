@@ -13,7 +13,7 @@
 /**
  * imageapi
  *
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  * 
@@ -58,6 +58,7 @@ class FineTextItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
+        'detected_text' => 'string',
         'top_left_x' => 'int',
         'top_left_y' => 'int',
         'top_right_x' => 'int',
@@ -77,6 +78,7 @@ class FineTextItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
+        'detected_text' => null,
         'top_left_x' => 'int32',
         'top_left_y' => 'int32',
         'top_right_x' => 'int32',
@@ -117,6 +119,7 @@ class FineTextItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
+        'detected_text' => 'DetectedText',
         'top_left_x' => 'TopLeftX',
         'top_left_y' => 'TopLeftY',
         'top_right_x' => 'TopRightX',
@@ -136,6 +139,7 @@ class FineTextItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
+        'detected_text' => 'setDetectedText',
         'top_left_x' => 'setTopLeftX',
         'top_left_y' => 'setTopLeftY',
         'top_right_x' => 'setTopRightX',
@@ -155,6 +159,7 @@ class FineTextItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
+        'detected_text' => 'getDetectedText',
         'top_left_x' => 'getTopLeftX',
         'top_left_y' => 'getTopLeftY',
         'top_right_x' => 'getTopRightX',
@@ -228,6 +233,7 @@ class FineTextItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
+        $this->container['detected_text'] = isset($data['detected_text']) ? $data['detected_text'] : null;
         $this->container['top_left_x'] = isset($data['top_left_x']) ? $data['top_left_x'] : null;
         $this->container['top_left_y'] = isset($data['top_left_y']) ? $data['top_left_y'] : null;
         $this->container['top_right_x'] = isset($data['top_right_x']) ? $data['top_right_x'] : null;
@@ -264,6 +270,30 @@ class FineTextItem implements ModelInterface, ArrayAccess
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets detected_text
+     *
+     * @return string
+     */
+    public function getDetectedText()
+    {
+        return $this->container['detected_text'];
+    }
+
+    /**
+     * Sets detected_text
+     *
+     * @param string $detected_text Detected text in the image
+     *
+     * @return $this
+     */
+    public function setDetectedText($detected_text)
+    {
+        $this->container['detected_text'] = $detected_text;
+
+        return $this;
+    }
 
     /**
      * Gets top_left_x

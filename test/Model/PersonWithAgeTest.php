@@ -13,7 +13,7 @@
 /**
  * imageapi
  *
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  * 
@@ -101,6 +101,27 @@ class PersonWithAgeTest extends \PHPUnit_Framework_TestCase
      * Test attribute "age"
      */
     public function testPropertyAge()
+    {
+    }
+
+    /**
+     * Test attribute "gender_classification"
+     */
+    public function testPropertyGenderClassification()
+    {
+    }
+
+    /**
+     * Test attribute "gender_female_confidence"
+     */
+    public function testPropertyGenderFemaleConfidence()
+    {
+    }
+
+    /**
+     * Test attribute "gender_male_confidence"
+     */
+    public function testPropertyGenderMaleConfidence()
     {
     }
 }

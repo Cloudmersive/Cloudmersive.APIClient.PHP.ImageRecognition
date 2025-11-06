@@ -13,7 +13,7 @@
 /**
  * imageapi
  *
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  * 
@@ -61,7 +61,10 @@ class PersonWithAge implements ModelInterface, ArrayAccess
         'face_location' => '\Swagger\Client\Model\Face',
         'age_classification_confidence' => 'double',
         'age_class' => 'string',
-        'age' => 'double'
+        'age' => 'double',
+        'gender_classification' => 'string',
+        'gender_female_confidence' => 'double',
+        'gender_male_confidence' => 'double'
     ];
 
     /**
@@ -73,7 +76,10 @@ class PersonWithAge implements ModelInterface, ArrayAccess
         'face_location' => null,
         'age_classification_confidence' => 'double',
         'age_class' => null,
-        'age' => 'double'
+        'age' => 'double',
+        'gender_classification' => null,
+        'gender_female_confidence' => 'double',
+        'gender_male_confidence' => 'double'
     ];
 
     /**
@@ -106,7 +112,10 @@ class PersonWithAge implements ModelInterface, ArrayAccess
         'face_location' => 'FaceLocation',
         'age_classification_confidence' => 'AgeClassificationConfidence',
         'age_class' => 'AgeClass',
-        'age' => 'Age'
+        'age' => 'Age',
+        'gender_classification' => 'GenderClassification',
+        'gender_female_confidence' => 'GenderFemaleConfidence',
+        'gender_male_confidence' => 'GenderMaleConfidence'
     ];
 
     /**
@@ -118,7 +127,10 @@ class PersonWithAge implements ModelInterface, ArrayAccess
         'face_location' => 'setFaceLocation',
         'age_classification_confidence' => 'setAgeClassificationConfidence',
         'age_class' => 'setAgeClass',
-        'age' => 'setAge'
+        'age' => 'setAge',
+        'gender_classification' => 'setGenderClassification',
+        'gender_female_confidence' => 'setGenderFemaleConfidence',
+        'gender_male_confidence' => 'setGenderMaleConfidence'
     ];
 
     /**
@@ -130,7 +142,10 @@ class PersonWithAge implements ModelInterface, ArrayAccess
         'face_location' => 'getFaceLocation',
         'age_classification_confidence' => 'getAgeClassificationConfidence',
         'age_class' => 'getAgeClass',
-        'age' => 'getAge'
+        'age' => 'getAge',
+        'gender_classification' => 'getGenderClassification',
+        'gender_female_confidence' => 'getGenderFemaleConfidence',
+        'gender_male_confidence' => 'getGenderMaleConfidence'
     ];
 
     /**
@@ -197,6 +212,9 @@ class PersonWithAge implements ModelInterface, ArrayAccess
         $this->container['age_classification_confidence'] = isset($data['age_classification_confidence']) ? $data['age_classification_confidence'] : null;
         $this->container['age_class'] = isset($data['age_class']) ? $data['age_class'] : null;
         $this->container['age'] = isset($data['age']) ? $data['age'] : null;
+        $this->container['gender_classification'] = isset($data['gender_classification']) ? $data['gender_classification'] : null;
+        $this->container['gender_female_confidence'] = isset($data['gender_female_confidence']) ? $data['gender_female_confidence'] : null;
+        $this->container['gender_male_confidence'] = isset($data['gender_male_confidence']) ? $data['gender_male_confidence'] : null;
     }
 
     /**
@@ -308,13 +326,85 @@ class PersonWithAge implements ModelInterface, ArrayAccess
     /**
      * Sets age
      *
-     * @param double $age age
+     * @param double $age The specific estimated age of the person
      *
      * @return $this
      */
     public function setAge($age)
     {
         $this->container['age'] = $age;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender_classification
+     *
+     * @return string
+     */
+    public function getGenderClassification()
+    {
+        return $this->container['gender_classification'];
+    }
+
+    /**
+     * Sets gender_classification
+     *
+     * @param string $gender_classification Gender estimation classification as Female or Male
+     *
+     * @return $this
+     */
+    public function setGenderClassification($gender_classification)
+    {
+        $this->container['gender_classification'] = $gender_classification;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender_female_confidence
+     *
+     * @return double
+     */
+    public function getGenderFemaleConfidence()
+    {
+        return $this->container['gender_female_confidence'];
+    }
+
+    /**
+     * Sets gender_female_confidence
+     *
+     * @param double $gender_female_confidence Confidence level of classification as female; possible values are between 0.0 and 1.0
+     *
+     * @return $this
+     */
+    public function setGenderFemaleConfidence($gender_female_confidence)
+    {
+        $this->container['gender_female_confidence'] = $gender_female_confidence;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender_male_confidence
+     *
+     * @return double
+     */
+    public function getGenderMaleConfidence()
+    {
+        return $this->container['gender_male_confidence'];
+    }
+
+    /**
+     * Sets gender_male_confidence
+     *
+     * @param double $gender_male_confidence Confidence level of classification as male; possible values are between 0.0 and 1.0
+     *
+     * @return $this
+     */
+    public function setGenderMaleConfidence($gender_male_confidence)
+    {
+        $this->container['gender_male_confidence'] = $gender_male_confidence;
 
         return $this;
     }

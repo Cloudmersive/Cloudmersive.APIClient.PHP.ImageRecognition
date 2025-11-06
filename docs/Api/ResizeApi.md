@@ -1,10 +1,11 @@
 # Swagger\Client\ResizeApi
 
-All URIs are relative to *https://api.cloudmersive.com*
+All URIs are relative to *http://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**resizePost**](ResizeApi.md#resizePost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
+[**resizeResizeAISuperSampling**](ResizeApi.md#resizeResizeAISuperSampling) | **POST** /image/resize/ai/target | Resize an image with AI super sampling
 [**resizeResizeSimple**](ResizeApi.md#resizeResizeSimple) | **POST** /image/resize/target/{width}/{height} | Resize an image
 
 
@@ -50,6 +51,61 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **max_width** | **int**| Maximum width of the output image - final image will be as large as possible while less than or equial to this width |
  **max_height** | **int**| Maximum height of the output image - final image will be as large as possible while less than or equial to this height |
+ **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[Apikey](../../README.md#Apikey)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
+ - **Accept**: application/octet-stream
+
+[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
+
+# **resizeResizeAISuperSampling**
+> string resizeResizeAISuperSampling($image_file)
+
+Resize an image with AI super sampling
+
+Use AI super sampling to resize a small or low resolution image to twice the size.  Input image should be PNG or JPG, and smaller than 200 x 200 pixels (larger images will be resized down).  Consumes 20 API calls.
+
+### Example
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+// Configure API key authorization: Apikey
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Apikey', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
+
+$apiInstance = new Swagger\Client\Api\ResizeApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+
+try {
+    $result = $apiInstance->resizeResizeAISuperSampling($image_file);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ResizeApi->resizeResizeAISuperSampling: ', $e->getMessage(), PHP_EOL;
+}
+?>
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
  **image_file** | **\SplFileObject**| Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported. |
 
 ### Return type

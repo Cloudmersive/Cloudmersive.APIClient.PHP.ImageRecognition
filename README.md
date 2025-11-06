@@ -1,10 +1,10 @@
 # cloudmersive_imagerecognition_api_client
-Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
 
 [Cloudmersive Image Recognition and Computer Vision API](https://www.cloudmersive.com/image-recognition-and-processing-api) provides advanced computer vision and image recognition capabilities.
 
 - API version: v1
-- Package version: 3.0.1
+- Package version: 3.1.0
 
 
 ## Requirements
@@ -62,20 +62,19 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Ap
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Apikey', 'Bearer');
 
-$apiInstance = new Swagger\Client\Api\ArtisticApi(
+$apiInstance = new Swagger\Client\Api\AiImageDetectionApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$style = "style_example"; // string | The style of the painting to apply.  To start, try \"udnie\" a painting style.  Possible values are: \"udnie\", \"wave\", \"la_muse\", \"rain_princess\".
 $image_file = "/path/to/file.txt"; // \SplFileObject | Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
 
 try {
-    $result = $apiInstance->artisticPainting($style, $image_file);
+    $result = $apiInstance->aiImageDetectionDetectFile($image_file);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ArtisticApi->artisticPainting: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AiImageDetectionApi->aiImageDetectionDetectFile: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -83,14 +82,16 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://api.cloudmersive.com*
+All URIs are relative to *http://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AiImageDetectionApi* | [**aiImageDetectionDetectFile**](docs/Api/AiImageDetectionApi.md#aiimagedetectiondetectfile) | **POST** /image/ai-detection/file | Detect if an input image was generated using AI
 *ArtisticApi* | [**artisticPainting**](docs/Api/ArtisticApi.md#artisticpainting) | **POST** /image/artistic/painting/{style} | Transform an image into an artistic painting automatically
 *ConvertApi* | [**convertToBmp**](docs/Api/ConvertApi.md#converttobmp) | **POST** /image/convert/to/bmp | Convert input image to Bitmap BMP format
 *ConvertApi* | [**convertToGif**](docs/Api/ConvertApi.md#converttogif) | **POST** /image/convert/to/gif | Convert input image to GIF format
-*ConvertApi* | [**convertToJpg**](docs/Api/ConvertApi.md#converttojpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG, JPEG format
+*ConvertApi* | [**convertToJpg**](docs/Api/ConvertApi.md#converttojpg) | **POST** /image/convert/to/jpg/{quality} | Convert input image to JPG, JPEG format at specific quality
+*ConvertApi* | [**convertToJpgDefaultQuality**](docs/Api/ConvertApi.md#converttojpgdefaultquality) | **POST** /image/convert/to/jpg | Convert input image to JPG, JPEG format
 *ConvertApi* | [**convertToPhotoshop**](docs/Api/ConvertApi.md#converttophotoshop) | **POST** /image/convert/to/psd | Convert input image to Photoshop PSD format
 *ConvertApi* | [**convertToPng**](docs/Api/ConvertApi.md#converttopng) | **POST** /image/convert/to/png | Convert input image to PNG format
 *ConvertApi* | [**convertToTiff**](docs/Api/ConvertApi.md#converttotiff) | **POST** /image/convert/to/tiff | Convert input image to TIFF format
@@ -126,11 +127,12 @@ Class | Method | HTTP request | Description
 *FilterApi* | [**filterSwirl**](docs/Api/FilterApi.md#filterswirl) | **POST** /image/filter/swirl | Swirl distort the image
 *InfoApi* | [**infoGetDominantColor**](docs/Api/InfoApi.md#infogetdominantcolor) | **POST** /image/get-info/dominant-color | Returns the dominant colors of the image
 *InfoApi* | [**infoGetMetadata**](docs/Api/InfoApi.md#infogetmetadata) | **POST** /image/get-info/metadata | Returns the image metadata including EXIF and resolution
-*NsfwApi* | [**nsfwClassify**](docs/Api/NsfwApi.md#nsfwclassify) | **POST** /image/nsfw/classify | Not safe for work NSFW racy content classification
+*NsfwApi* | [**nsfwClassify**](docs/Api/NsfwApi.md#nsfwclassify) | **POST** /image/nsfw/classify | Not safe for work (NSFW) content classification for Images
+*NsfwApi* | [**nsfwClassifyAdvanced**](docs/Api/NsfwApi.md#nsfwclassifyadvanced) | **POST** /image/nsfw/classify/advanced | Advanced content moderation and not safe for work (NSFW) content classification for Images
+*NsfwApi* | [**nsfwClassifyDocument**](docs/Api/NsfwApi.md#nsfwclassifydocument) | **POST** /image/nsfw/classify/document | Not safe for work (NSFW) content classification for Documents
+*NsfwApi* | [**nsfwClassifyVideo**](docs/Api/NsfwApi.md#nsfwclassifyvideo) | **POST** /image/nsfw/classify/video | Not safe for work (NSFW) content classification for Video
 *RecognizeApi* | [**recognizeDescribe**](docs/Api/RecognizeApi.md#recognizedescribe) | **POST** /image/recognize/describe | Describe an image in natural language
 *RecognizeApi* | [**recognizeDetectAndUnskewDocument**](docs/Api/RecognizeApi.md#recognizedetectandunskewdocument) | **POST** /image/recognize/detect-document/unskew | Detect and unskew a photo of a document
-*RecognizeApi* | [**recognizeDetectObjects**](docs/Api/RecognizeApi.md#recognizedetectobjects) | **POST** /image/recognize/detect-objects | Detect objects including types and locations in an image
-*RecognizeApi* | [**recognizeDetectPeople**](docs/Api/RecognizeApi.md#recognizedetectpeople) | **POST** /image/recognize/detect-people | Detect people including locations in an image
 *RecognizeApi* | [**recognizeDetectTextFine**](docs/Api/RecognizeApi.md#recognizedetecttextfine) | **POST** /image/recognize/detect-text/fine | Detect fine text in a photo of a document
 *RecognizeApi* | [**recognizeDetectTextLarge**](docs/Api/RecognizeApi.md#recognizedetecttextlarge) | **POST** /image/recognize/detect-text/large | Detect large text in a photo
 *RecognizeApi* | [**recognizeDetectVehicleLicensePlates**](docs/Api/RecognizeApi.md#recognizedetectvehiclelicenseplates) | **POST** /image/recognize/detect-vehicle-license-plates | Detect vehicle license plates in an image
@@ -139,6 +141,7 @@ Class | Method | HTTP request | Description
 *RecognizeApi* | [**recognizeSimilarityHash**](docs/Api/RecognizeApi.md#recognizesimilarityhash) | **POST** /image/recognize/similarity/hash | Generate a perceptual image hash
 *RecognizeApi* | [**recognizeSimilarityHashDistance**](docs/Api/RecognizeApi.md#recognizesimilarityhashdistance) | **POST** /image/recognize/similarity/hash/distance | Calculates the similarity between two perceptual image hashes
 *ResizeApi* | [**resizePost**](docs/Api/ResizeApi.md#resizepost) | **POST** /image/resize/preserveAspectRatio/{maxWidth}/{maxHeight} | Resize an image while preserving aspect ratio
+*ResizeApi* | [**resizeResizeAISuperSampling**](docs/Api/ResizeApi.md#resizeresizeaisupersampling) | **POST** /image/resize/ai/target | Resize an image with AI super sampling
 *ResizeApi* | [**resizeResizeSimple**](docs/Api/ResizeApi.md#resizeresizesimple) | **POST** /image/resize/target/{width}/{height} | Resize an image
 *TextGenerationApi* | [**textGenerationCreateHandwritingPng**](docs/Api/TextGenerationApi.md#textgenerationcreatehandwritingpng) | **POST** /image/text/create/handwriting/png | Create an image of handwriting in PNG format
 
@@ -149,7 +152,6 @@ Class | Method | HTTP request | Description
  - [ColorResult](docs/Model/ColorResult.md)
  - [CreateHandwritingRequest](docs/Model/CreateHandwritingRequest.md)
  - [DetectedLicensePlate](docs/Model/DetectedLicensePlate.md)
- - [DetectedObject](docs/Model/DetectedObject.md)
  - [DominantColorResult](docs/Model/DominantColorResult.md)
  - [DrawPolygonInstance](docs/Model/DrawPolygonInstance.md)
  - [DrawPolygonRequest](docs/Model/DrawPolygonRequest.md)
@@ -167,7 +169,7 @@ Class | Method | HTTP request | Description
  - [FindSymbolResult](docs/Model/FindSymbolResult.md)
  - [FineTextDetectionResult](docs/Model/FineTextDetectionResult.md)
  - [FineTextItem](docs/Model/FineTextItem.md)
- - [GenderDetectionResult](docs/Model/GenderDetectionResult.md)
+ - [ImageAiDetectionResult](docs/Model/ImageAiDetectionResult.md)
  - [ImageDescriptionResponse](docs/Model/ImageDescriptionResponse.md)
  - [ImageMetadata](docs/Model/ImageMetadata.md)
  - [ImageMetadataExifValue](docs/Model/ImageMetadataExifValue.md)
@@ -175,10 +177,9 @@ Class | Method | HTTP request | Description
  - [ImageSimilarityHashDistanceRequest](docs/Model/ImageSimilarityHashDistanceRequest.md)
  - [ImageSimilarityHashDistanceResponse](docs/Model/ImageSimilarityHashDistanceResponse.md)
  - [ImageSimilarityHashResponse](docs/Model/ImageSimilarityHashResponse.md)
+ - [NsfwAdvancedResult](docs/Model/NsfwAdvancedResult.md)
  - [NsfwResult](docs/Model/NsfwResult.md)
- - [ObjectDetectionResult](docs/Model/ObjectDetectionResult.md)
  - [PersonWithAge](docs/Model/PersonWithAge.md)
- - [PersonWithGender](docs/Model/PersonWithGender.md)
  - [PolygonPoint](docs/Model/PolygonPoint.md)
  - [RecognitionOutcome](docs/Model/RecognitionOutcome.md)
  - [TextDetectionResult](docs/Model/TextDetectionResult.md)

@@ -1,5 +1,10 @@
 ﻿#Remove-Item –path ./ –recurse
-& java -jar swagger-codegen-cli.jar generate -i https://api.cloudmersive.com/swagger/api/image -l php -c packageconfig.json
+
+Invoke-WebRequest -Uri 'https://api.cloudmersive.com/image/docs/v1/swagger' -OutFile '.\image-api-swagger.json'
+(Get-Content .\image-api-swagger.json).replace('localhost', "api.cloudmersive.com") | Set-Content .\image-api-swagger.json
+(Get-Content .\image-api-swagger.json).replace('"http"', '"https"') | Set-Content .\image-api-swagger.json
+
+& java -jar swagger-codegen-cli.jar generate -i .\image-api-swagger.json -l php -c packageconfig.json
 #(Get-Content ./client/package.json).replace('v1', '1.0.1') | Set-Content ./client/package.json
 Copy-Item ./cloudmersive_imagerecognition_api_client/* -Destination . -Recurse -Force
 Remove-Item –path ./cloudmersive_imagerecognition_api_client –recurse

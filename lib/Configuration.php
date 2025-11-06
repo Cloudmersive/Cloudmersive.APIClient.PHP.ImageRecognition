@@ -12,7 +12,7 @@
 /**
  * imageapi
  *
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  * 
@@ -81,14 +81,14 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://api.cloudmersive.com';
+    protected $host = 'http://api.cloudmersive.com';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default
      *
      * @var string
      */
-    protected $userAgent = 'Swagger-Codegen/3.0.1/php';
+    protected $userAgent = 'Swagger-Codegen/3.1.0/php';
 
     /**
      * Debug switch (default set to false)
@@ -397,7 +397,7 @@ class Configuration
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: v1' . PHP_EOL;
-        $report .= '    SDK Package Version: 3.0.1' . PHP_EOL;
+        $report .= '    SDK Package Version: 3.1.0' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;

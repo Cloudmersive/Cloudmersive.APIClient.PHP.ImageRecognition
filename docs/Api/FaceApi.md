@@ -1,6 +1,6 @@
 # Swagger\Client\FaceApi
 
-All URIs are relative to *https://api.cloudmersive.com*
+All URIs are relative to *http://api.cloudmersive.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -185,7 +185,7 @@ Name | Type | Description  | Notes
 
 Detect the age of people in an image
 
-Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.
+Identify the age, position, and size of human faces in an image, along with a recognition confidence level.  People in the image do NOT need to be facing the camera; they can be facing away, edge-on, etc.  Input image should be a PNG or JPG.  Consumes 20 API calls.
 
 ### Example
 ```php
@@ -236,11 +236,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **faceDetectGender**
-> \Swagger\Client\Model\GenderDetectionResult faceDetectGender($image_file)
+> \Swagger\Client\Model\AgeDetectionResult faceDetectGender($image_file)
 
 Detect the gender of people in an image
 
-Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.
+Identify the gender, position, and size of human faces in an image, along with a recognition confidence level.  People in the image should be facing the camera.  Input image should be a PNG or JPG.  Consumes 20 API calls.
 
 ### Example
 ```php
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\Model\GenderDetectionResult**](../Model/GenderDetectionResult.md)
+[**\Swagger\Client\Model\AgeDetectionResult**](../Model/AgeDetectionResult.md)
 
 ### Authorization
 

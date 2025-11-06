@@ -13,7 +13,7 @@
 /**
  * imageapi
  *
- * Image Recognition and Processing APIs let you use Machine Learning to recognize and process images, and also perform useful image modification operations.
+ * Image Recognition and Processing APIs let you use Artificial Intelligence and Machine Learning to recognize and process images, and also perform useful image modification operations.
  *
  * OpenAPI spec version: v1
  * 
@@ -33,7 +33,7 @@ namespace Swagger\Client;
  * AgeDetectionResultTest Class Doc Comment
  *
  * @category    Class
- * @description Result from classifying the Age of people in an image
+ * @description Result from classifying the Age and Gender of people in an image
  * @package     Swagger\Client
  * @author      Swagger Codegen team
  * @link        https://github.com/swagger-api/swagger-codegen
